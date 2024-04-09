@@ -11,6 +11,6 @@ const SocialLink = ({ iconPath, url }) => {
 SocialLink.propTypes = {
     iconPath: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-  };
+};
 
 export default SocialLink;
