@@ -1,13 +1,17 @@
 import './App.css'
+import AutoSizingText from './components/AutoSizingText';
 import SocialLink from './components/SocialLink';
-import MenuButton from './components/MenuButton';
+import TriangleButton from './components/TriangleButton';
+// import TriangleButton from './components/TriangleButton';
 
 const App = () => {
   return (
     <div>
       <SocialLink iconPath="gmail.jpg" url="https://mail.google.com/"/>
-      <MenuButton label="Achievements" orientation="top-left" onClick={() => alert('Navigate to Achievements!')} />
-      <MenuButton label="About Me" orientation="bottom-right" onClick={() => alert('Navigate to About Me!')} />
+      {/* <TriangleButton text="Abo utwew ewewedwv ewxw Me"/> */}
+      <TriangleButton text="About Me" orientation="top-left" onClick={() => console.log("howdy")}/>
+      <TriangleButton text="Achievements" orientation="bottom-right" onClick={() => console.log("hey")}/>
+      <AutoSizingText text="Hello World!"/> 
     </div>
   );
 };
