@@ -18,9 +18,9 @@ const TriangleButton = ({ text, orientation, onClick }) => {
     position: 'absolute',
     width: '100%',
     height: '100%',
-    bottom: '-50%',
-    right: '-50%',
-    "backgroundColor": 'blue', // Diamond color
+    bottom: '-53%',
+    right: '-53%',
+    "backgroundColor": '#03DAD9', // Diamond color
     transform: 'rotate(-45deg)',
     display: 'flex',
     margin: 'auto',
@@ -28,11 +28,13 @@ const TriangleButton = ({ text, orientation, onClick }) => {
     justifyContent: 'center',
     alignItems: 'flex-start',
     pointerEvents: 'auto',
+    border: '5px solid white', // Add border here
   };
 
   const textStyle = {
-    color: 'white',
-    fontWeight: 'bold',
+    fontFamily: 'Roboto-Serif',
+    color: '#355070',
+    fontSize: '50px',
     paddingTop: '10px', // Adjust based on diamond size to position the text within the visible triangle
   };
 
@@ -43,13 +45,14 @@ const TriangleButton = ({ text, orientation, onClick }) => {
     containerStyle.left = 0;
     delete diamondStyle.bottom;
     delete diamondStyle.right;
-    diamondStyle.top = '-50%';
-    diamondStyle.left = '-50%';
+    diamondStyle.top = '-53%';
+    diamondStyle.left = '-53%';
     diamondStyle.transform = 'rotate(135deg)';
+    diamondStyle.backgroundColor = '#6D58B7'
     delete textStyle.paddingTop;
     textStyle.transform = 'rotate(180deg)';
     textStyle.paddingBottom = '10px';
-
+    textStyle.color = "#FFFFFF"
   }
 
   return (
