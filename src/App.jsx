@@ -1,31 +1,18 @@
 import './App.css';
-import SquareButton from './components/SquareButton';
-import TriangleButton from './components/TriangleButton';
-import ProfileCard from './components/ProfileCard';
+import HomePage from './components/HomePage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const styles = {
-    backgroundColor: "#355070",
-    minHeight: '100vh', // Ensure it covers the full height of the viewport
-    minWidth: '100vw',
-    display: 'flex', // Enables flexbox
-    justifyContent: 'center', // Centers children along the main axis (vertical, in this case)
-    alignItems: 'center', // 
-  };
-
   return (
-    <div style={ styles }>
-      <ProfileCard/>
-      <TriangleButton text="Achievements" orientation="top-left" onClick={() => console.log("howdy")}/>
-      <TriangleButton text="Work Experience" orientation="bottom-right" onClick={() => console.log("hey")}/>
-
-      <div style={{position: 'absolute', bottom: '10%',left: '10%'}}>
-        <SquareButton text="About Me" onClick={() => console.log("Button clicked")}/>
-      </div>
-      <div style={{position: 'absolute', top: '10%',right: '10%'}}>
-        <SquareButton text="Projects" onClick={() => console.log("Button clicked")}/>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/about" element={<h1>About</h1>} />
+        <Route path="/projects" element={<h1>Projects</h1>} />
+        <Route path="/achievements" element={<h1>Achievements</h1>} />
+        <Route path="/work-experience" element={<h1>Work Experience</h1>} />
+      </Routes>
+    </Router>
   );
 };
 

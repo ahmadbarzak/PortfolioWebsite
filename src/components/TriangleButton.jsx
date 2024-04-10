@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const TriangleButton = ({ text, orientation, onClick }) => {
+const TriangleButton = ({ text, orientation, path }) => {
   // Inline styles
   const containerStyle = {
     position: 'absolute',
@@ -20,11 +21,11 @@ const TriangleButton = ({ text, orientation, onClick }) => {
     height: '100%',
     bottom: '-53%',
     right: '-53%',
-    "backgroundColor": '#03DAD9', // Diamond color
+    backgroundColor: '#03DAD9', // Diamond color
     transform: 'rotate(-45deg)',
     display: 'flex',
     margin: 'auto',
-    "placeContent": 'start center',
+    placeContent: 'start center',
     justifyContent: 'center',
     alignItems: 'flex-start',
     pointerEvents: 'auto',
@@ -56,10 +57,12 @@ const TriangleButton = ({ text, orientation, onClick }) => {
   }
 
   return (
-    <div style={containerStyle} onClick={onClick}>
-      <div style={diamondStyle}>
-        <span style={textStyle}>{text}</span>
-      </div>
+    <div style={containerStyle}>
+      <Link to={path} style={{ textDecoration: 'none' }}>
+        <div style={diamondStyle}>
+          <span style={textStyle}>{text}</span>
+        </div>
+      </Link>
     </div>
   );
 };
@@ -67,7 +70,7 @@ const TriangleButton = ({ text, orientation, onClick }) => {
 TriangleButton.propTypes = {
   text: PropTypes.string.isRequired,
   orientation: PropTypes.oneOf(['top-left', 'bottom-right']),
-  onClick: PropTypes.func,
+  path: PropTypes.string,
 };
 
 export default TriangleButton;
