@@ -1,19 +1,57 @@
 import './App.css';
 import HomePage from './components/HomePage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AnimatedRoute from './components/AnimatedRoute';
+import {Route, Routes, useLocation, Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
 
 const App = () => {
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.5, duration: 1.5 },
+    },
+    exit: {
+      x: '-100vw',
+      transition: { ease: 'easeInOut' },
+    }
+  };
+
+  const location = useLocation();
+
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<AnimatedRoute><HomePage /></AnimatedRoute>} />
-        <Route path="/about" element={<AnimatedRoute><h1>About</h1></AnimatedRoute>} />
-        <Route path="/projects" element={<AnimatedRoute><h1>Projects</h1></AnimatedRoute>} />
-        <Route path="/achievements" element={<AnimatedRoute><h1>Achievements</h1></AnimatedRoute>} />
-        <Route path="/work-experience" element={<AnimatedRoute><h1>Work Experience</h1></AnimatedRoute>} />
-      </Routes>
-    </Router>
+  <AnimatePresence>
+    <Routes location={location} key={location.key}>
+      <Route exact path="/" element={<HomePage />} />
+      <Route path="/about" element={<Link to={"/projects"}><motion.h1 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit">About</motion.h1></Link>} />
+      
+      <Route path="/projects" element={<Link to={"/achievements"}><motion.h1 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit">Projects</motion.h1></Link>} />
+
+      <Route path="/achievements" element={<Link to={"/work-experience"}><motion.h1 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit">Achievements</motion.h1></Link>} />
+
+      <Route path="/work-experience" element={<Link to={"/"}><motion.h1 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit">Work Experience</motion.h1></Link>} />
+
+    </Routes>
+  </AnimatePresence>
   );
 };
 
