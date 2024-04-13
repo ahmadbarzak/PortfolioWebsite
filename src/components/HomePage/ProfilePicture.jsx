@@ -1,4 +1,6 @@
-const ProfilePicture = () => {
+import {PropTypes} from 'prop-types';
+
+const ProfilePicture = ({path}) => {
   const style = {
     width: 280,
     height: 280,
@@ -8,8 +10,12 @@ const ProfilePicture = () => {
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   };
 
+  ProfilePicture.propTypes = {
+    path: PropTypes.string.isRequired,
+  };
+
   return (
-    <img src="ahmad.jpg" alt="Profile Picture" style={style}/>
+    <img src={path} alt="Profile Picture" style={style}/>
   );
 };
 

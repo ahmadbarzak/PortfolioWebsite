@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 
+
 const TriangleButton = forwardRef(
   ({ text, orientation, path }, ref) => {
+
   // Inline styles
   const containerStyle = {
     position: 'absolute',
@@ -15,7 +17,7 @@ const TriangleButton = forwardRef(
     display: 'flex',
     width: '500px',
     height: '500px',
-    overflow: 'visible',
+    overflow: 'hidden',
     pointerEvents: 'none', 
   };
 
@@ -43,7 +45,7 @@ const TriangleButton = forwardRef(
     color: '#355070',
     paddingLeft: '7%',
     fontSize: '50px',
-    paddingTop: '10px', // Adjust based on diamond size to position the text within the visible triangle
+    paddingTop: '10px',
   };
 
   if (orientation === "top-left") {
@@ -56,8 +58,6 @@ const TriangleButton = forwardRef(
     delete diamondStyle.right;
     diamondStyle.top = '-16%';
     diamondStyle.left = '-135%';
-    // diamondStyle.top = '-0%';
-    // diamondStyle.left = '-0%';
     diamondStyle.height = '100%';
     diamondStyle.width = '200%';
     diamondStyle.transform = 'rotate(135deg)';
@@ -79,11 +79,10 @@ const TriangleButton = forwardRef(
       transition: { delay: 0.5, duration: 1.5 },
     },
     exit: {
-      x: '100vw',
+      x: '150vh',
       transition: { ease: 'easeInOut' },
     }
   };
-
 
   return (
     <div style={containerStyle} ref={ref}>

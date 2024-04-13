@@ -2,7 +2,7 @@ import SquareButton from './SquareButton';
 import MotionProfileCard from './HomePage/ProfileCard';
 import MotionRectangleSideBar from './AboutMe/RectangleSideBar';
 import { motion } from 'framer-motion';
-
+// import { useState } from 'react';
 
 
 const HomePageB = () => {
@@ -17,21 +17,56 @@ const HomePageB = () => {
 
   const containerVariants = {
     hidden: {
-      opacity: 0,
+      opacity: 1,
     },
     visible: {
       opacity: 1,
-      transition: { delay: 0.86, },
     },
   };
+
+  // const [animationState, setAnimationState] = useState("visible");
+  // const cardVariants = {
+  //   hiddencard: {
+  //     opacity: 0,
+  //   },
+  //   visiblecard: {
+  //     opacity: 1,
+  //     transition: { delay: 1, duration: 0.4 },
+  //   },
+  // };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: '-100vh',
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.1, duration: 0.3 },
+    },
+    enter: {
+      y: '10vh',
+      transition: { duration: 0.3 },
+    }
+  }
+
+  // onAnimationComplete={() => {
+  //   if (animationState === "visible") {
+  //     setAnimationState("enter");
+  //   }
+  // }}
 
   // const motionTriangleButton = motion(TriangleButton, {forwardMotionProps: true})
 
   return (
     <motion.div style={ styles }>
-      <MotionProfileCard
-      variants={containerVariants}
-      exit="exit"
+      <MotionProfileCard path = "gnomes.jpg"
+      text = "You've been gnomed!"
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      exit={{y: '100vh'}}
       />
       <MotionRectangleSideBar
       variants={containerVariants}
