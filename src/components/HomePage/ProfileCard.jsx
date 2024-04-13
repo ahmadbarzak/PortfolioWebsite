@@ -1,9 +1,14 @@
-import SocialLink from './SocialLink';
+import SocialLink from '../SocialLink';
 import ProfilePicture from './ProfilePicture';
+import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
 
-const ProfileCard = () => {
+const ProfileCard = forwardRef((props, ref) => {
+
+  ProfileCard.displayName = 'ProfileCard';
+
   return (
-    <div style={{ position:'relative', width:'300px', height:'400px'}}>
+    <div ref={ref} style={{ position:'relative', width:'300px', height:'400px'}}>
         <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%, -50%)', textAlign:'center'}}>
             <ProfilePicture />
             <div style={{width:500, lineHeight:0.9}}>
@@ -19,6 +24,9 @@ const ProfileCard = () => {
         </div>
     </div>
   );
-};
+});
 
-export default ProfileCard;
+
+const MotionProfileCard = motion(ProfileCard, { forwardMotionProps: true })
+
+export default MotionProfileCard;

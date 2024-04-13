@@ -1,5 +1,6 @@
 import './App.css';
-import HomePage from './components/HomePage';
+import HomePage from './components/HomePage/HomePage';
+import HomePageB from './components/HomePageB';
 import {Route, Routes, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -26,11 +27,7 @@ const App = () => {
   <AnimatePresence>
     <Routes location={location} key={location.key}>
       <Route exact path="/" element={<HomePage />} />
-      <Route path="/about" element={<Link to={"/projects"}><motion.h1 
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit">About</motion.h1></Link>} />
+      <Route path="/about" element={<HomePageB />} />
       
       <Route path="/projects" element={<Link to={"/achievements"}><motion.h1 
       variants={containerVariants}

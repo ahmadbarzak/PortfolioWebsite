@@ -9,29 +9,29 @@ const TriangleButton = forwardRef(
   const containerStyle = {
     position: 'absolute',
     backgroundColor: "transparent", // Button color
-    transformOrigin: '100% 32%',
+    transformOrigin: '100% 46%',
     bottom: 0,
     right: 0,
     display: 'flex',
     width: '500px',
     height: '500px',
-    overflow: 'hidden',
+    overflow: 'visible',
     pointerEvents: 'none', 
   };
 
   const diamondStyle = {
     position: 'absolute',
-    width: '100%',
+    width: '200%',
     height: '100%',
     // bottom: '-53%',
-    bottom: '-53%',
-    right: '-53%',
+    bottom: '-16%',
+    right: '-135%',
     backgroundColor: '#03DAD9', // Diamond color
     transform: 'rotate(-45deg)',
     display: 'flex',
     margin: 'auto',
     placeContent: 'start center',
-    justifyContent: 'center',
+    justifyContent: 'left',
     alignItems: 'flex-start',
     pointerEvents: 'auto',
     border: '5px solid white', // Add border here
@@ -41,6 +41,7 @@ const TriangleButton = forwardRef(
   const textStyle = {
     fontFamily: 'Roboto-Serif',
     color: '#355070',
+    paddingLeft: '7%',
     fontSize: '50px',
     paddingTop: '10px', // Adjust based on diamond size to position the text within the visible triangle
   };
@@ -50,25 +51,50 @@ const TriangleButton = forwardRef(
     delete containerStyle.right;
     containerStyle.top = 0;
     containerStyle.left = 0;
-    containerStyle.transformOrigin = '0% 68%';
+    containerStyle.transformOrigin = '10% 58%';
     delete diamondStyle.bottom;
     delete diamondStyle.right;
-    diamondStyle.top = '-53%';
-    diamondStyle.left = '-53%';
+    diamondStyle.top = '-16%';
+    diamondStyle.left = '-135%';
+    // diamondStyle.top = '-0%';
+    // diamondStyle.left = '-0%';
+    diamondStyle.height = '100%';
+    diamondStyle.width = '200%';
     diamondStyle.transform = 'rotate(135deg)';
     diamondStyle.backgroundColor = '#6D58B7'
     delete textStyle.paddingTop;
+    delete textStyle.paddingLeft;
     textStyle.transform = 'rotate(180deg)';
     textStyle.paddingBottom = '10px';
-    textStyle.color = "#FFFFFF"
+    textStyle.color = "#FFFFFF";
+    textStyle.paddingRight="12%";
   }
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.5, duration: 1.5 },
+    },
+    exit: {
+      x: '100vw',
+      transition: { ease: 'easeInOut' },
+    }
+  };
 
 
   return (
     <div style={containerStyle} ref={ref}>
       <Link to={path} style={{ textDecoration: 'none' }}>
         <div style={diamondStyle}>
-          <span style={textStyle}>{text}</span>
+          <motion.span 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          style={textStyle}>{text}</motion.span>
         </div>
       </Link>
     </div>
