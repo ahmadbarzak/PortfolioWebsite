@@ -8,7 +8,7 @@ const HomePage = () => {
     backgroundColor: "#355070",
     minHeight: '100vh',
     minWidth: '100vw',
-    display: 'flex',
+    display: 'flex', 
     justifyContent: 'center',
     alignItems: 'center',
   };

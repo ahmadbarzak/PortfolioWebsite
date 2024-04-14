@@ -1,9 +1,9 @@
-import SquareButton from './SquareButton';
-import MotionProfileCard from './HomePage/ProfileCard';
-import MotionRectangleSideBar from './AboutMe/RectangleSideBar';
+// import MotionProfileCard from './HomePage/ProfileCard';
+import MotionRectangleSideBar from './RectangleSideBar';
 import { motion } from 'framer-motion';
+// import LightSwitch from './AboutMe/LightSwitch';
+import MotionAboutMeCard from './AboutMeCard';
 // import { useState } from 'react';
-
 
 const HomePageB = () => {
   const styles = {
@@ -61,13 +61,15 @@ const HomePageB = () => {
 
   return (
     <motion.div style={ styles }>
-      <MotionProfileCard path = "gnomes.jpg"
+      <MotionAboutMeCard
+      style={{position: "absolute", top:"0%"}}
       text = "You've been gnomed!"
       variants={cardVariants}
       initial="hidden"
       animate="visible"
       exit={{y: '100vh'}}
       />
+      {/* <LightSwitch/> */}
       <MotionRectangleSideBar
       variants={containerVariants}
       initial="hidden"
@@ -78,13 +80,6 @@ const HomePageB = () => {
       initial="hidden" 
       animate="visible" 
       orientation="right"/>
-
-      <div style={{position: 'absolute', bottom: '10%',left: '10%'}}>
-        <SquareButton text="About Me" path="/about"/>
-      </div>
-      <div style={{position: 'absolute', top: '10%',right: '10%'}}>
-        <SquareButton text="Projects" path="/projects"/>
-      </div>
     </motion.div>
   );
 };
