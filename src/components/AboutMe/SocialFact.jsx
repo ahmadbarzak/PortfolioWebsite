@@ -1,6 +1,8 @@
 import { PropTypes } from 'prop-types';
+import { forwardRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const SocialFact = ({styles, text, icon, orientation}) => {
+const SocialFact = forwardRef(({styles, text, icon, orientation, mode}, ref) => {
 
     const imgStyles = {
         width: '36px',
@@ -24,18 +26,27 @@ const SocialFact = ({styles, text, icon, orientation}) => {
     }
 
     return (
-        <div style={combinedStyles}>
-            <p style={{font:"roboto-serif" , fontSize: "16px"}}> {text}</p>
+        <AnimatePresence>
+        { mode === "social" && <motion.div
+        exit={{opacity: 0}} transition={{duration: 0.2}} ref={ref} style={combinedStyles}>
+            <p style={{font:"roboto-serif" , fontSize: "20px"}}> {text}</p>
             {icon!==undefined && <img style={{...imgStyles, ...{padding: "0px", margin: 0, left: 0}}} src={icon}/>}
-        </div>
+        </motion.div>
+        }
+        </AnimatePresence>
     );
-}
+});
+
+SocialFact.displayName = 'SocialFact';
 
 SocialFact.propTypes = {
         styles: PropTypes.object,
         text: PropTypes.string.isRequired,
         icon: PropTypes.string,
         orientation: PropTypes.oneOf(['left', 'right']),
+        mode: PropTypes.oneOf(['work', 'social'])
 }
 
-export default SocialFact;
+const MotionSocialFact = motion(SocialFact, {forwardMotionProps: true});
+
+export default MotionSocialFact;

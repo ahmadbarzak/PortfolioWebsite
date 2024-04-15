@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const RectangleSideBar = forwardRef(
   ({orientation }, ref) => {
-  // Inline styles
+
   const containerStyle = {
     zIndex: 1,
     position: 'absolute',

@@ -1,9 +1,7 @@
-// import SocialLink from '../SocialLink';
-import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import LightSwitch from './LightSwitch';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 const AboutMeCard = forwardRef(({style, onLightClicked}, ref) => {
 

@@ -27,8 +27,6 @@ const HomePage = () => {
     }
   }; 
 
-  // const motionTriangleButton = motion(TriangleButton, {forwardMotionProps: true})
-
   return (
     <motion.div style={ styles }
     variants={containerVariants}

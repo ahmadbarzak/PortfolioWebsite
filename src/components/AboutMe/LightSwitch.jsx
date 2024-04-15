@@ -3,8 +3,6 @@ import { PropTypes } from 'prop-types';
 
 const LightSwitch = ({mode, clicked, style}) => {
 
-    // mode = "work"
-
     let lightImg = "/lightSwitch/Work.png";
 
     const lightStyles = {

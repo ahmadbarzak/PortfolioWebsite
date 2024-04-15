@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const SquareButton = ({ text, path }) => {
 
     const styles = {
-        backgroundColor: '#BB86FC', // Lighter pinkish purple
-        color: '#F8F8FF', // Slightly darker white
+        backgroundColor: '#BB86FC',
+        color: '#F8F8FF',
           padding: '5px 5px',
           textAlign: 'center',
           height: '40px',
@@ -16,7 +16,7 @@ const SquareButton = ({ text, path }) => {
           margin: '4px 2px',
           cursor: 'pointer',
           borderRadius: 0,
-          border: '2px solid #ffffff', // White border
+          border: '2px solid #FFFFFF',
           fontFamily: 'Roboto-Serif',
           justifyContent: 'center',
           alignItems: 'center',

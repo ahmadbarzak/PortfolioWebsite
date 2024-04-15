@@ -1,14 +1,13 @@
 import MotionRectangleSideBar from './RectangleSideBar';
 import MotionAboutMeCard from './AboutMeCard';
-import SocialFact from './SocialFact';
+import MotionSocialFact from './SocialFact';
 import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
 import Lamp from './Lamp';
+import { AnimatePresence } from 'framer-motion';
 
 
 const AboutMePage = () => {
-
-  // let type = "social";
   
   const defaultStyle = {
     color: "#FFFFFF",
@@ -48,6 +47,18 @@ const AboutMePage = () => {
     }
   }
 
+  // const factVariants = {
+  //   hidden: {
+  //     opacity: 0,
+  //     x: '-100vw',
+  //   },
+  //   visible: {
+  //     opacity: 1,
+  //     x: 0,
+  //     transition: { duration: 0.2 },
+  //   },
+  // }
+
   const [type, setType] = useState('social');
 
   function typeSwitch(type){
@@ -77,20 +88,33 @@ const AboutMePage = () => {
       animate="visible" 
       orientation="right"/>
       <Lamp mode={type}/>
+
       <div style={{width:"100%", height:"100%", backgroundColor: "transparent"}}>
-        {type === "social" && 
             <div style={{position:"absolute", top:0, width:"100%", bottom:0, overflow:"hidden"}}>
               {socialFacts.map((fact, index) => {
+                
+                let direction = index % 2 === 0 ? "-100vw" : '100vw'
+                let rotate = fact.rotate ? fact.rotate : 0;
+                
                 return (
-                  <SocialFact styles={ {...defaultStyle, ...fact.style} } key={index} text={fact.text} icon={fact.icon} orientation={index % 2 === 0 ? 'left' : 'right'}/>
+                  <AnimatePresence key={index}>
+                  {type === "social" && <MotionSocialFact 
+                  initial={{opacity: 0, x: direction, rotateZ: 0 }}
+                  animate={{opacity: 1, x: 0, rotateZ: rotate}}
+                  exit={{opacity: 0, x: direction, rotateZ: 0}}
+                  transition={{ duration: 0.4 }}
+                  styles={ {...defaultStyle, ...fact.style} }
+                  text={fact.text}
+                  icon={fact.icon}
+                  orientation={fact.orientation}
+                  mode={type}/>
+                  }
+                </AnimatePresence>
                 );
-                })
-              }
+              })}
             </div>
-        }
       </div>
-
-      </div>
+    </div>
 
   );
 };

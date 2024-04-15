@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Lamp = ({mode}) => {
 
@@ -29,14 +30,37 @@ const Lamp = ({mode}) => {
         width:"330px"
     }
 
+    const lampVariants = {
+        work: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut"
+            }
+        },
+        social: {
+            opacity: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut"
+            }
+        }
+    }
     return (
         <div style={ divStyle }>
             <div style={ ceilLampStyle }>
                 <img src="/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
             </div>
-            {mode==='work' && <div style={ lampLightStyle }>
-                <img src="/lightSwitch/lampLight.png" style={{width:"95%"}}/>
-            </div>}
+            <AnimatePresence>
+                {mode==='work' && <motion.div
+                variants={lampVariants}
+                initial="social"
+                animate="work"
+                exit="social"
+                style={ lampLightStyle }>
+                    <img src="/lightSwitch/lampLight.png" style={{width:"95%"}}/>
+                </motion.div>}
+            </AnimatePresence>
         </div>
     )
 }

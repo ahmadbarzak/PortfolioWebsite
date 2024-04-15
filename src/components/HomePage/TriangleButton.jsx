@@ -7,12 +7,11 @@ import { motion } from 'framer-motion';
 const TriangleButton = forwardRef(
   ({ text, orientation, path }, ref) => {
 
-  // Inline styles
   const containerStyle = {
     position: 'absolute',
-    backgroundColor: "transparent", // Button color
-    // transformOrigin: '100% 46%',
-    transformOrigin: '100% 37%',
+    backgroundColor: "transparent",
+    transformOrigin: '100% 46%',
+    // transformOrigin: '100% 37%',
     bottom: 0,
     right: 0,
     display: 'flex',
@@ -29,7 +28,7 @@ const TriangleButton = forwardRef(
     // bottom: '-53%',
     bottom: '-16%',
     right: '-135%',
-    backgroundColor: '#03DAD9', // Diamond color
+    backgroundColor: '#03DAD9',
     transform: 'rotate(-45deg)',
     display: 'flex',
     margin: 'auto',
@@ -37,7 +36,7 @@ const TriangleButton = forwardRef(
     justifyContent: 'left',
     alignItems: 'flex-start',
     pointerEvents: 'auto',
-    border: '5px solid white', // Add border here
+    border: '5px solid white',
     
   };
 
@@ -54,8 +53,8 @@ const TriangleButton = forwardRef(
     delete containerStyle.right;
     containerStyle.top = 0;
     containerStyle.left = 0;
-    // containerStyle.transformOrigin = '10% 58%';
-    containerStyle.transformOrigin = '10% 67%';
+    containerStyle.transformOrigin = '10% 58%';
+    // containerStyle.transformOrigin = '10% 67%';
     delete diamondStyle.bottom;
     delete diamondStyle.right;
     diamondStyle.top = '-16%';
