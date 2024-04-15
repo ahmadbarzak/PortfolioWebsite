@@ -11,6 +11,7 @@ const LightSwitch = ({mode, clicked, style}) => {
         position: 'relative',
         height: '200px',
         width: '200px',
+        zIndex: 2,
     }
 
 
@@ -32,7 +33,7 @@ const LightSwitch = ({mode, clicked, style}) => {
     return (
     <div style={combinedStyles}>
         <img style={{height:'100%', width:'100%'}} src={lightImg} alt="LightSwitch" />
-        <div onClick={clicked} style={switchStyles}></div>
+        <div onClick={clicked} style={{...switchStyles}}></div>
     </div>
     )
 }

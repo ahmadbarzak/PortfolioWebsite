@@ -1,11 +1,10 @@
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
-// import HomePageB from './components/HomePageB';
 import {Route, Routes, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-// import AboutMe from './components/AboutMe/AboutMe';
 import AboutMePage from './components/AboutMe/AboutMePage';
-import SocialFact from './components/AboutMe/SocialFact';
+import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
+
 
 const App = () => {
 
@@ -31,7 +30,7 @@ const App = () => {
       <Route exact path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutMePage />} />
       
-      <Route path="/projects" element={<Link to={"/achievements"}><SocialFact text="bing" icon="lamps.jpg" orientation="right" /></Link>} />
+      <Route path="/projects" element={<MotionAboutMeCard/>} />
 
       <Route path="/achievements" element={<Link to={"/work-experience"}><motion.h1 
       variants={containerVariants}

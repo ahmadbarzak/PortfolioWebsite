@@ -6,6 +6,7 @@ const RectangleSideBar = forwardRef(
   ({orientation }, ref) => {
   // Inline styles
   const containerStyle = {
+    zIndex: 1,
     position: 'absolute',
     bottom: 0,
     right: 0,
