@@ -5,7 +5,7 @@ const LightSwitch = ({mode, clicked, style}) => {
 
     // mode = "work"
 
-    let lightImg = "Work.png";
+    let lightImg = "/lightSwitch/Work.png";
 
     const lightStyles = {
         position: 'relative',
@@ -23,7 +23,7 @@ const LightSwitch = ({mode, clicked, style}) => {
     }
 
     if (mode === "social") {
-        lightImg = "Social.png";
+        lightImg = "/lightSwitch/Social.png";
         switchStyles.top = '50%';
     }
 

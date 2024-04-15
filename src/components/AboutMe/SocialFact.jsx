@@ -25,8 +25,8 @@ const SocialFact = ({styles, text, icon, orientation}) => {
 
     return (
         <div style={combinedStyles}>
-            <p style={{margin:3, font:"roboto-serif" , fontSize: "16px"}}> {text}</p>
-            <img style={{...imgStyles, ...{padding: "5px", margin: 0, left: 0}}} src={icon}/>
+            <p style={{font:"roboto-serif" , fontSize: "16px"}}> {text}</p>
+            {icon!==undefined && <img style={{...imgStyles, ...{padding: "0px", margin: 0, left: 0}}} src={icon}/>}
         </div>
     );
 }
@@ -34,7 +34,7 @@ const SocialFact = ({styles, text, icon, orientation}) => {
 SocialFact.propTypes = {
         styles: PropTypes.object,
         text: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
+        icon: PropTypes.string,
         orientation: PropTypes.oneOf(['left', 'right']),
 }
 

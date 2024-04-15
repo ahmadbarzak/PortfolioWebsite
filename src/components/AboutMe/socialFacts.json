@@ -1,0 +1,115 @@
+{
+    "socialFacts": [
+        {
+            "text": "Beat Chess Grandmaster (after 63 tries)",
+            "icon": "socialFactImages/king.png",
+            "orientation": "left",
+            "style": {
+                "left": "8%",
+                "top": "18%",
+                "transform": "rotate(-36deg)"
+            }
+        },
+        {
+            "text": "Kareoke Master",
+            "style": {
+                "left": "2%",
+                "top": "35%",
+                "transform": "rotate(-26deg)"
+            }
+        },
+        {
+            "text": "Love Squash and Badminton",
+            "icon": "socialFactImages/racket.png",
+            "orientation": "left",
+            "style": {
+                "left": "7%",
+                "top": "50%",
+                "transform": "rotate(15deg)"
+            }
+        },
+        {
+            "text": "Went to Egypt but haven't seen the pyramids",
+            "icon": "socialFactImages/pyramid.png",
+            "orientation": "left",
+            "style": {
+                "left": "7%",
+                "top": "65%",
+                "transform": "rotate(32deg)"
+            }
+        },
+        {
+            "text": "Ice Cream Connoiseur",
+            "style": {
+                "left": "3%",
+                "top": "80%",
+                "transform": "rotate(40deg)"
+            }
+        },
+        {
+            "text": "Keen to learn anything",
+            "style": {
+                "left": "30%",
+                "top": "84%",
+                "transform": "rotate(-9deg)"
+            }
+        },
+        {
+            "text": "Mario Kart Addict",
+            "icon": "socialFactImages/kart.png",
+            "orientation": "right",
+            "style": {
+                "left": "30%",
+                "top": "63%",
+                "transform": "rotate(5deg)"
+            }
+        },
+        {
+            "text": "Tech is real cool",
+            "icon": "socialFactImages/robo.png",
+            "orientation": "left",
+            "style": {
+                "left": "56%",
+                "top": "80%",
+                "transform": "rotate(-36deg)"
+            }
+        },
+        {
+            "text": "Learning Maths degree content on the side",
+            "style": {
+                "left": "50%",
+                "top": "70%",
+                "transform": "rotate(-18deg)"
+            }
+        },
+        {
+            "text": "Migoreng diet",
+            "icon": "socialFactImages/noods.png",
+            "orientation": "right",
+            "style": {
+                "left": "55%",
+                "top": "48%",
+                "transform": "rotate(-27deg)"
+            }
+        },
+        {
+            "text": "Broke as a result",
+            "style": {
+                "left": "57%",
+                "top": "20%",
+                "transform": "rotate(-5deg)"
+            }
+        },
+        {
+            "text": "Will buy you food",
+            "icon": "socialFactImages/gift.png",
+            "orientation": "left",
+            "style": {
+                "left": "57%",
+                "top": "14%",
+                "transform": "rotate(6deg)"
+            }
+        }
+    ]
+}
+

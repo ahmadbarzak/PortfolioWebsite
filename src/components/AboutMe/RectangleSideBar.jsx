@@ -10,7 +10,8 @@ const RectangleSideBar = forwardRef(
     bottom: 0,
     right: 0,
     top: 0,
-    width: '62px',
+    // width: '62px',
+    width: '4.3%',
     overflow: 'visible', 
     borderLeft: '5px solid white',
     backgroundColor: '#03DAD9'

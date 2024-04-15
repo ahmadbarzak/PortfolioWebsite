@@ -1,35 +1,15 @@
 import MotionRectangleSideBar from './RectangleSideBar';
 import MotionAboutMeCard from './AboutMeCard';
 import SocialFact from './SocialFact';
+import { socialFacts } from './socialFacts.json';
 
 const AboutMePage = () => {
 
 
-  const socialFacts = [
-    {
-      text: "Beat Chess Grandmaster (after 63 tries)",
-      icon: "king.png",
-      orientation: 'left',
-      style: {position: "absolute", left: "8%", transform: "translate(0%, 0%) rotate(-36deg)", top: "18%"},
-    },
-    {
-      text: "Kareoke Master",
-      icon: null,
-      orientation: 'right',
-      style: {position: "absolute", left: "2%", transform: "translate(0%, 0%) rotate(-26deg)", top: "35%"},
-    },
-    {
-      text: "Love Squash and Badminton",
-      icon: "racket.png",
-      orientation: 'left',
-      style: {position: "absolute", left: "10%", transform: "translate(0%, 0%) rotate(15deg)", top: "60%"},
-    },
-    {
-      text: "Went to Egypt but haven't seen the pyramids",
-      icon: "pyramid.png",
-      style: {position: "absolute", left: "10%", top: "75%", transform: "rotate(32deg)"},
-    }
-  ]
+  const defaultStyle = {
+    color: "#FFFFFF",
+    position: "absolute"
+  }
 
   const styles = {
     backgroundColor: "#355070",
@@ -85,8 +65,9 @@ const AboutMePage = () => {
       animate="visible" 
       orientation="right"/>
         {socialFacts.map((fact, index) => {
+            console.log(fact.icon)
             return (
-              <SocialFact styles={fact.style} key={index} text={fact.text} icon={fact.icon} orientation={index % 2 === 0 ? 'left' : 'right'}/>
+              <SocialFact styles={ {...defaultStyle, ...fact.style} } key={index} text={fact.text} icon={fact.icon} orientation={index % 2 === 0 ? 'left' : 'right'}/>
             );
           })}
     </div>

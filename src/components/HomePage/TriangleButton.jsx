@@ -11,7 +11,8 @@ const TriangleButton = forwardRef(
   const containerStyle = {
     position: 'absolute',
     backgroundColor: "transparent", // Button color
-    transformOrigin: '100% 46%',
+    // transformOrigin: '100% 46%',
+    transformOrigin: '100% 37%',
     bottom: 0,
     right: 0,
     display: 'flex',
@@ -53,7 +54,8 @@ const TriangleButton = forwardRef(
     delete containerStyle.right;
     containerStyle.top = 0;
     containerStyle.left = 0;
-    containerStyle.transformOrigin = '10% 58%';
+    // containerStyle.transformOrigin = '10% 58%';
+    containerStyle.transformOrigin = '10% 67%';
     delete diamondStyle.bottom;
     delete diamondStyle.right;
     diamondStyle.top = '-16%';

@@ -39,6 +39,7 @@ const HomePage = () => {
       transition={{duration: 0.2}}
       />
       <MotionTriangleComponent exit={{rotateZ: -45, overflow: "visible" }} transition={{duration: 0.45}} text="Achievements" orientation="top-left" path="/achievements"/>
+      {/* <MotionTriangleComponent exit={{rotateZ: -45, overflow: "visible" }} transition={{duration: 4}} text="Achievements" orientation="top-left" path="/achievements"/> */}
       <MotionTriangleComponent exit={{rotateZ: -45, overflow: "visible" }} transition={{duration: 0.45}} text="Work Experience" orientation="bottom-right" path="/work-experience"/>
 
       <div style={{position: 'absolute', bottom: '10%',left: '10%'}}>
