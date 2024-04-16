@@ -4,7 +4,7 @@ import {Route, Routes, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import AboutMePage from './components/AboutMe/AboutMePage';
 // import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
-import Tester from './components/HomePage/Tester';
+import ProjectsPage from './components/HomePage/ProjectsPage';
 
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
       <Route exact path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutMePage />} />
       
-      <Route path="/projects" element={<Tester/>} />
+      <Route path="/projects" element={<ProjectsPage/>} />
 
       <Route path="/achievements" element={<Link to={"/work-experience"}><motion.h1 
       variants={containerVariants}
