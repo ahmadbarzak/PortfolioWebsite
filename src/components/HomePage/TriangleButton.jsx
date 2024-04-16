@@ -5,17 +5,17 @@ import { motion } from 'framer-motion';
 
 
 const TriangleButton = forwardRef(
-  ({ text, orientation, path }, ref) => {
+  ({ text, orientation, path, clicked}, ref) => {
 
   const containerStyle = {
     position: 'absolute',
     backgroundColor: "transparent",
-    transformOrigin: '100% 46%',
+    // transformOrigin: '100% 46%',
     // transformOrigin: '100% 37%',
     bottom: 0,
     right: 0,
     display: 'flex',
-    width: '500px',
+    width: '1200px',
     height: '500px',
     overflow: 'hidden',
     pointerEvents: 'none', 
@@ -26,8 +26,8 @@ const TriangleButton = forwardRef(
     width: '200%',
     height: '100%',
     // bottom: '-53%',
-    bottom: '-16%',
-    right: '-135%',
+    bottom: '70%',
+    right: '-150%',
     backgroundColor: '#03DAD9',
     transform: 'rotate(-45deg)',
     display: 'flex',
@@ -53,12 +53,12 @@ const TriangleButton = forwardRef(
     delete containerStyle.right;
     containerStyle.top = 0;
     containerStyle.left = 0;
-    containerStyle.transformOrigin = '10% 58%';
+    // containerStyle.transformOrigin = '10% 58%';
     // containerStyle.transformOrigin = '10% 67%';
     delete diamondStyle.bottom;
     delete diamondStyle.right;
-    diamondStyle.top = '-16%';
-    diamondStyle.left = '-135%';
+    diamondStyle.top = '56%';
+    diamondStyle.left = '-146%';
     diamondStyle.height = '100%';
     diamondStyle.width = '200%';
     diamondStyle.transform = 'rotate(135deg)';
@@ -80,14 +80,19 @@ const TriangleButton = forwardRef(
       transition: { delay: 0.5, duration: 1.5 },
     },
     exit: {
-      x: '150vh',
+      opacity: 0,
       transition: { ease: 'easeInOut' },
     }
   };
 
+  function clickHandler(){
+    console.log(text)
+    clicked(text);
+  }
+
   return (
     <div style={containerStyle} ref={ref}>
-      <Link to={path} style={{ textDecoration: 'none' }}>
+      <Link to={path} style={{ textDecoration: 'none' }} onClick={() => clickHandler()}>
         <div style={diamondStyle}>
           <motion.span 
           variants={containerVariants}
@@ -108,6 +113,7 @@ TriangleButton.propTypes = {
   text: PropTypes.string.isRequired,
   orientation: PropTypes.oneOf(['top-left', 'bottom-right']),
   path: PropTypes.string,
+  clicked: PropTypes.func
 };
 
 const MotionTriangleComponent = motion(TriangleButton, { forwardMotionProps: true })

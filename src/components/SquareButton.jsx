@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const SquareButton = ({ text, path }) => {
+const SquareButton = ({ text, path, clicked }) => {
 
     const styles = {
         backgroundColor: '#BB86FC',
@@ -22,8 +22,12 @@ const SquareButton = ({ text, path }) => {
           alignItems: 'center',
     };
 
+    function clickHandler() {
+        clicked(text);
+    }
+
     return (
-        <Link to={path}>
+        <Link to={path} onClick={() => clickHandler()}>
             <div style={styles}>
                 {text}
             </div>
@@ -34,6 +38,7 @@ const SquareButton = ({ text, path }) => {
 SquareButton.propTypes = {
     text: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
+    clicked: PropTypes.func
 };
 
 export default SquareButton;

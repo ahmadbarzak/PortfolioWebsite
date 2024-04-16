@@ -3,7 +3,8 @@ import HomePage from './components/HomePage/HomePage';
 import {Route, Routes, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import AboutMePage from './components/AboutMe/AboutMePage';
-import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
+// import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
+import Tester from './components/HomePage/Tester';
 
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
       <Route exact path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutMePage />} />
       
-      <Route path="/projects" element={<MotionAboutMeCard/>} />
+      <Route path="/projects" element={<Tester/>} />
 
       <Route path="/achievements" element={<Link to={"/work-experience"}><motion.h1 
       variants={containerVariants}

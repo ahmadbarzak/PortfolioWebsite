@@ -8,23 +8,46 @@ const RectangleSideBar = forwardRef(
   const containerStyle = {
     zIndex: 1,
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    top: 0,
     // width: '62px',
-    width: '4.3%',
     overflow: 'visible', 
-    borderLeft: '5px solid white',
-    backgroundColor: '#03DAD9'
   };
 
-  if (orientation === "left") {
-    delete containerStyle.right;
-    delete containerStyle.borderLeft;
-    containerStyle.borderRight = "5px solid white";
-    containerStyle.left = 0;
+  if (orientation === "right") {
+    containerStyle.width = '4.3%';
+    containerStyle.bottom = 0;
+    containerStyle.top = 0;
+    containerStyle.right = 0;
+    containerStyle.borderLeft = '5px solid white';
     containerStyle.backgroundColor = '#03DAD9';
+  }
+
+  if (orientation === "left") {
+    containerStyle.width = '4.3%';
+    containerStyle.bottom = 0;
+    containerStyle.top = 0;
+    containerStyle.left = 0;
+    containerStyle.borderRight = "5px solid white";
     containerStyle.backgroundColor = '#6D58B7';
+  }
+
+if (orientation === "top") {
+    delete containerStyle.width;
+    containerStyle.height = '18%';
+    containerStyle.left = 0;
+    containerStyle.right = 0;
+    containerStyle.top = 0;
+    containerStyle.borderBottom = "5px solid white";
+    containerStyle.backgroundColor = '#6D58B7';
+  }
+
+  if (orientation === "bottom") {
+    delete containerStyle.width;
+    containerStyle.height = '18%';
+    containerStyle.left = 0;
+    containerStyle.right = 0;
+    containerStyle.bottom = 0;
+    containerStyle.borderTop = "5px solid white";
+    containerStyle.backgroundColor = '#03DAD9';
   }
 
 
@@ -37,7 +60,7 @@ const RectangleSideBar = forwardRef(
 RectangleSideBar.displayName = 'RectangleSideBar';
 
 RectangleSideBar.propTypes = {
-  orientation: PropTypes.oneOf(['left', 'right']),
+  orientation: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
 };
 
 const MotionRectangleSideBar = motion(RectangleSideBar, { forwardMotionProps: true })
