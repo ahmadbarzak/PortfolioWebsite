@@ -5,6 +5,7 @@ import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
 import Lamp from './Lamp';
 import { AnimatePresence } from 'framer-motion';
+import MotionBackButton from '../HomePage/BackButton';
 
 
 const AboutMePage = () => {
@@ -89,6 +90,8 @@ const AboutMePage = () => {
       orientation="right"/>
       <Lamp mode={type}/>
 
+      <MotionBackButton 
+      clicked={() => console.log("Hey there!")} color="purple"/>
       <div style={{width:"100%", height:"100%", backgroundColor: "transparent"}}>
             <div style={{position:"absolute", top:0, width:"100%", bottom:0, overflow:"hidden"}}>
               {socialFacts.map((fact, index) => {

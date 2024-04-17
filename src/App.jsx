@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AboutMePage from './components/AboutMe/AboutMePage';
 // import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
 import ProjectsPage from './components/HomePage/ProjectsPage';
+import Tester from './components/Tester';
 
 
 const App = () => {
@@ -33,11 +34,7 @@ const App = () => {
       
       <Route path="/projects" element={<ProjectsPage/>} />
 
-      <Route path="/achievements" element={<Link to={"/work-experience"}><motion.h1 
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit">Achievements</motion.h1></Link>} />
+      <Route path="/achievements" element={<Tester/>} />
 
       <Route path="/work-experience" element={<Link to={"/"}><motion.h1 
       variants={containerVariants}
