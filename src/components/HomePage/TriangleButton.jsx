@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 
 const TriangleButton = forwardRef(
-  ({ text, orientation, path, clicked}, ref) => {
+  ({ text, orientation, path, clicked, type}, ref) => {
 
   const containerStyle = {
     position: 'absolute',
@@ -71,19 +71,34 @@ const TriangleButton = forwardRef(
     textStyle.paddingRight="12%";
   }
 
-  const containerVariants = {
-    hidden: {
+  let containerVariants = {
+    initial: {
       opacity: 0,
     },
-    visible: {
+    animate: {
       opacity: 1,
       transition: { delay: 0.5, duration: 1.5 },
     },
     exit: {
-      opacity: 0,
-      transition: { ease: 'easeInOut' },
+      opacity: 1,
+      transition: {delay:0, duration:0}
     }
   };
+
+  if (type === "animator") {
+    containerVariants = {
+      initial: {
+        opacity: 1,
+      },
+      animate: {
+      opacity: 0,
+      transition: { delay: 0.2, duration: 0.3 },
+      },
+      exit: {
+        opacity: 1,
+      }
+    }
+  }
 
   function clickHandler(){
     console.log(text)
@@ -96,9 +111,8 @@ const TriangleButton = forwardRef(
         <div style={diamondStyle}>
           <motion.span 
           variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
+          initial="initial"
+          animate="animate"
           style={textStyle}>{text}</motion.span>
         </div>
       </Link>
@@ -113,7 +127,8 @@ TriangleButton.propTypes = {
   text: PropTypes.string.isRequired,
   orientation: PropTypes.oneOf(['top-left', 'bottom-right']),
   path: PropTypes.string,
-  clicked: PropTypes.func
+  clicked: PropTypes.func,
+  type: PropTypes.oneOf(['viewer', 'animator']),
 };
 
 const MotionTriangleComponent = motion(TriangleButton, { forwardMotionProps: true })

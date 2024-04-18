@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const Lamp = ({mode}) => {
+const Lamp = ({mode}, ref) => {
 
     const divStyle = {
         left:"50%",
@@ -30,6 +30,22 @@ const Lamp = ({mode}) => {
         width:"330px"
     }
 
+    const cardVariants = {
+        hidden: {
+          opacity: 0,
+        //   y: '-100vh',
+        },
+        visible: {
+          opacity: 1,
+        //   y: 0,
+          transition: { duration: 2 },
+        },
+        enter: {
+          y: '10vh',
+          transition: { duration: 0.2 },
+        }
+      }
+
     const lampVariants = {
         work: {
             opacity: 1,
@@ -47,7 +63,11 @@ const Lamp = ({mode}) => {
         }
     }
     return (
-        <div style={ divStyle }>
+        <motion.div
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+         ref={ref} style={ divStyle }>
             <div style={ ceilLampStyle }>
                 <img src="/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
             </div>
@@ -61,12 +81,12 @@ const Lamp = ({mode}) => {
                     <img src="/lightSwitch/lampLight.png" style={{width:"95%"}}/>
                 </motion.div>}
             </AnimatePresence>
-        </div>
+        </motion.div>
     )
-}
+};
 
 Lamp.propTypes = {
     mode: PropTypes.oneOf(['work', 'social']),
 }
 
-export default Lamp
+export default Lamp;

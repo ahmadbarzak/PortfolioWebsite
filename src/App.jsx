@@ -1,11 +1,13 @@
 import './App.css';
-import HomePage from './components/HomePage/HomePage';
+// import HomePage from './components/HomePage/HomePage';
 import {Route, Routes, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import AboutMePage from './components/AboutMe/AboutMePage';
+// import AboutMePage from './components/AboutMe/AboutMePage';
+import AboutMePageCopy from './components/AboutMe/AboutMePageCopy';
 // import MotionAboutMeCard from './components/AboutMe/AboutMeCard';
 import ProjectsPage from './components/HomePage/ProjectsPage';
 import Tester from './components/Tester';
+import HomePageCopy from './components/HomePage/HomePageCopy';
 
 
 const App = () => {
@@ -27,10 +29,10 @@ const App = () => {
   const location = useLocation();
 
   return (
-  <AnimatePresence mode="wait">
+  <AnimatePresence mode="sync">
     <Routes location={location} key={location.key}>
-      <Route exact path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutMePage />} />
+      <Route exact path="/" element={<HomePageCopy />} />
+      <Route path="/about" element={<AboutMePageCopy />} />
       
       <Route path="/projects" element={<ProjectsPage/>} />
 

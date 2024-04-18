@@ -1,14 +1,14 @@
-import MotionRectangleSideBar from './RectangleSideBar';
+// import MotionRectangleSideBar from './RectangleSideBar';
 import MotionAboutMeCard from './AboutMeCard';
 import MotionSocialFact from './SocialFact';
 import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
-import Lamp from './Lamp';
 import { AnimatePresence } from 'framer-motion';
 import MotionBackButton from '../HomePage/BackButton';
+import MotionTriangleComponent from '../HomePage/TriangleButton';
+import Lamp from './Lamp';
 
-
-const AboutMePage = () => {
+const AboutMePageCopy = () => {
   
   const defaultStyle = {
     color: "#FFFFFF",
@@ -16,21 +16,14 @@ const AboutMePage = () => {
   }
 
   const styles = {
+    position: "relative",
     backgroundColor: "#355070",
     minHeight: '100vh',
     minWidth: '100vw',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  };
-
-  const containerVariants = {
-    hidden: {
-      opacity: 1,
-    },
-    visible: {
-      opacity: 1,
-    },
+    overflow: "hidden"
   };
 
   const cardVariants = {
@@ -41,7 +34,7 @@ const AboutMePage = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      transition: { duration: 2 },
     },
     enter: {
       y: '10vh',
@@ -61,6 +54,8 @@ const AboutMePage = () => {
   //   },
   // }
 
+  // const [overflow, setOverflow] = useState('visible')
+
   const [type, setType] = useState('social');
 
   function typeSwitch(type){
@@ -78,18 +73,34 @@ const AboutMePage = () => {
       animate="visible"
       exit={{y: '100vh'}}
       />
-      <MotionRectangleSideBar
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      orientation="left"/>
-      <MotionRectangleSideBar     
-      variants={containerVariants}
-      initial="hidden" 
-      animate="visible" 
-      orientation="right"/>
-      <Lamp mode={type}/>
 
+      <MotionTriangleComponent 
+      animate={{rotateZ: -45, overflow: "visible" }}
+      transition={{ delay: 0.4, duration: 0.45 }}
+      style={{ originX: 0.14, originY: 0.645, zIndex: 2 }}
+      text="Achievements" 
+      orientation="top-left" 
+      path="/achievements"
+      type="animator"/>
+
+
+      <MotionTriangleComponent 
+      animate={{rotateZ: -45, overflow: "visible" }}
+      transition={{ delay: 0.4, duration: 0.45}}
+      // onAnimationComplete= {
+      //   () => setOverflow("hidden")
+      // }
+      style= {{ originX: 1, originY: 0.45, zIndex: 2 }}
+      text="Work Experience" 
+      orientation="bottom-right" 
+      path="/work-experience"
+      type="animator"/>
+
+
+      <Lamp mode={type}
+      exit={{y: '100vh'}}/>
+
+      
       <MotionBackButton 
       clicked={() => console.log("Hey there!")} color="purple"/>
       <div style={{width:"100%", height:"100%", backgroundColor: "transparent"}}>
@@ -105,7 +116,7 @@ const AboutMePage = () => {
                   initial={{opacity: 0, x: direction, rotateZ: 0 }}
                   animate={{opacity: 1, x: 0, rotateZ: rotate}}
                   exit={{opacity: 0, x: direction, rotateZ: 0}}
-                  transition={{ duration: 0.4 }}
+                  transition={{duration: 0.4 }}
                   styles={ {...defaultStyle, ...fact.style} }
                   text={fact.text}
                   icon={fact.icon}
@@ -122,4 +133,4 @@ const AboutMePage = () => {
   );
 };
 
-export default AboutMePage;
+export default AboutMePageCopy;
