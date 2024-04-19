@@ -1,6 +1,6 @@
 import MotionProfileCard from './ProfileCard';
 import { motion } from 'framer-motion';
-import MotionTriangleComponent from './TriangleButton';
+import MotionTriangleComponent from '../TriangleButton';
 import { useState } from 'react';
 import MotionSquareButton from '../SquareButton';
 

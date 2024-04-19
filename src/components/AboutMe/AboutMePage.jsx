@@ -5,7 +5,7 @@ import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import MotionBackButton from '../HomePage/BackButton';
-import MotionTriangleComponent from '../HomePage/TriangleButton';
+import MotionTriangleComponent from '../TriangleButton';
 import Lamp from './Lamp';
 
 const AboutMePage = () => {
