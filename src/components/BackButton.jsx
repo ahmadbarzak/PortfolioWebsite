@@ -30,7 +30,7 @@ const BackButton = forwardRef(
     transform: "rotate(-30deg)",
     bottom: '20%',
     right: '-175%',
-    backgroundColor: '#03DAD9',
+    backgroundColor: '#6D58B7',
     display: 'flex',
     margin: 'auto',
     placeContent: 'start center',
@@ -43,17 +43,50 @@ const BackButton = forwardRef(
 
   const textStyle = {
     fontFamily: 'Roboto-Serif',
-    color: '#355070',
+    color: "#F8F8FF",
     paddingLeft: '7%',
     fontSize: '33px',
     paddingTop: '10px',
   };
 
-  if (color === "purple") {
-    diamondStyle.backgroundColor = "#6D58B7";
-    textStyle.color = "#F1E9DB";
+  let origin = {originX: 0.8, originY: 1};
+
+  if (color === "turquoise") {
+    textStyle.color = "#355070";
+    diamondStyle.backgroundColor = "#03DAD9";
+    delete containerStyle.bottom
+    delete containerStyle.right
+    containerStyle.top = 0
+    containerStyle.left = 0
+    delete diamondStyle.bottom
+    delete diamondStyle.right
+    diamondStyle.top = "20%"
+    diamondStyle.left = "-175%"
+    diamondStyle.transform = 'rotate(150deg)';
+    delete textStyle.paddingLeft
+    textStyle.paddingRight = '7%';
+    delete textStyle.paddingTop
+    textStyle.paddingBottom = '10px';
+    textStyle.transform = 'rotate(180deg)';
+
+    origin = {originX: 0.2, originY: 0};
   }
 
+
+  const motionVariants = 
+  {
+    hidden: {
+      rotateZ: 30,
+    },
+    visible: {
+      rotateZ: 0,
+      transition: {delay: 1, duration: 0.4}
+    },
+    exit: {
+      rotateZ: 30,
+      transition: {duration: 0.4}
+    }
+  }
 
   function clickHandler(){
     console.log("Back");
@@ -62,11 +95,11 @@ const BackButton = forwardRef(
 
   return (
     <motion.div 
-    initial={{rotateZ: 30 }}
-    animate={{rotateZ: 0}}
-    transition={{duration: 0.4}}
-    style={{...{originX: 0.8, originY: 1, backgroundColor:"red"}, ...containerStyle}}
-    exit={{rotateZ: 30}}
+    variants={motionVariants}
+    initial="hidden"
+    animate="visible"
+    exit="exit"
+    style={{...origin, ...containerStyle}}
     ref={ref}>
       <Link to="/" style={{ textDecoration: 'none' }} onClick={() => clickHandler()}>
         <div style={diamondStyle}>

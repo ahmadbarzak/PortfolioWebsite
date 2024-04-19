@@ -1,10 +1,9 @@
-import MotionBackButton from "../HomePage/BackButton";
+import MotionBackButton from "../BackButton";
 import MotionTriangleComponent from "../TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
-// import Achievements from "./Achievements";
 
 
 const AchievementsPage = () => {
@@ -15,21 +14,21 @@ const AchievementsPage = () => {
 
     return (
 
-        <div style={{position:"absolute", zIndex:zInd, left:0, top:0, backgroundColor:"#355070", width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <div style={{position:"absolute", zIndex:zInd, left:0, top:0, backgroundColor:"#355070", width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflow: "hidden"}}>
         
             <motion.div style={{position: "absolute", padding:0, margin:0, top:0, zIndex:1, display:"flex", alignItems:"center"}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
                 <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Achievements</motion.h1>
-                <motion.img src="medal.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                <motion.img src="achievementImages/medal.png" style={{ marginLeft:"10px", height:"90px"}}/>
             </motion.div>
 
             <motion.img
             initial={{y: "30vh", opacity: 0}}
             animate={{y: 0, opacity: 1}}
             transition={{delay: 0.5, duration: 1}}
-            src="crowd.png" style={{zIndex:1, position: "absolute", bottom:0, left:0, right:0, width:"100vw"}}/>
+            src="achievementImages/crowd.png" style={{zIndex:1, position: "absolute", bottom:0, left:0, right:0, width:"100vw"}}/>
 
 
             { achievements.map((achievement, index) => {
@@ -37,7 +36,7 @@ const AchievementsPage = () => {
                 })
             }
 
-            <MotionBackButton transition={{delay:4}} color="purple" clicked={() => console.log("Hello!")}/>
+            <MotionBackButton color="purple" clicked={() => console.log("Hello!")}/>
 
             <MotionTriangleComponent
             initial={{scale: 1}}
@@ -55,9 +54,9 @@ const AchievementsPage = () => {
 
 
             {isActivated && <MotionTriangleComponent
-            animate={{rotateZ: 45}}
-            transition={{duration: 3}}
-            style={{originX: 0.5, originY: 0.7}}
+            animate={{rotateZ: 45, overflow: "visible"}}
+            transition={{delay:0.5, duration: 1}}
+            style={{originX: 0.6, originY: 0.65}}
             onAnimationComplete={() => setIsActivated(false)}
             text="Work Experience" 
             orientation="bottom-right" 

@@ -1,4 +1,4 @@
-import MotionBackButton from "../HomePage/BackButton";
+import MotionBackButton from "../BackButton";
 import MotionTriangleComponent from "../TriangleButton";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
@@ -8,7 +8,7 @@ const ProjectsPage = () => {
   const [zInd, setzInd] = useState(-1);
 
   return (
-    <div style={{position:"absolute", left:0, top:0, backgroundColor:"#355070", zIndex:zInd, width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
+    <div style={{position:"absolute", left:0, top:0, backgroundColor:"#355070", zIndex:zInd, width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden"}}>
         
         <MotionTriangleComponent 
         animate={{rotateZ: 45, overflow: "visible"}}
@@ -20,8 +20,8 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
         
-        <MotionBackButton transition={{delay:4}} color="purple" clicked={() => console.log("Hello!")}/>
-        
+        <MotionBackButton transition={{delay:4}} color="turquoise" clicked={() => console.log("Hello!")}/>        
+
         <ProjectCard/>
 
         <MotionTriangleComponent 

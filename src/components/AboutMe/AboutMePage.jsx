@@ -4,7 +4,7 @@ import MotionSocialFact from './SocialFact';
 import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import MotionBackButton from '../HomePage/BackButton';
+import MotionBackButton from '../BackButton';
 import MotionTriangleComponent from '../TriangleButton';
 import Lamp from './Lamp';
 
@@ -79,8 +79,8 @@ const AboutMePage = () => {
       exit={{y: '100vh'}}/>
 
       
-      <MotionBackButton 
-      clicked={() => console.log("Hey there!")} color="purple"/>
+      <MotionBackButton clicked={() => console.log("Hey there!")} color="purple"/>
+
       <div style={{width:"100%", height:"100%", backgroundColor: "transparent"}}>
             <div style={{position:"absolute", top:0, width:"100%", bottom:0, overflow:"hidden"}}>
               {socialFacts.map((fact, index) => {
