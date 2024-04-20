@@ -1,0 +1,33 @@
+.profilecard {
+    position:relative;
+    width:300px;
+    height:400px;
+}
+
+.aboutme {
+    width:500;
+    line-height:0.9;
+}
+
+.aboutme p {
+    color:white;
+    font-size:65px;
+    margin:10px 0;
+    font-family:Roboto-Serif;
+}
+
+.formatter {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+}
+
+.links {
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}

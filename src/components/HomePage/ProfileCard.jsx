@@ -3,21 +3,22 @@ import ProfilePicture from './ProfilePicture';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import styles from './Styles/ProfileCard.module.css';
 
 const ProfileCard = forwardRef(({path, text}, ref) => {
 
   ProfileCard.displayName = 'ProfileCard';
 
   return (
-    <div ref={ref} style={{ position:'relative', width:'300px', height:'400px'}}>
-        <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%, -50%)', textAlign:'center'}}>
+    <div ref={ref} className={styles.profileCard}>
+        <div className = {styles.formatter}>
             <ProfilePicture path={path}/>
-            <div style={{width:500, lineHeight:0.9}}>
-              <p style={{ color:'white', fontSize:'65px', margin:'10px 0', fontFamily:'Roboto-Serif'}}>
+            <div className={styles.aboutme}>
+              <p>
                 {text}
               </p>
             </div>
-            <div style={{ marginTop:'20px', display:'flex', justifyContent:'center', alignItems:'center', gap:'20px'}}>
+            <div className={styles.links}>
                 <SocialLink iconPath="/socialLinks/gmail.png" url="mailto:ahmadmbarzak@gmail.com" />
                 <SocialLink iconPath="/socialLinks/linkedin.png" url="https://www.linkedin.com/in/abarzak/"/>
                 <SocialLink iconPath="/socialLinks/github.png" url="https://github.com/abar494"/>

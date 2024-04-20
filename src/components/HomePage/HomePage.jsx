@@ -3,16 +3,9 @@ import { motion } from 'framer-motion';
 import MotionTriangleComponent from '../TriangleButton';
 import { useState } from 'react';
 import MotionSquareButton from '../SquareButton';
+import styles from './Styles/HomePage.module.css';
 
 const HomePage = () => {
-  const styles = {
-    backgroundColor: "#355070",
-    minHeight: '100vh',
-    minWidth: '100vw',
-    display: 'flex', 
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
 
   const containerVariants = {
     hidden: {
@@ -85,7 +78,7 @@ const HomePage = () => {
   }
 
   return (
-    <motion.div style={ styles }
+    <motion.div className={styles.default}
     variants={containerVariants}
     initial="hidden"
     animate="visible">
@@ -94,17 +87,15 @@ const HomePage = () => {
       transition={{duration: 0.2}}
       />
       <MotionTriangleComponent transition={{duration:0.1}} clicked={(animType)=>exitHandler(animType)} text="Achievements" orientation="top-left" path="/achievements"/>
-      {/* <MotionTriangleComponent exit={{rotateZ: -45, overflow: "visible" }} transition={{duration: 4}} text="Achievements" orientation="top-left" path="/achievements"/> */}
-      {/* <MotionTriangleComponent exit={exitVars.animVars} transition={{duration: 0.45}} style={exitVars.animStyleRight} clicked={(animType)=>exitHandler(animType)} text="Work Experience" orientation="bottom-right" path="/work-experience"/> */}
       <MotionTriangleComponent transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} text="Work Experience" orientation="bottom-right" path="/work-experience"/>
 
-      <div style={{position: 'absolute', bottom: '10%',left: '10%'}}>
+      <div className={styles.bottomleft}>
         <MotionSquareButton 
         exit={exitVars.lSquareExit}
         transition={{duration: 0.2}}
         clicked={(animType)=>exitHandler(animType)} text="About Me" path="/about"/>
       </div>
-      <div style={{position: 'absolute', top: '10%',right: '10%'}}>
+      <div className={styles.topright}>
         <MotionSquareButton
         exit={exitVars.rSquareExit}
         transition={{duration: 0.2}}

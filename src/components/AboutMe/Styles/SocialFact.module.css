@@ -1,0 +1,21 @@
+.fact {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fact p {
+    font: roboto-serif;
+    font-size: 20px;
+}
+
+.image {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto;
+    display: block;
+    padding: 0px;
+    left: 0;
+}

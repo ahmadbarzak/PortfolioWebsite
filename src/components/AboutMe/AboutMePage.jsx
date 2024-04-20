@@ -6,25 +6,19 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import MotionBackButton from '../BackButton';
 import MotionTriangleComponent from '../TriangleButton';
+import { motion } from 'framer-motion';
 import Lamp from './Lamp';
+import styles from './Styles/AboutMePage.module.css';
 
 const AboutMePage = () => {
   
-  const defaultStyle = {
-    color: "#FFFFFF",
-    position: "absolute",
-  }
 
-  const styles = {
-    position: "relative",
-    backgroundColor: "#355070",
-    minHeight: '100vh',
-    minWidth: '100vw',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: "hidden"
-  };
+  const careerObj = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
+  "aspiring to be involved in the professional world of technology. Growing up, I was always " +
+  "interested in mathematics and technology and excited by the various problems these fields have " +
+  "bestowed upon us to solve." + "\n\n\nThese interests have ranged from machine learning and market-making " +
+  "algorithms, to growing interests in web development. I actively enjoy critical thinking, sharing" +
+  " ideas, and working as a team to contribute to projects that translate to real-world impacts"
 
   const cardVariants = {
     hidden: {
@@ -46,10 +40,9 @@ const AboutMePage = () => {
 
 
   return (
-    <div style={styles}>
+    <div className={styles.container}>
       <MotionAboutMeCard
       onLightClicked = {(type) => typeSwitch(type)}
-      style={{position: "absolute", top:"0%"}}
       variants={cardVariants}
       initial="hidden"
       animate="visible"
@@ -81,13 +74,11 @@ const AboutMePage = () => {
       
       <MotionBackButton clicked={() => console.log("Hey there!")} color="purple"/>
 
-      <div style={{width:"100%", height:"100%", backgroundColor: "transparent"}}>
-            <div style={{position:"absolute", top:0, width:"100%", bottom:0, overflow:"hidden"}}>
+      <div className={styles.background}>
+            <div className={styles.formatter}>
               {socialFacts.map((fact, index) => {
-                
                 let direction = index % 2 === 0 ? "-100vw" : '100vw'
                 let rotate = fact.rotate ? fact.rotate : 0;
-                
                 return (
                   <AnimatePresence key={index}>
                   {type === "social" && <MotionSocialFact 
@@ -95,7 +86,7 @@ const AboutMePage = () => {
                   animate={{opacity: 1, x: 0, rotateZ: rotate}}
                   exit={{opacity: 0, x: direction, rotateZ: 0}}
                   transition={{duration: 0.4 }}
-                  styles={ {...defaultStyle, ...fact.style} }
+                  styleProps={{...{color:"#FFFFFF", position:"absolute"}, ...fact.style}}
                   text={fact.text}
                   icon={fact.icon}
                   orientation={fact.orientation}
@@ -104,6 +95,35 @@ const AboutMePage = () => {
                 </AnimatePresence>
                 );
               })}
+
+
+              <AnimatePresence>
+                {type === "work" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: "100vh" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: "100vh" }}
+                    transition={{ duration: 0.4 }}
+                    className={`${styles.defaultStyle}  ${styles.worktext} ${styles.left}`}
+                    mode={type}
+                  >
+                    {careerObj}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+
+              <AnimatePresence>
+                  {type === "work" && <motion.div 
+                  initial={{opacity: 0, y: "-100vh"}}
+                  animate={{opacity: 1, y: 0}}
+                  exit={{opacity: 0, y: "-100vh"}}
+                  transition={{duration: 0.4 }}
+                  className={`${styles.defaultStyle} ${styles.worktext} ${styles.right}`}
+                  mode={type}>Insert More Text Here</motion.div>
+                  }
+              </AnimatePresence>
+              
             </div>
       </div>
     </div>

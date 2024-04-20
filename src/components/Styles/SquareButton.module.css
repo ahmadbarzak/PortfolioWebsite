@@ -1,0 +1,18 @@
+.square {
+    background-color: #BB86FC;
+    color: #F8F8FF;
+      padding: 5px 5px;
+      text-align: center;
+      height: 40px;
+      width: 130px;
+      text-decoration: none;
+      display: flex;
+      font-size: 24px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 0;
+      border: 2px solid #FFFFFF;
+      font-family: Roboto-Serif;
+      justify-content: center;
+      align-items: center;
+}

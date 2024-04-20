@@ -1,0 +1,66 @@
+.container {
+    position: absolute;
+    background-color: transparent;
+    z-index: 3;
+    display: flex;
+    width: 1200px;
+    height: 500px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.container.purple {
+    bottom: 0;
+    right: 0;
+}
+
+.container.turquoise {
+    top: 0;
+    left: 0;
+}
+
+.diamond {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    place-content: start center;
+    justify-content: left;
+    align-items: flex-start;
+    pointer-events: auto;
+    border: 5px solid white;
+}
+
+.diamond.purple {
+    bottom: 20%;
+    right: -175%;
+    transform: rotate(-30deg);
+    background-color: #6D58B7;
+}
+
+.diamond.turquoise {
+    top: 20%;
+    left: -175%;
+    transform: rotate(150deg);
+    background-color: #03DAD9;
+
+}
+
+.text {
+    font-family: Roboto-Serif;
+    font-size: 33px;
+}
+
+.text.purple {
+    padding-left: 7%;
+    color: #F8F8FF;
+    padding-top: 10px;
+}
+
+.text.turquoise {
+    color: #355070;
+    padding-bottom: 10px;
+    padding-right: 7%;
+    transform: rotate(180deg);
+}

@@ -1,0 +1,26 @@
+.divStyle {
+    left:50%;
+    max-height: 100vh;
+    transform:translate(-50%, 0%);
+    top:0;
+    bottom:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    position:absolute;
+    margin:0;
+    overflow:hidden;
+}
+
+.ceilLamp {
+    transform:translate(80%, 0%);
+    height:230px;
+    width:150px;
+}
+
+.lampLight {
+    transform:translate(35%, 0%);
+    height:500px;
+    width:330px;
+}

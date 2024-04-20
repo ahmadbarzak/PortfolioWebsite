@@ -1,37 +1,26 @@
 import { PropTypes } from 'prop-types';
 import { forwardRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import styles from './Styles/SocialFact.module.css';
 
-const SocialFact = forwardRef(({styles, text, icon, orientation, mode}, ref) => {
 
-    const imgStyles = {
-        width: '36px',
-        height: '36px',
-        margin: '0 auto',
-        display: 'block',
-    }
+const SocialFact = forwardRef(({styleProps, text, icon, orientation, mode}, ref) => {
 
-    const style = {
-        width: '300px',
-        height: '100px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-
-    const combinedStyles = {...style, ...styles};
-
-    if (orientation === 'right') {
-        combinedStyles.flexDirection = 'row-reverse';
-    }
+    styleProps.flexDirection = orientation === 'left' ? 'row' : 'row-reverse';
 
     return (
         <AnimatePresence>
-        { mode === "social" && <motion.div
-        exit={{opacity: 0}} transition={{duration: 0.2}} ref={ref} style={combinedStyles}>
-            <p style={{font:"roboto-serif" , fontSize: "20px"}}> {text}</p>
-            {icon!==undefined && <img style={{...imgStyles, ...{padding: "0px", margin: 0, left: 0}}} src={icon}/>}
-        </motion.div>
+        { mode === "social" && 
+            <motion.div
+                exit={{opacity: 0}}
+                transition={{duration: 0.2}}
+                ref={ref}
+                className={styles.fact}
+                style={styleProps}
+            >
+                <p>{text}</p>
+                {icon!==undefined && <img className={styles.image} src={icon}/>}
+            </motion.div>
         }
         </AnimatePresence>
     );
@@ -40,7 +29,7 @@ const SocialFact = forwardRef(({styles, text, icon, orientation, mode}, ref) => 
 SocialFact.displayName = 'SocialFact';
 
 SocialFact.propTypes = {
-        styles: PropTypes.object,
+        styleProps: PropTypes.object,
         text: PropTypes.string.isRequired,
         icon: PropTypes.string,
         orientation: PropTypes.oneOf(['left', 'right']),

@@ -1,0 +1,64 @@
+.container {
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    width: 1200px;
+    height: 500px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.container.topleft {
+    top: 0;
+    left: 0;
+}
+
+.container.bottomright {
+    bottom: 0;
+    right: 0;
+}
+
+.diamond {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    place-content: start center;
+    justify-content: left;
+    align-items: flex-start;
+    pointer-events: auto;
+    border: 5px solid white;
+}
+
+.diamond.topleft {
+    top: 56%;
+    left: -146%;
+    transform: rotate(135deg);
+    background-color: #6D58B7;
+}
+
+.diamond.bottomright {
+    transform: rotate(-45deg);
+    bottom: 70%;
+    right: -150%;
+    background-color: #03DAD9;
+}
+
+.text {
+    font-family: Roboto-Serif;
+    font-size: 50px;
+}
+
+.text.topleft {
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    padding-right: 12%;
+    transform: rotate(180deg);
+}
+
+.text.bottomright {
+    color: #355070;
+    padding-left: 7%;
+    padding-top: 10px;
+}

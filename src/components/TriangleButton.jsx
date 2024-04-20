@@ -2,74 +2,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
+import styles from './Styles/TriangleButton.module.css';
 
 
 const TriangleButton = forwardRef(
   ({ text, orientation, path, clicked, type}, ref) => {
-
-  const containerStyle = {
-    position: 'absolute',
-    backgroundColor: "transparent",
-    // transformOrigin: '100% 46%',
-    // transformOrigin: '100% 37%',
-    bottom: 0,
-    right: 0,
-    display: 'flex',
-    width: '1200px',
-    height: '500px',
-    overflow: 'hidden',
-    pointerEvents: 'none', 
-  };
-
-  const diamondStyle = {
-    position: 'absolute',
-    width: '200%',
-    height: '100%',
-    // bottom: '-53%',
-    bottom: '70%',
-    right: '-150%',
-    backgroundColor: '#03DAD9',
-    transform: 'rotate(-45deg)',
-    display: 'flex',
-    margin: 'auto',
-    placeContent: 'start center',
-    justifyContent: 'left',
-    alignItems: 'flex-start',
-    pointerEvents: 'auto',
-    border: '5px solid white',
-    
-  };
-
-  const textStyle = {
-    fontFamily: 'Roboto-Serif',
-    color: '#355070',
-    paddingLeft: '7%',
-    fontSize: '50px',
-    paddingTop: '10px',
-  };
-
-  if (orientation === "top-left") {
-    delete containerStyle.bottom;
-    delete containerStyle.right;
-    containerStyle.top = 0;
-    containerStyle.left = 0;
-    // containerStyle.transformOrigin = '10% 58%';
-    // containerStyle.transformOrigin = '10% 67%';
-    delete diamondStyle.bottom;
-    delete diamondStyle.right;
-    diamondStyle.top = '56%';
-    diamondStyle.left = '-146%';
-    diamondStyle.height = '100%';
-    diamondStyle.width = '200%';
-    diamondStyle.transform = 'rotate(135deg)';
-    diamondStyle.backgroundColor = '#6D58B7'
-    delete textStyle.paddingTop;
-    delete textStyle.paddingLeft;
-    textStyle.transform = 'rotate(180deg)';
-    textStyle.paddingBottom = '10px';
-    textStyle.color = "#FFFFFF";
-    textStyle.paddingRight="12%";
-  }
+  
+  const position = orientation === "top-left" ? styles.topleft : styles.bottomright;
 
   let containerVariants = {
     initial: {
@@ -106,14 +45,14 @@ const TriangleButton = forwardRef(
   }
 
   return (
-    <div style={containerStyle} ref={ref}>
+    <div className={`${styles.container} ${position}`} ref={ref}>
       <Link to={path} style={{ textDecoration: 'none' }} onClick={() => clickHandler()}>
-        <div style={diamondStyle}>
+        <div className={`${styles.diamond} ${position}`}>
           <motion.span 
           variants={containerVariants}
           initial="initial"
           animate="animate"
-          style={textStyle}>{text}</motion.span>
+          className={`${styles.text} ${position}`}>{text}</motion.span>
         </div>
       </Link>
     </div>

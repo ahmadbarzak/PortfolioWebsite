@@ -1,0 +1,15 @@
+.card {
+    width: 400px;
+    height:330px;
+    background-color:#344070;
+    border: 5px solid white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card span {
+    color:white;
+    font-size:36px;
+    font-family:roboto-serif;
+}

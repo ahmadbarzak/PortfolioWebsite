@@ -1,37 +1,21 @@
 import { PropTypes } from 'prop-types';
+import styles from './Styles/LightSwitch.module.css';
 
 
-const LightSwitch = ({mode, clicked, style}) => {
+const LightSwitch = ({mode, clicked}) => {
 
     let lightImg = "/lightSwitch/Work.png";
 
-    const lightStyles = {
-        position: 'relative',
-        height: '200px',
-        width: '200px',
-        zIndex: 2,
-    }
-
-
-    const switchStyles = {
-        position: 'absolute',
-        width: '29.6%',
-        height: '22%',
-        left: '37%',
-        top: '28%',
-    }
-
+    let classMode = styles.work;
     if (mode === "social") {
         lightImg = "/lightSwitch/Social.png";
-        switchStyles.top = '50%';
+        classMode = styles.social;
     }
 
-    const combinedStyles = { ...lightStyles, ...style };
-
     return (
-    <div style={combinedStyles}>
-        <img style={{height:'100%', width:'100%'}} src={lightImg} alt="LightSwitch" />
-        <div onClick={clicked} style={{...switchStyles}}></div>
+    <div className={styles.light}>
+        <img className={styles.img} src={lightImg} alt="LightSwitch" />
+        <div onClick={clicked} className={`${styles.switch} ${classMode}`}></div>
     </div>
     )
 }

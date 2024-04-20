@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
-
+import styles from './Styles/AchievementsPage.module.css';
 
 const AchievementsPage = () => {
 
@@ -13,22 +13,20 @@ const AchievementsPage = () => {
     const [rotate, setRotate] = useState(0);
 
     return (
-
-        <div style={{position:"absolute", zIndex:zInd, left:0, top:0, backgroundColor:"#355070", width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflow: "hidden"}}>
-        
-            <motion.div style={{position: "absolute", padding:0, margin:0, top:0, zIndex:1, display:"flex", alignItems:"center"}}
+        <div className={styles.background} style={{ zIndex: zInd }}>
+            <motion.div className={styles.title}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
-                <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Achievements</motion.h1>
-                <motion.img src="achievementImages/medal.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                <motion.h1>Achievements</motion.h1>
+                <motion.img src="achievementImages/medal.png"/>
             </motion.div>
 
             <motion.img
             initial={{y: "30vh", opacity: 0}}
             animate={{y: 0, opacity: 1}}
             transition={{delay: 0.5, duration: 1}}
-            src="achievementImages/crowd.png" style={{zIndex:1, position: "absolute", bottom:0, left:0, right:0, width:"100vw"}}/>
+            src="achievementImages/crowd.png" className={styles.crowd}/>
 
 
             { achievements.map((achievement, index) => {
