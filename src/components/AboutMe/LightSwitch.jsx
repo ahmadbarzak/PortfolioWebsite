@@ -4,11 +4,11 @@ import styles from '../../Styles/AboutMe/LightSwitch.module.css';
 
 const LightSwitch = ({mode, clicked}) => {
 
-    let lightImg = "/lightSwitch/Work.png";
+    let lightImg = "aboutMeImages/lightSwitch/Work.png";
 
     let classMode = styles.work;
     if (mode === "social") {
-        lightImg = "/lightSwitch/Social.png";
+        lightImg = "aboutMeImages/lightSwitch/Social.png";
         classMode = styles.social;
     }
 

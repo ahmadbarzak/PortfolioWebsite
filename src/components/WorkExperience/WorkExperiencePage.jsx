@@ -18,7 +18,7 @@ const WorkExperiencePage = () => {
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
                 <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Work Experience</motion.h1>
-                <motion.img src="briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                <motion.img src="workExperienceImages/briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
             </motion.div>
 
             <MotionBackButton color="turquoise" clicked={() => console.log("Hello!")}/>

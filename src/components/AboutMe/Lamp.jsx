@@ -42,7 +42,7 @@ const Lamp = ({mode}, ref) => {
         animate="visible"
          ref={ref} className = { styles.divStyle }>
             <div className={ styles.ceilLamp }>
-                <img src="/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
+                <img src="aboutMeImages/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
             </div>
             <AnimatePresence>
                 {mode==='work' && <motion.div
@@ -51,7 +51,7 @@ const Lamp = ({mode}, ref) => {
                 animate="work"
                 exit="social"
                 className={ styles.lampLight }>
-                    <img src="/lightSwitch/lampLight.png" style={{width:"95%"}}/>
+                    <img src="aboutMeImages/lightSwitch/lampLight.png" style={{width:"95%"}}/>
                 </motion.div>}
             </AnimatePresence>
         </motion.div>

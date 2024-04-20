@@ -2,7 +2,7 @@
     "socialFacts": [
         {
             "text": "Beat Chess Grandmaster (after 63 tries)",
-            "icon": "socialFactImages/king.png",
+            "icon": "aboutMeImages/socialFactImages/king.png",
             "orientation": "left",
             "style": {
                 "left": "8%",
@@ -20,7 +20,7 @@
         },
         {
             "text": "Love Squash and Badminton",
-            "icon": "socialFactImages/racket.png",
+            "icon": "aboutMeImages/socialFactImages/racket.png",
             "orientation": "left",
             "style": {
                 "left": "12%",
@@ -31,7 +31,7 @@
         },
         {
             "text": "Went to Egypt but haven't seen the pyramids",
-            "icon": "socialFactImages/pyramid.png",
+            "icon": "aboutMeImages/socialFactImages/pyramid.png",
             "orientation": "left",
             "style": {
                 "left": "7%",
@@ -57,7 +57,7 @@
         },
         {
             "text": "Mario Kart Addict",
-            "icon": "socialFactImages/kart.png",
+            "icon": "aboutMeImages/socialFactImages/kart.png",
             "orientation": "right",
             "style": {
                 "left": "30%",
@@ -75,7 +75,7 @@
         },
         {
             "text": "Tech is real cool",
-            "icon": "socialFactImages/robo.png",
+            "icon": "aboutMeImages/socialFactImages/robo.png",
             "orientation": "left",
             "style": {
                 "left": "70%",
@@ -93,7 +93,7 @@
         },
         {
             "text": "Migoreng diet",
-            "icon": "socialFactImages/noods.png",
+            "icon": "aboutMeImages/socialFactImages/noods.png",
             "orientation": "right",
             "style": {
                 "left": "70%",
@@ -111,7 +111,7 @@
         },
         {
             "text": "Will buy you food",
-            "icon": "socialFactImages/gift.png",
+            "icon": "aboutMeImages/socialFactImages/gift.png",
             "orientation": "left",
             "style": {
                 "left": "67%",

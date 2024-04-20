@@ -82,7 +82,7 @@ const HomePage = () => {
     variants={containerVariants}
     initial="hidden"
     animate="visible">
-      <MotionProfileCard path="ahmad.jpg" text="Hi there, I&apos;m Ahmad Barzak :&#41;"
+      <MotionProfileCard path="homePageImages/ahmad.jpg" text="Hi there, I&apos;m Ahmad Barzak :&#41;"
       exit={exitVars.cardExit}
       transition={{duration: 0.2}}
       />

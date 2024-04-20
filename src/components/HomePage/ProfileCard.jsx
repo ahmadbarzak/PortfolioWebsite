@@ -19,9 +19,9 @@ const ProfileCard = forwardRef(({path, text}, ref) => {
               </p>
             </div>
             <div className={styles.links}>
-                <SocialLink iconPath="/socialLinks/gmail.png" url="mailto:ahmadmbarzak@gmail.com" />
-                <SocialLink iconPath="/socialLinks/linkedin.png" url="https://www.linkedin.com/in/abarzak/"/>
-                <SocialLink iconPath="/socialLinks/github.png" url="https://github.com/abar494"/>
+                <SocialLink iconPath="homePageImages/socialLinks/gmail.png" url="mailto:ahmadmbarzak@gmail.com" />
+                <SocialLink iconPath="homePageImages/socialLinks/linkedin.png" url="https://www.linkedin.com/in/abarzak/"/>
+                <SocialLink iconPath="homePageImages/socialLinks/github.png" url="https://github.com/abar494"/>
             </div>
         </div>
     </div>
