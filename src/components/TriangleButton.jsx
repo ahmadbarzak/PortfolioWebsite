@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
-import styles from './Styles/TriangleButton.module.css';
+import styles from '../Styles/Misc/TriangleButton.module.css';
 
 
 const TriangleButton = forwardRef(

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
-import styles from './Styles/BackButton.module.css';
+import styles from '../Styles/Misc/BackButton.module.css';
 
 
 const BackButton = forwardRef(

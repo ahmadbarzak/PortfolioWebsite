@@ -3,7 +3,7 @@ import ProfilePicture from './ProfilePicture';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import styles from './Styles/ProfileCard.module.css';
+import styles from '../../Styles/HomePage/ProfileCard.module.css';
 
 const ProfileCard = forwardRef(({path, text}, ref) => {
 

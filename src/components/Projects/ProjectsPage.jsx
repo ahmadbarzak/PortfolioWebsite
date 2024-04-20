@@ -2,7 +2,7 @@ import MotionBackButton from "../BackButton";
 import MotionTriangleComponent from "../TriangleButton";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import styles from "./Styles/ProjectsPage.module.css";
+import styles from '../../Styles/Projects/ProjectsPage.module.css';
 
 const ProjectsPage = () => {
 

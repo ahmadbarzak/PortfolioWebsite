@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { PropTypes } from 'prop-types';
-import styles from "./Styles/Achievement.module.css"
+import styles from '../../Styles/Achievements/Achievement.module.css';
 
 const Achievement = ({direction, achievement, top}) => {
 

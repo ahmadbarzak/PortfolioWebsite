@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
-import styles from './Styles/Lamp.module.css'
+import styles from '../../Styles/AboutMe/Lamp.module.css';
 
 const Lamp = ({mode}, ref) => {
 

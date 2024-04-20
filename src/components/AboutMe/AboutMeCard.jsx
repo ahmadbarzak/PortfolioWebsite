@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import LightSwitch from './LightSwitch';
 import PropTypes from 'prop-types';
 import { forwardRef, useState } from 'react';
-import styles from './Styles/AboutMeCard.module.css';
+import styles from '../../Styles/AboutMe/AboutMeCard.module.css';
 
 const AboutMeCard = forwardRef(({onLightClicked}, ref) => {
 

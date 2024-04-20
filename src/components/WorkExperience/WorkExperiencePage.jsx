@@ -2,7 +2,7 @@ import MotionBackButton from "../BackButton";
 import MotionTriangleComponent from "../TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import styles from "./Styles/WorkExperiencePage.module.css";
+import styles from '../../Styles/WorkExperience/WorkExperiencePage.module.css';
 
 const WorkExperiencePage = () => {
 

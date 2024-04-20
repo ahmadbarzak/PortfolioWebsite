@@ -1,5 +1,5 @@
 import {PropTypes} from 'prop-types';
-import styles from './Styles/ProfilePicture.module.css';
+import styles from '../../Styles/HomePage/ProfilePicture.module.css';
 
 const ProfilePicture = ({path}) => {
 

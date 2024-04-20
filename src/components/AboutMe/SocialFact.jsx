@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { forwardRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import styles from './Styles/SocialFact.module.css';
+import styles from '../../Styles/AboutMe/SocialFact.module.css';
 
 
 const SocialFact = forwardRef(({styleProps, text, icon, orientation, mode}, ref) => {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
-import styles from './Styles/AchievementsPage.module.css';
+import styles from '../../Styles/Achievements/AchievementsPage.module.css';
 
 const AchievementsPage = () => {
 

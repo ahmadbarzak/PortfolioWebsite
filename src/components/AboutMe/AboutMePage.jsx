@@ -8,7 +8,7 @@ import MotionBackButton from '../BackButton';
 import MotionTriangleComponent from '../TriangleButton';
 import { motion } from 'framer-motion';
 import Lamp from './Lamp';
-import styles from './Styles/AboutMePage.module.css';
+import styles from '../../Styles/AboutMe/AboutMePage.module.css';
 
 const AboutMePage = () => {
   

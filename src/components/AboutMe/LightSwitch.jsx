@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import styles from './Styles/LightSwitch.module.css';
+import styles from '../../Styles/AboutMe/LightSwitch.module.css';
 
 
 const LightSwitch = ({mode, clicked}) => {

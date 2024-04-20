@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Styles/SquareButton.module.css';
+import styles from '../Styles/Misc/SquareButton.module.css';
 
 const SquareButton = forwardRef(({ text, path, clicked }, ref) => {
 

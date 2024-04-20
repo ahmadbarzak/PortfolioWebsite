@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import MotionTriangleComponent from '../TriangleButton';
 import { useState } from 'react';
 import MotionSquareButton from '../SquareButton';
-import styles from './Styles/HomePage.module.css';
+import styles from '../../Styles/HomePage/HomePage.module.css';
 
 const HomePage = () => {
 
