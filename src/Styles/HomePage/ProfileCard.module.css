@@ -1,7 +1,8 @@
 .profilecard {
-    position:relative;
-    width:300px;
-    height:400px;
+    position: relative;
+    width: 200px;
+    height: 400px;
+    background-color: red;
 }
 
 .aboutme {
@@ -12,16 +13,16 @@
 .aboutme p {
     color:white;
     /* font-size:65px; */
-    font-size: max(min(65px, 6vw), 50px);
+    font-size: calc(max(min(65px, 6vw), 50px) - 40px + 5vh);
     margin:10px 0;
     font-family:Roboto-Serif;
 }
 
 .formatter {
-    position:absolute;
-    top:50%;
+    /* position:absolute; */
+    /* top:50%;
     left:50%;
-    transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%); */
     text-align:center;
 }
 

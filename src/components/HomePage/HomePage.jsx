@@ -4,8 +4,12 @@ import TriangleButton from '../Misc/TriangleButton';
 import { useState } from 'react';
 import SquareButton from '../Misc/SquareButton';
 import styles from '../../Styles/HomePage/HomePage.module.css';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const HomePage = () => {
+
+
+  const isDesktop = useMediaQuery('(min-width: 800px)');
 
   const containerVariants = {
     hidden: {
@@ -77,12 +81,15 @@ const HomePage = () => {
     }
   }
 
+
+  
+
   return (
     <motion.div className={styles.default}
     variants={containerVariants}
     initial="hidden"
     animate="visible">
-      <ProfileCard path="homePageImages/ahmad.jpg" text="Hi there, I&apos;m Ahmad Barzak :&#41;"
+      <ProfileCard path="homePageImages/ahmad.jpg" text={isDesktop ? "Hi there, I'm Ahmad Barzak :)" : "Hi!"}
       exit={exitVars.cardExit}
       transition={{duration: 0.2}}
       />
