@@ -1,6 +1,7 @@
 .profile {
-    width: 280;
-    height: 280;
+    width: max(min(300px, 25vw), 250px);
+    /* height: 300px; */
+    height: max(min(300px, 25vw), 250px);
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid white;

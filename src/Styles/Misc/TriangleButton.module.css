@@ -23,9 +23,10 @@
     /* width: 200%; */
     /* width: 3000px; */
     /* width: 200vw; */
+    /* width: max(min(200%, 420vh), 185%); */
     width: 200%;
     /* height: 100%; */
-    height: max(min(70vw, 100%), 85%);
+    height: calc(max(min(70vw, 100%) - 27% + 15vh, 82%));
     display: flex;
     margin: auto;
     background-color: red;
@@ -52,20 +53,20 @@
 
 .text {
     font-family: Roboto-Serif;
-    font-size: min(50px, 6vw);
+    font-size: calc(max(min(50px, 6vw) - 25px + 3vh, 30px));
     /* font-size: 50px; */
 }
 
 .text.topleft {
     padding-bottom: 10px;
     color: #FFFFFF;
-    padding-right: calc(24% - min(12%, 38vw));
+    padding-right: calc(min(28% - min(12%, 38vw) - 8.5vh, 16%));
     transform: rotate(180deg);
 }
 
 .text.bottomright {
     color: #355070;
     padding-left: 9%;
-    padding-left: calc(18% - min(9%, 25vw));
+    padding-left: calc(min(16% - min(9%, 30vw) + 7% - 10vh, 13%));
     padding-top: 10px;
 }

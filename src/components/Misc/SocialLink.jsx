@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import styles from "../../Styles/Misc/SocialLink.module.css";
 
 const SocialLink = ({ iconPath, url, onClick }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" onClick={onClick}>
-      <img src={iconPath} alt="Social Icon" style={{ width: '50px', height: '50px' }} />
+      <img src={iconPath} alt="Social Icon" className={styles.link} />
     </a>
   );
 };

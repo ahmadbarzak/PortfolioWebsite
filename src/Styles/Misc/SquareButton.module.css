@@ -3,11 +3,11 @@
     color: #F8F8FF;
       padding: 5px 5px;
       text-align: center;
-      height: 40px;
-      width: 130px;
+      height: max(min(40px, 5vw), 30px);
+      width: max(min(130px, 15vw), 110px);
       text-decoration: none;
       display: flex;
-      font-size: 24px;
+      font-size: max(min(24px, 3vw), 20px);
       margin: 4px 2px;
       cursor: pointer;
       border-radius: 0;

@@ -1,0 +1,4 @@
+.link {
+    width: max(min(50px, 5vw), 40px);
+    height: max(min(50px, 5vw), 40px);
+}

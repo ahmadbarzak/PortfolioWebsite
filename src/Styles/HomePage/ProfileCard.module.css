@@ -11,7 +11,8 @@
 
 .aboutme p {
     color:white;
-    font-size:65px;
+    /* font-size:65px; */
+    font-size: max(min(65px, 6vw), 50px);
     margin:10px 0;
     font-family:Roboto-Serif;
 }
