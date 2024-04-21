@@ -22,7 +22,7 @@ const App = () => {
       
       <div style={{display:"flex", flexDirection:"row"}} >
       {[1,2,3,4,5].map((i) => {
-          return <img src="gifycat.gif" style={{width: "325px", height:"100%",
+          return <img src="miscImages/gifycat.gif" style={{width: "325px", height:"100%",
           transform: i%2===0 ? "rotate(180deg)":"rotate(0deg)"}} key={i}/>
       })} </div>
 
