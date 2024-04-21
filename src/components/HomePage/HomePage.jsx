@@ -1,8 +1,8 @@
-import MotionProfileCard from './ProfileCard';
+import ProfileCard from './ProfileCard';
 import { motion } from 'framer-motion';
-import MotionTriangleComponent from '../TriangleButton';
+import TriangleButton from '../Misc/TriangleButton';
 import { useState } from 'react';
-import MotionSquareButton from '../SquareButton';
+import SquareButton from '../Misc/SquareButton';
 import styles from '../../Styles/HomePage/HomePage.module.css';
 
 const HomePage = () => {
@@ -64,8 +64,8 @@ const HomePage = () => {
         rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}
       });
     }
-    else if (animType === "Work Experience") {
-      console.log("Work Experience")
+    else if (animType === "Experience") {
+      console.log("Experience")
       setExitVars({
         animVars: {rotateZ: 45, overflow: "visible" },
         animStyleLeft: {},
@@ -82,21 +82,21 @@ const HomePage = () => {
     variants={containerVariants}
     initial="hidden"
     animate="visible">
-      <MotionProfileCard path="homePageImages/ahmad.jpg" text="Hi there, I&apos;m Ahmad Barzak :&#41;"
+      <ProfileCard path="homePageImages/ahmad.jpg" text="Hi there, I&apos;m Ahmad Barzak :&#41;"
       exit={exitVars.cardExit}
       transition={{duration: 0.2}}
       />
-      <MotionTriangleComponent transition={{duration:0.1}} clicked={(animType)=>exitHandler(animType)} text="Achievements" orientation="top-left" path="/achievements"/>
-      <MotionTriangleComponent transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} text="Work Experience" orientation="bottom-right" path="/work-experience"/>
+      <TriangleButton transition={{duration:0.1}} clicked={(animType)=>exitHandler(animType)} text="Achievements" orientation="top-left" path="/achievements"/>
+      <TriangleButton transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} text="Experience" orientation="bottom-right" path="/experience"/>
 
       <div className={styles.bottomleft}>
-        <MotionSquareButton 
+        <SquareButton 
         exit={exitVars.lSquareExit}
         transition={{duration: 0.2}}
         clicked={(animType)=>exitHandler(animType)} text="About Me" path="/about"/>
       </div>
       <div className={styles.topright}>
-        <MotionSquareButton
+        <SquareButton
         exit={exitVars.rSquareExit}
         transition={{duration: 0.2}}
         clicked={(animType)=>exitHandler(animType)} text="Projects" path="/projects"/>

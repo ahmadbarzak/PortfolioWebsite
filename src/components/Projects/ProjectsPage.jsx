@@ -1,5 +1,5 @@
-import MotionBackButton from "../BackButton";
-import MotionTriangleComponent from "../TriangleButton";
+import BackButton from "../Misc/BackButton";
+import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import styles from '../../Styles/Projects/ProjectsPage.module.css';
@@ -11,7 +11,7 @@ const ProjectsPage = () => {
   return (
     <div className={styles.page} style={{zIndex:zInd}}>
         
-        <MotionTriangleComponent 
+        <TriangleButton 
         animate={{rotateZ: 45, overflow: "visible"}}
         transition={{ delay: 0.4, duration: 0.45}}
         onAnimationComplete={() => setzInd(0)}
@@ -21,17 +21,17 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
         
-        <MotionBackButton transition={{delay:4}} color="turquoise" clicked={() => console.log("Hello!")}/>        
+        <BackButton transition={{delay:4}} color="turquoise" clicked={() => console.log("Hello!")}/>        
 
         <ProjectCard/>
 
-        <MotionTriangleComponent 
+        <TriangleButton 
         animate={{rotateZ: 45, overflow: "visible" }}
         transition={{ delay: 0.4, duration: 0.45}}
         style= {{ originX: 0.35, originY: -1.96, zIndex: 2 }}
-        text="Work Experience" 
+        text="Experience" 
         orientation="bottom-right" 
-        path="/work-experience"
+        path="/experience"
         type="animator"/>
 
     </div>

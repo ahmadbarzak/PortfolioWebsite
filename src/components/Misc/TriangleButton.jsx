@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
-import styles from '../Styles/Misc/TriangleButton.module.css';
+import styles from '../../Styles/Misc/TriangleButton.module.css';
 
 
-const TriangleButton = forwardRef(
+const TriangleButtonComponent = forwardRef(
   ({ text, orientation, path, clicked, type}, ref) => {
   
   const position = orientation === "top-left" ? styles.topleft : styles.bottomright;
@@ -60,9 +60,9 @@ const TriangleButton = forwardRef(
 
 })
 
-TriangleButton.displayName = 'TriangleButton';
+TriangleButtonComponent.displayName = 'TriangleButton';
 
-TriangleButton.propTypes = {
+TriangleButtonComponent.propTypes = {
   text: PropTypes.string.isRequired,
   orientation: PropTypes.oneOf(['top-left', 'bottom-right']),
   path: PropTypes.string,
@@ -70,6 +70,6 @@ TriangleButton.propTypes = {
   type: PropTypes.oneOf(['viewer', 'animator']),
 };
 
-const MotionTriangleComponent = motion(TriangleButton, { forwardMotionProps: true })
+const TriangleButton = motion(TriangleButtonComponent, { forwardMotionProps: true })
 
-export default MotionTriangleComponent;
+export default TriangleButton;

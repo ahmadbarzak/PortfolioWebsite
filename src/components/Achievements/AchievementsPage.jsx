@@ -1,5 +1,5 @@
-import MotionBackButton from "../BackButton";
-import MotionTriangleComponent from "../TriangleButton";
+import BackButton from "../Misc/BackButton";
+import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Achievement from "./Achievement";
@@ -34,9 +34,9 @@ const AchievementsPage = () => {
                 })
             }
 
-            <MotionBackButton color="purple" clicked={() => console.log("Hello!")}/>
+            <BackButton color="purple" clicked={() => console.log("Hello!")}/>
 
-            <MotionTriangleComponent
+            <TriangleButton
             initial={{scale: 1}}
             animate={{scaleX: 4.3, scaleY: 2.25, rotateZ: rotate}}
             transition={{delay:0.5, duration: 1}}
@@ -51,14 +51,14 @@ const AchievementsPage = () => {
             type="animator"/>
 
 
-            {isActivated && <MotionTriangleComponent
+            {isActivated && <TriangleButton
             animate={{rotateZ: 45, overflow: "visible"}}
             transition={{delay:0.5, duration: 1}}
             style={{originX: 0.6, originY: 0.65}}
             onAnimationComplete={() => setIsActivated(false)}
-            text="Work Experience" 
+            text="Experience" 
             orientation="bottom-right" 
-            path="/work-experience"
+            path="/experience"
             type="animator"/>}
 
         </div>

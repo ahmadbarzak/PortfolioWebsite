@@ -20,10 +20,15 @@
 
 .diamond {
     position: absolute;
+    /* width: 200%; */
+    /* width: 3000px; */
+    /* width: 200vw; */
     width: 200%;
-    height: 100%;
+    /* height: 100%; */
+    height: max(min(70vw, 100%), 85%);
     display: flex;
     margin: auto;
+    background-color: red;
     place-content: start center;
     justify-content: left;
     align-items: flex-start;
@@ -47,18 +52,20 @@
 
 .text {
     font-family: Roboto-Serif;
-    font-size: 50px;
+    font-size: min(50px, 6vw);
+    /* font-size: 50px; */
 }
 
 .text.topleft {
     padding-bottom: 10px;
     color: #FFFFFF;
-    padding-right: 12%;
+    padding-right: calc(24% - min(12%, 38vw));
     transform: rotate(180deg);
 }
 
 .text.bottomright {
     color: #355070;
-    padding-left: 7%;
+    padding-left: 9%;
+    padding-left: calc(18% - min(9%, 25vw));
     padding-top: 10px;
 }

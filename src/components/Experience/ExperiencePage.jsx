@@ -1,10 +1,10 @@
-import MotionBackButton from "../BackButton";
-import MotionTriangleComponent from "../TriangleButton";
+import BackButton from "../Misc/BackButton";
+import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import styles from '../../Styles/WorkExperience/WorkExperiencePage.module.css';
+import styles from '../../Styles/Experience/ExperiencePage.module.css';
 
-const WorkExperiencePage = () => {
+const ExperiencePage = () => {
 
     const [zInd, setzInd] = useState(-1);
     const [isActivated, setIsActivated] = useState(true);
@@ -17,13 +17,13 @@ const WorkExperiencePage = () => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
-                <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Work Experience</motion.h1>
-                <motion.img src="workExperienceImages/briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Experience</motion.h1>
+                <motion.img src="experienceImages/briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
             </motion.div>
 
-            <MotionBackButton color="turquoise" clicked={() => console.log("Hello!")}/>
+            <BackButton color="turquoise" clicked={() => console.log("Hello!")}/>
 
-            {isActivated && <MotionTriangleComponent
+            {isActivated && <TriangleButton
             initial={{opacity: 1}}
             animate={{rotateZ: 45, opacity:0, overflow: "visible"}}
             transition={{delay:0.5, duration: 0.8}}
@@ -35,7 +35,7 @@ const WorkExperiencePage = () => {
             type="animator"/>}
 
 
-            <MotionTriangleComponent
+            <TriangleButton
             initial={{scale: 1}}
             animate={{scaleX: 4.02, scaleY: 2.1}}
             transition={{delay:0.5, duration: 1}}
@@ -43,9 +43,9 @@ const WorkExperiencePage = () => {
             onAnimationComplete={() => {
                 setzInd(0)
             }}
-            text="Work Experience" 
+            text="Experience" 
             orientation="bottom-right" 
-            path="/work-experience"
+            path="/experience"
             type="animator"/>
 
         </div>
@@ -53,4 +53,4 @@ const WorkExperiencePage = () => {
 
 }
 
-export default WorkExperiencePage;
+export default ExperiencePage;

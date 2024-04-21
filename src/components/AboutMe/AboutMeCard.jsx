@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { forwardRef, useState } from 'react';
 import styles from '../../Styles/AboutMe/AboutMeCard.module.css';
 
-const AboutMeCard = forwardRef(({onLightClicked}, ref) => {
+const AboutMeCardComponent = forwardRef(({onLightClicked}, ref) => {
 
-  AboutMeCard.displayName = 'AboutMeCard';
+  AboutMeCardComponent.displayName = 'AboutMeCard';
 
   const [mode, setMode] = useState('work');
 
@@ -26,12 +26,12 @@ const AboutMeCard = forwardRef(({onLightClicked}, ref) => {
   );
 });
 
-AboutMeCard.propTypes = {
+AboutMeCardComponent.propTypes = {
     style: PropTypes.object,
     onLightClicked: PropTypes.func,
 };
 
 
-const MotionAboutMeCard = motion(AboutMeCard, { forwardMotionProps: true })
+const AboutMeCard = motion(AboutMeCardComponent, { forwardMotionProps: true })
 
-export default MotionAboutMeCard;
+export default AboutMeCard;

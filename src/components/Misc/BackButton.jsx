@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
-import styles from '../Styles/Misc/BackButton.module.css';
+import styles from '../../Styles/Misc/BackButton.module.css';
 
 
-const BackButton = forwardRef(
+const BackButtonComponent = forwardRef(
   ({color, clicked}, ref) => {
  
   const colorStyle = color === "purple" ? styles.purple : styles.turquoise;
@@ -50,14 +50,14 @@ const BackButton = forwardRef(
 
 })
 
-BackButton.displayName = 'TriangleButton';
+BackButtonComponent.displayName = 'TriangleButton';
 
-BackButton.propTypes = {
+BackButtonComponent.propTypes = {
   path: PropTypes.string,
   clicked: PropTypes.func,
   color: PropTypes.oneOf(['purple', 'turquoise']),
 };
 
-const MotionBackButton = motion(BackButton, { forwardMotionProps: true })
+const BackButton = motion(BackButtonComponent, { forwardMotionProps: true })
 
-export default MotionBackButton;
+export default BackButton;

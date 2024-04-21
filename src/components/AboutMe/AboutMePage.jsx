@@ -1,11 +1,11 @@
 // import MotionRectangleSideBar from './RectangleSideBar';
-import MotionAboutMeCard from './AboutMeCard';
-import MotionSocialFact from './SocialFact';
+import AboutMeCard from './AboutMeCard';
+import SocialFact from './SocialFact';
 import { socialFacts } from './socialFacts.json';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import MotionBackButton from '../BackButton';
-import MotionTriangleComponent from '../TriangleButton';
+import BackButton from '../Misc/BackButton';
+import TriangleButton from '../Misc/TriangleButton';
 import { motion } from 'framer-motion';
 import Lamp from './Lamp';
 import styles from '../../Styles/AboutMe/AboutMePage.module.css';
@@ -41,14 +41,14 @@ const AboutMePage = () => {
 
   return (
     <div className={styles.container}>
-      <MotionAboutMeCard
+      <AboutMeCard
       onLightClicked = {(type) => typeSwitch(type)}
       variants={cardVariants}
       initial="hidden"
       animate="visible"
       />
 
-      <MotionTriangleComponent 
+      <TriangleButton 
       animate={{rotateZ: -45, overflow: "visible" }}
       transition={{ delay: 0.4, duration: 0.45 }}
       style={{ originX: 0.14, originY: 0.645, zIndex: 2 }}
@@ -58,13 +58,13 @@ const AboutMePage = () => {
       type="animator"/>
 
 
-      <MotionTriangleComponent 
+      <TriangleButton 
       animate={{rotateZ: -45, overflow: "visible" }}
       transition={{ delay: 0.4, duration: 0.45}}
       style= {{ originX: 1, originY: 0.45, zIndex: 2 }}
-      text="Work Experience" 
+      text="Experience" 
       orientation="bottom-right" 
-      path="/work-experience"
+      path="/experience"
       type="animator"/>
 
 
@@ -72,7 +72,7 @@ const AboutMePage = () => {
       exit={{y: '100vh'}}/>
 
       
-      <MotionBackButton clicked={() => console.log("Hey there!")} color="purple"/>
+      <BackButton clicked={() => console.log("Hey there!")} color="purple"/>
 
       <div className={styles.background}>
             <div className={styles.formatter}>
@@ -81,7 +81,7 @@ const AboutMePage = () => {
                 let rotate = fact.rotate ? fact.rotate : 0;
                 return (
                   <AnimatePresence key={index}>
-                  {type === "social" && <MotionSocialFact 
+                  {type === "social" && <SocialFact 
                   initial={{opacity: 0, x: direction, rotateZ: 0 }}
                   animate={{opacity: 1, x: 0, rotateZ: rotate}}
                   exit={{opacity: 0, x: direction, rotateZ: 0}}

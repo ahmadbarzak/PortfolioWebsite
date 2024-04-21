@@ -5,7 +5,7 @@ import ProjectsPage from './components/Projects/ProjectsPage';
 import HomePage from './components/HomePage/HomePage';
 import AboutMePage from './components/AboutMe/AboutMePage';
 import AchievementsPage from './components/Achievements/AchievementsPage';
-import WorkExperiencePage from './components/WorkExperience/WorkExperiencePage';
+import ExperiencePage from './components/Experience/ExperiencePage';
 
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
 
       <Route path="/achievements" element={<AchievementsPage/>} />
 
-      <Route path="/work-experience" element={<WorkExperiencePage/>} />
+      <Route path="/experience" element={<ExperiencePage/>} />
 
     </Routes>
   </AnimatePresence>

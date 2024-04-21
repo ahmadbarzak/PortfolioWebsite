@@ -1,13 +1,13 @@
-import SocialLink from '../SocialLink';
+import SocialLink from '../Misc/SocialLink';
 import ProfilePicture from './ProfilePicture';
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import styles from '../../Styles/HomePage/ProfileCard.module.css';
 
-const ProfileCard = forwardRef(({path, text}, ref) => {
+const ProfileCardComponent = forwardRef(({path, text}, ref) => {
 
-  ProfileCard.displayName = 'ProfileCard';
+  ProfileCardComponent.displayName = 'ProfileCard';
 
   return (
     <div ref={ref} className={styles.profileCard}>
@@ -28,12 +28,12 @@ const ProfileCard = forwardRef(({path, text}, ref) => {
   );
 });
 
-ProfileCard.propTypes = {
+ProfileCardComponent.propTypes = {
   path: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
 
-const MotionProfileCard = motion(ProfileCard, { forwardMotionProps: true })
+const ProfileCard = motion(ProfileCardComponent, { forwardMotionProps: true })
 
-export default MotionProfileCard;
+export default ProfileCard;

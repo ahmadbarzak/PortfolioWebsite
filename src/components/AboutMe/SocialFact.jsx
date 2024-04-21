@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import styles from '../../Styles/AboutMe/SocialFact.module.css';
 
 
-const SocialFact = forwardRef(({styleProps, text, icon, orientation, mode}, ref) => {
+const SocialFactComponent = forwardRef(({styleProps, text, icon, orientation, mode}, ref) => {
 
     styleProps.flexDirection = orientation === 'left' ? 'row' : 'row-reverse';
 
@@ -26,9 +26,9 @@ const SocialFact = forwardRef(({styleProps, text, icon, orientation, mode}, ref)
     );
 });
 
-SocialFact.displayName = 'SocialFact';
+SocialFactComponent.displayName = 'SocialFact';
 
-SocialFact.propTypes = {
+SocialFactComponent.propTypes = {
         styleProps: PropTypes.object,
         text: PropTypes.string.isRequired,
         icon: PropTypes.string,
@@ -36,6 +36,6 @@ SocialFact.propTypes = {
         mode: PropTypes.oneOf(['work', 'social'])
 }
 
-const MotionSocialFact = motion(SocialFact, {forwardMotionProps: true});
+const SocialFact = motion(SocialFactComponent, {forwardMotionProps: true});
 
-export default MotionSocialFact;
+export default SocialFact;

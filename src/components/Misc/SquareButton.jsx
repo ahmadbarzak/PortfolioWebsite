@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../Styles/Misc/SquareButton.module.css';
+import styles from '../../Styles/Misc/SquareButton.module.css';
 
-const SquareButton = forwardRef(({ text, path, clicked }, ref) => {
+const SquareButtonComponent = forwardRef(({ text, path, clicked }, ref) => {
 
     function clickHandler() {
         clicked(text);
@@ -20,14 +20,14 @@ const SquareButton = forwardRef(({ text, path, clicked }, ref) => {
     );
 })
 
-SquareButton.displayName = 'SquareButton';
+SquareButtonComponent.displayName = 'SquareButton';
 
-SquareButton.propTypes = {
+SquareButtonComponent.propTypes = {
     text: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
     clicked: PropTypes.func
 };
 
-const MotionSquareButton = motion(SquareButton, { forwardMotionProps: true })
+const SquareButton = motion(SquareButtonComponent, { forwardMotionProps: true })
 
-export default MotionSquareButton;
+export default SquareButton;
