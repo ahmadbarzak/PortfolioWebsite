@@ -9,7 +9,7 @@ const ProjectsPage = () => {
   const [zInd, setzInd] = useState(-1);
 
   return (
-    <div className="background" style={{zIndex:zInd}}>
+    <div className="background" style={{zIndex:zInd, backgroundColor: "transparent"}}>
         
         <TriangleButton 
         animate={{rotateZ: 45, overflow: "visible"}}

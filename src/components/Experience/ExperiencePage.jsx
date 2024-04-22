@@ -18,8 +18,10 @@ const ExperiencePage = () => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
+                <div style={{zIndex: 2, display:"flex", alignItems:"center"}} >
                 <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Experience</motion.h1>
                 <motion.img src="experienceImages/briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                </div>
             </motion.div>
 
             <BackButton color="turquoise" clicked={() => console.log("Hello!")}/>

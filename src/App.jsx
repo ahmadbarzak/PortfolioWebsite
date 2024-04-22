@@ -39,6 +39,7 @@ const App = () => {
 
       {isBigEnough &&
       <>
+      <TetrisBackground/>
       <AnimatePresence mode="sync">
         <Routes location={location} key={location.key}>
           <Route exact path="/" element={<HomePage />} />
@@ -52,7 +53,6 @@ const App = () => {
 
         </Routes>
       </AnimatePresence>
-      <TetrisBackground/>
       </>}
     </div>
   );

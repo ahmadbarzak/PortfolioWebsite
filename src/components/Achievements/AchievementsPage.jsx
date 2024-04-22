@@ -15,7 +15,7 @@ const AchievementsPage = () => {
 
     return (
         <div className="background" style={{ zIndex: zInd }}>
-            <motion.div className={styles.title}
+            <motion.div style={{zIndex: 2}} className={styles.title}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
