@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
 import styles from '../../Styles/Achievements/AchievementsPage.module.css';
+import "../../App.css";
 
 const AchievementsPage = () => {
 
@@ -13,7 +14,7 @@ const AchievementsPage = () => {
     const [rotate, setRotate] = useState(0);
 
     return (
-        <div className={styles.background} style={{ zIndex: zInd }}>
+        <div className="background" style={{ zIndex: zInd }}>
             <motion.div className={styles.title}
             initial={{opacity: 0}}
             animate={{opacity: 1}}

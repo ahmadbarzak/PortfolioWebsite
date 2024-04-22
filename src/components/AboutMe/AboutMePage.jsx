@@ -9,6 +9,7 @@ import TriangleButton from '../Misc/TriangleButton';
 import { motion } from 'framer-motion';
 import Lamp from './Lamp';
 import styles from '../../Styles/AboutMe/AboutMePage.module.css';
+import "../../App.css";
 
 const AboutMePage = () => {
   
@@ -40,7 +41,7 @@ const AboutMePage = () => {
 
 
   return (
-    <div className={styles.container}>
+    <div className="background">
       <AboutMeCard
       onLightClicked = {(type) => typeSwitch(type)}
       variants={cardVariants}

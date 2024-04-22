@@ -7,7 +7,7 @@ import AboutMePage from './components/AboutMe/AboutMePage';
 import AchievementsPage from './components/Achievements/AchievementsPage';
 import ExperiencePage from './components/Experience/ExperiencePage';
 import useMediaQuery from './hooks/useMediaQuery';
-
+import TetrisBackground from './components/Misc/TetrisBackground';
 
 const App = () => {
 
@@ -17,8 +17,7 @@ const App = () => {
   return (
 
       <div >
-      {!isBigEnough && <div style={{ position:"absolute", width:"100%", height:"100%", left:0, top:0, backgroundColor: "#355070", display:"flex", flexDirection:"column", alignItems:"center"
-      }}>
+      {!isBigEnough && <div className="background" style={{ backgroundColor: "#355070" }}>
       
       <div style={{display:"flex", flexDirection:"row"}} >
       {[1,2,3,4,5].map((i) => {
@@ -38,7 +37,9 @@ const App = () => {
       </div>}
 
 
-      {isBigEnough && <AnimatePresence mode="sync">
+      {isBigEnough &&
+      <>
+      <AnimatePresence mode="sync">
         <Routes location={location} key={location.key}>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMePage />} />
@@ -50,8 +51,9 @@ const App = () => {
           <Route path="/experience" element={<ExperiencePage/>} />
 
         </Routes>
-      </AnimatePresence>}
-
+      </AnimatePresence>
+      <TetrisBackground/>
+      </>}
     </div>
   );
 };

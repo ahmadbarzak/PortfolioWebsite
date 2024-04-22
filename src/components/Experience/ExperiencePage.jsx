@@ -2,7 +2,8 @@ import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import styles from '../../Styles/Experience/ExperiencePage.module.css';
+import "../../App.css"
+
 
 const ExperiencePage = () => {
 
@@ -11,7 +12,7 @@ const ExperiencePage = () => {
 
     return (
 
-        <div className={styles.page} style={{zIndex:zInd}}>
+        <div className="background" style={{zIndex:zInd}}>
         
             <motion.div style={{position: "absolute", padding:0, margin:0, top:0, zIndex:1, display:"flex", alignItems:"center"}}
             initial={{opacity: 0}}

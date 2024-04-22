@@ -2,14 +2,14 @@ import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import styles from '../../Styles/Projects/ProjectsPage.module.css';
+import "../../App.css";
 
 const ProjectsPage = () => {
 
   const [zInd, setzInd] = useState(-1);
 
   return (
-    <div className={styles.page} style={{zIndex:zInd}}>
+    <div className="background" style={{zIndex:zInd}}>
         
         <TriangleButton 
         animate={{rotateZ: 45, overflow: "visible"}}

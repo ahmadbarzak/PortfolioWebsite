@@ -10,7 +10,7 @@ const ProfileCardComponent = forwardRef(({path, text}, ref) => {
   ProfileCardComponent.displayName = 'ProfileCard';
 
   return (
-    <div ref={ref} className={styles.profileCard}>
+    <div ref={ref} className={styles.profileCard} style={{zIndex:1}}>
         <div className = {styles.formatter}>
             <ProfilePicture path={path}/>
             <div className={styles.aboutme}>

@@ -6,7 +6,7 @@ import styles from '../../Styles/Misc/TriangleButton.module.css';
 
 
 const TriangleButtonComponent = forwardRef(
-  ({ text, orientation, path, clicked, type}, ref) => {
+  ({ text, orientation, path, type}, ref) => {
   
   const position = orientation === "top-left" ? styles.topleft : styles.bottomright;
 
@@ -41,11 +41,10 @@ const TriangleButtonComponent = forwardRef(
 
   function clickHandler(){
     console.log(text)
-    clicked(text);
   }
 
   return (
-    <div className={`${styles.container} ${position}`} ref={ref}>
+    <div className={`${styles.container} ${position}`} style={{zIndex:1}} ref={ref}>
       <Link to={path} style={{ textDecoration: 'none' }} onClick={() => clickHandler()}>
         <div className={`${styles.diamond} ${position}`}>
           <motion.span 
@@ -66,7 +65,6 @@ TriangleButtonComponent.propTypes = {
   text: PropTypes.string.isRequired,
   orientation: PropTypes.oneOf(['top-left', 'bottom-right']),
   path: PropTypes.string,
-  clicked: PropTypes.func,
   type: PropTypes.oneOf(['viewer', 'animator']),
 };
 

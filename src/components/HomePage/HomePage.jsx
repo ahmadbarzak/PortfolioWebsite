@@ -5,6 +5,7 @@ import { useState } from 'react';
 import SquareButton from '../Misc/SquareButton';
 import styles from '../../Styles/HomePage/HomePage.module.css';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import "../../App.css";
 
 const HomePage = () => {
 
@@ -83,26 +84,26 @@ const HomePage = () => {
 
 
   
-
+  // ${styles.tetris}
   return (
-    <motion.div className={styles.default}
+    <motion.div className="background"
+    // <motion.div
     variants={containerVariants}
     initial="hidden"
     animate="visible">
-      <ProfileCard path="homePageImages/ahmad.jpg" text={isDesktop ? "Hi there, I'm Ahmad Barzak :)" : "Hi!"}
-      exit={exitVars.cardExit}
-      transition={{duration: 0.2}}
-      />
-      <TriangleButton transition={{duration:0.1}} clicked={(animType)=>exitHandler(animType)} text="Achievements" orientation="top-left" path="/achievements"/>
+        <ProfileCard path="homePageImages/ahmad.jpg" text={isDesktop ? "Hi there, I'm Ahmad Barzak :)" : "Hi!"}
+        exit={exitVars.cardExit}
+        transition={{duration: 0.2}}/>
+      <TriangleButton transition={{duration:0.1}}  text="Achievements" orientation="top-left" path="/achievements"/>
       <TriangleButton transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} text="Experience" orientation="bottom-right" path="/experience"/>
 
-      <div className={styles.bottomleft}>
+      <div className={styles.bottomleft} style={{zIndex:1}}>
         <SquareButton 
         exit={exitVars.lSquareExit}
         transition={{duration: 0.2}}
         clicked={(animType)=>exitHandler(animType)} text="About Me" path="/about"/>
       </div>
-      <div className={styles.topright}>
+      <div className={styles.topright} style={{zIndex:1}}>
         <SquareButton
         exit={exitVars.rSquareExit}
         transition={{duration: 0.2}}

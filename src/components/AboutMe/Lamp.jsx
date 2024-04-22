@@ -40,6 +40,7 @@ const Lamp = ({mode}, ref) => {
         variants={cardVariants}
         initial="hidden"
         animate="visible"
+        style={{zIndex: 0}}
          ref={ref} className = { styles.divStyle }>
             <div className={ styles.ceilLamp }>
                 <img src="aboutMeImages/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
@@ -51,7 +52,7 @@ const Lamp = ({mode}, ref) => {
                 animate="work"
                 exit="social"
                 className={ styles.lampLight }>
-                    <img src="aboutMeImages/lightSwitch/lampLight.png" style={{width:"95%"}}/>
+                    <img src="aboutMeImages/lightSwitch/light.svg" style={{width:"95%", position:"relative", zIndex: -10}}/>
                 </motion.div>}
             </AnimatePresence>
         </motion.div>
