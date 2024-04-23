@@ -20,7 +20,7 @@
 
 @keyframes pan {
   0% {
-    background-position: 0% 100%;
+    background-position: 0% 0%;
   }
   100% {
     background-position: 100% 0%;
@@ -29,7 +29,7 @@
 
 .tetris {
   background-image: url("../miscImages/tetris.svg");
-  background-size: 35%;  
+  background-size: 50%;  
   position: absolute;
   left: 50%;
   top: 0px;

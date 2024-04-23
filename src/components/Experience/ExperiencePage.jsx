@@ -2,13 +2,20 @@ import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import "../../App.css"
+import "../../App.css";
+import useScreenSize from "../../hooks/useScreenSize";
 
 
 const ExperiencePage = () => {
 
     const [zInd, setzInd] = useState(-1);
     const [isActivated, setIsActivated] = useState(true);
+    const [initialTransition, setInitialTransition] = useState(true);
+
+    const screenSize = useScreenSize();
+
+    let width = screenSize.width / 365;
+    let height = screenSize.height / 365;
 
     return (
 
@@ -40,11 +47,14 @@ const ExperiencePage = () => {
 
             <TriangleButton
             initial={{scale: 1}}
-            animate={{scaleX: 4.02, scaleY: 2.1}}
-            transition={{delay:0.5, duration: 1}}
+            // animate={{scaleX: 4.02, scaleY: 2.1}}
+            animate={{scaleX:width, scaleY:height}}
+            transition={initialTransition ? {delay:0.5, duration: 1} : {delay:0, duration: 0.2}}
             style={{originX: 1, originY: 1}}
+            dimensionOverride={true}
             onAnimationComplete={() => {
                 setzInd(0)
+                setInitialTransition(false)
             }}
             text="Experience" 
             orientation="bottom-right" 

@@ -12,7 +12,17 @@ import TetrisBackground from './components/Misc/TetrisBackground';
 const App = () => {
 
   const isBigEnough = useMediaQuery('(min-height: 500px)');
+  const mobileView = useMediaQuery('(max-width: 550px)');
+
   const location = useLocation();
+
+
+  const MobileComponent = () => { 
+  return (<div style={{position:"absolute", left:"15%", right:"15%", top:"20%", display:"flex", flexDirection:"column", alignItems:"center", color:"white"}}>
+  <h1>Mobile PlaceHolder</h1>
+  <img src="miscImages/rickroll.gif" style={{width:"400px"}}/>
+  </div>);
+  }
 
   return (
 
@@ -40,16 +50,35 @@ const App = () => {
       {isBigEnough &&
       <>
       <TetrisBackground/>
-      <AnimatePresence mode="sync">
+      <AnimatePresence initial={false} mode="sync">
+        {/* <AnimatePresence mode="sync"> */}
         <Routes location={location} key={location.key}>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutMePage />} />
           
-          <Route path="/projects" element={<ProjectsPage/>} />
+          <Route exact path="/" element={<HomePage/>} />
 
-          <Route path="/achievements" element={<AchievementsPage/>} />
+          <Route path="/about" element={
+            <div>
+              {!mobileView && <AboutMePage/>}
+              {mobileView && <MobileComponent/>}
+            </div>} />
+          
+          <Route path="/projects" element={
+            <div>
+              {!mobileView && <ProjectsPage/>}
+              {mobileView && <MobileComponent/>}
+            </div>} />
 
-          <Route path="/experience" element={<ExperiencePage/>} />
+          <Route path="/achievements" element={
+            <div>
+              {!mobileView && <AchievementsPage/>}
+              {mobileView && <MobileComponent/>}
+            </div>} />
+
+          <Route path="/experience" element={
+            <div>
+              {!mobileView && <ExperiencePage/>}
+              {mobileView && <MobileComponent/>}
+            </div>} />
 
         </Routes>
       </AnimatePresence>

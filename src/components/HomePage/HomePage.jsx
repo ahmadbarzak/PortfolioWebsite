@@ -18,7 +18,7 @@ const HomePage = () => {
     },
     visible: {
       opacity: 1,
-      transition: { delay: 0.5 },
+      transition: { delay: 0.4 },
     },
     cardExit: {
       opacity: 0,

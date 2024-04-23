@@ -6,12 +6,18 @@ import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
 import styles from '../../Styles/Achievements/AchievementsPage.module.css';
 import "../../App.css";
+import useScreenSize from "../../hooks/useScreenSize";
 
 const AchievementsPage = () => {
 
     const [zInd, setzInd] = useState(-1);
     const [isActivated, setIsActivated] = useState(true);
-    const [rotate, setRotate] = useState(0);
+    const [initialTransition, setInitialTransition] = useState(true);
+
+    const screenSize = useScreenSize();
+
+    let width = screenSize.width / 345;
+    let height = screenSize.height / 345;
 
     return (
         <div className="background" style={{ zIndex: zInd }}>
@@ -39,12 +45,14 @@ const AchievementsPage = () => {
 
             <TriangleButton
             initial={{scale: 1}}
-            animate={{scaleX: 4.3, scaleY: 2.25, rotateZ: rotate}}
-            transition={{delay:0.5, duration: 1}}
+
+            animate={{scaleX:width, scaleY:height}}
+            transition={initialTransition ? {delay:0.5, duration: 1} : {delay:0, duration: 0.2}}
             style={{ originX: 0 , originY: 0 }}
+            dimensionOverride={true}
             onAnimationComplete={() => {
-                setRotate(0)
                 setzInd(0)
+                setInitialTransition(false)
             }}
             text="Achievements" 
             orientation="top-left" 

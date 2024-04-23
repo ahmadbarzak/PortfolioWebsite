@@ -16,6 +16,7 @@ const ProjectsPage = () => {
         transition={{ delay: 0.4, duration: 0.45}}
         onAnimationComplete={() => setzInd(0)}
         style= {{ originX: 0.65 , originY: 3.07, zIndex: 2 }}
+        dimensionOverride={true}
         text="Achievements" 
         orientation="top-left" 
         path="/achievements"
@@ -29,6 +30,7 @@ const ProjectsPage = () => {
         animate={{rotateZ: 45, overflow: "visible" }}
         transition={{ delay: 0.4, duration: 0.45}}
         style= {{ originX: 0.35, originY: -1.96, zIndex: 2 }}
+        dimensionOverride={true}
         text="Experience" 
         orientation="bottom-right" 
         path="/experience"

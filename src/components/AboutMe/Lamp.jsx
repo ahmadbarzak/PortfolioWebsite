@@ -52,7 +52,7 @@ const Lamp = ({mode}, ref) => {
                 animate="work"
                 exit="social"
                 className={ styles.lampLight }>
-                    <img src="aboutMeImages/lightSwitch/light.svg" style={{width:"95%", position:"relative", zIndex: -10}}/>
+                    <img src="aboutMeImages/lightSwitch/light.svg" style={{width:"95%"}}/>
                 </motion.div>}
             </AnimatePresence>
         </motion.div>
