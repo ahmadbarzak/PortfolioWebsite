@@ -1,12 +1,13 @@
 import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Achievement from "./Achievement";
 import { achievements } from './Achievements.json';
 import styles from '../../Styles/Achievements/AchievementsPage.module.css';
 import "../../App.css";
 import useScreenSize from "../../hooks/useScreenSize";
+import { useReward } from "react-rewards";
 
 const AchievementsPage = () => {
 
@@ -14,13 +15,27 @@ const AchievementsPage = () => {
     const [isActivated, setIsActivated] = useState(true);
     const [initialTransition, setInitialTransition] = useState(true);
 
+    const { reward: confettiReward, isAnimating: isConfettiAnimating } = useReward('confettiReward', 'confetti');
     const screenSize = useScreenSize();
 
     let width = screenSize.width / 345;
     let height = screenSize.height / 345;
 
+
+    
+    useEffect(() => {
+        if (!isConfettiAnimating) {
+            setTimeout(() => {
+                confettiReward();
+            }, 350)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
+
+
     return (
         <div className="background" style={{ zIndex: zInd }}>
+            <div id="confettiReward" style={{width:"30px", height:"30px", position:"absolute", top:"-10%", zIndex:3}}></div>
             <motion.div style={{zIndex: 2}} className={styles.title}
             initial={{opacity: 0}}
             animate={{opacity: 1}}

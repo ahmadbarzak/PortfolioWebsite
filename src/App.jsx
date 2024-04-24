@@ -51,7 +51,6 @@ const App = () => {
       <>
       <TetrisBackground/>
       <AnimatePresence initial={false} mode="sync">
-        {/* <AnimatePresence mode="sync"> */}
         <Routes location={location} key={location.key}>
           
           <Route exact path="/" element={<HomePage/>} />
