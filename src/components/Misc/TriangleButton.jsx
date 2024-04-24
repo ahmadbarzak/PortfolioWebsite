@@ -12,6 +12,8 @@ const TriangleButtonComponent = forwardRef(
   const position = orientation === "top-left" ? styles.topleft : styles.bottomright;
   const [height, setHeight] = useState(`calc(max(min(70vw, 100%) - 27% + 15vh, 82%))`);
 
+  console.log("Height is " + height)
+
   let containerVariants = {
     initial: {
       opacity: 0,
@@ -57,7 +59,7 @@ const TriangleButtonComponent = forwardRef(
           variants={containerVariants}
           initial="initial"
           animate="animate"
-          onAnimationComplete={() => setHeight("100%")}
+          onAnimationComplete={() => dimensionOverride?setHeight("100%"):null}
           className={`${styles.text} ${position}`}>{text}</motion.span>
         </div>
       </Link>

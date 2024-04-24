@@ -12,11 +12,11 @@ const ProjectsPage = () => {
     <div className="background" style={{zIndex:zInd, backgroundColor: "transparent"}}>
         
         <TriangleButton 
-        animate={{rotateZ: 45, overflow: "visible"}}
+        animate={{scaleX: 2, rotateZ: 45, overflow: "visible"}}
         transition={{ delay: 0.4, duration: 0.45}}
         onAnimationComplete={() => setzInd(0)}
         style= {{ originX: 0.65 , originY: 3.07, zIndex: 2 }}
-        dimensionOverride={true}
+        dimensionOverride={false}
         text="Achievements" 
         orientation="top-left" 
         path="/achievements"
@@ -27,10 +27,10 @@ const ProjectsPage = () => {
         <ProjectCard/>
 
         <TriangleButton 
-        animate={{rotateZ: 45, overflow: "visible" }}
+        animate={{scaleX: 2, rotateZ: 45, overflow: "visible" }}
         transition={{ delay: 0.4, duration: 0.45}}
         style= {{ originX: 0.35, originY: -1.96, zIndex: 2 }}
-        dimensionOverride={true}
+        dimensionOverride={false}
         text="Experience" 
         orientation="bottom-right" 
         path="/experience"

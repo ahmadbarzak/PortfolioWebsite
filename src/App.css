@@ -29,7 +29,7 @@
 
 .tetris {
   background-image: url("../miscImages/tetris.svg");
-  background-size: 50%;  
+  background-size: 25%;  
   position: absolute;
   left: 50%;
   top: 0px;

@@ -57,7 +57,7 @@ const AboutMePage = () => {
       orientation="top-left" 
       path="/achievements"
       type="animator"
-      dimensionOverride={true}/>
+      dimensionOverride={false}/>
 
 
       <TriangleButton 
@@ -68,7 +68,7 @@ const AboutMePage = () => {
       orientation="bottom-right" 
       path="/experience"
       type="animator"
-      dimensionOverride={true}/>
+      dimensionOverride={false}/>
 
 
       <Lamp mode={type}

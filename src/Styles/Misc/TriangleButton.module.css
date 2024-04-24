@@ -20,16 +20,10 @@
 
 .diamond {
     position: absolute;
-    /* width: 200%; */
-    /* width: 3000px; */
-    /* width: 200vw; */
-    /* width: max(min(200%, 420vh), 185%); */
     width: 200%;
-    /* height: 100%; */
     height: calc(max(min(70vw, 100%) - 27% + 15vh, 82%));
     display: flex;
     margin: auto;
-    background-color: red;
     place-content: start center;
     justify-content: left;
     align-items: flex-start;
