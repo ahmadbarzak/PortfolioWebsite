@@ -33,8 +33,6 @@ const ExperiencePage = () => {
 
     }, []); 
 
-    console.log("isInitial is" + isInitial);
-
     const screenSize = useScreenSize();
 
     let width = screenSize.width / 100;
@@ -88,7 +86,7 @@ const ExperiencePage = () => {
                 </div>
             </motion.div>
 
-            <BackButton color="turquoise" clicked={() => console.log("Hello!")}/>
+            <BackButton color="turquoise" clicked={() => null}/>
 
             {isActivated && <TriangleButton
             initial={{opacity: 1}}

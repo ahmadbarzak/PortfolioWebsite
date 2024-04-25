@@ -27,7 +27,6 @@ const BackButtonComponent = forwardRef(
   }
 
   function clickHandler(){
-    console.log("Back");
     clicked("Back");
   }
 

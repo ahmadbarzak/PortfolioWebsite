@@ -22,7 +22,7 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
         
-        <BackButton transition={{delay:4}} color="turquoise" clicked={() => console.log("Hello!")}/>        
+        <BackButton transition={{delay:4}} color="turquoise" clicked={() => null}/>        
 
         <ProjectCard/>
 

@@ -37,7 +37,6 @@ const HomePage = () => {
 
   function exitHandler(animType){
     if (animType === "About Me") {
-      console.log("About Me")
       setExitVars({
         animVars: {rotateZ: -45, overflow: "visible" },
         animStyleLeft: { originX: 0.14, originY: 0.645 },
@@ -48,7 +47,6 @@ const HomePage = () => {
       });
     }
     else if (animType === "Projects") {
-      console.log("Projects")
       setExitVars({
         animVars: {},
         animStyleLeft: {},
@@ -59,7 +57,6 @@ const HomePage = () => {
       });
     }
     else if (animType === "Achievements") {
-      console.log("Achievements")
       setExitVars({
         animVars: {rotateZ: 15, overflow: "visible" },
         animStyleLeft: {},
@@ -70,7 +67,6 @@ const HomePage = () => {
       });
     }
     else if (animType === "Experience") {
-      console.log("Experience")
       setExitVars({
         animVars: {rotateZ: 45, overflow: "visible" },
         animStyleLeft: {},
@@ -94,8 +90,8 @@ const HomePage = () => {
         <ProfileCard path="homePageImages/ahmad.jpg" text={isDesktop ? "Hi there, I'm Ahmad Barzak :)" : "Hi!"}
         exit={exitVars.cardExit}
         transition={{duration: 0.2}}/>
-      <TriangleButton transition={{duration:0.1}}  text="Achievements" orientation="top-left" path="/achievements"/>
-      <TriangleButton transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} text="Experience" orientation="bottom-right" path="/experience"/>
+      <TriangleButton transition={{duration:0.1}}  text="Achievements" orientation="top-left" dimensionOverride={false} path="/achievements"/>
+      <TriangleButton transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} dimensionOverride={false} text="Experience" orientation="bottom-right" path="/experience"/>
 
       <div className={styles.bottomleft} style={{zIndex:1}}>
         <SquareButton 

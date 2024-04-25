@@ -2,16 +2,18 @@
     z-index: 3;
     position: absolute;
     color: #FFFFFF;
-    font-size: 40px;
+    font-size: max(min(40px, 3vw), 17px);
     font-family: Roboto, sans-serif;
 }
 
 .left {
-    left: 3%;
+    text-align: left;
+    left: 1vw;
     text-shadow: 0 0 6px #000000;
 }
 
 .right {
-    right: 3%;
+    text-align: right;
+    right: 1vw;
     text-shadow: 0 0 6px #03DAD9;
 }

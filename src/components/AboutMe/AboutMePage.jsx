@@ -14,6 +14,8 @@ import "../../App.css";
 const AboutMePage = () => {
   
 
+
+
   const careerObj = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
   "aspiring to be involved in the professional world of technology. Growing up, I was always " +
   "interested in mathematics and technology and excited by the various problems these fields have " +
@@ -75,7 +77,7 @@ const AboutMePage = () => {
       exit={{y: '100vh'}}/>
 
       
-      <BackButton clicked={() => console.log("Hey there!")} color="purple"/>
+      <BackButton clicked={() => null} color="purple"/>
 
       <div className={styles.background}>
             <div className={styles.formatter}>

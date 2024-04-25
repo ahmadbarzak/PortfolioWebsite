@@ -1,5 +1,6 @@
 import './App.css';
-import {Route, Routes, useLocation } from 'react-router-dom';
+import {Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import ProjectsPage from './components/Projects/ProjectsPage';
 import HomePage from './components/HomePage/HomePage';
@@ -8,6 +9,8 @@ import AchievementsPage from './components/Achievements/AchievementsPage';
 import ExperiencePage from './components/Experience/ExperiencePage';
 import useMediaQuery from './hooks/useMediaQuery';
 import TetrisBackground from './components/Misc/TetrisBackground';
+import MobilePlaceholder from './components/Misc/MobilePlaceholder';
+import IncreaseSizeComponent from './components/Misc/IncreaseSizeComponent';
 
 const App = () => {
 
@@ -15,74 +18,66 @@ const App = () => {
   const mobileView = useMediaQuery('(max-width: 550px)');
 
   const location = useLocation();
+  const navigate = useNavigate();
 
+  useEffect(() => {
 
-  const MobileComponent = () => { 
-  return (<div style={{position:"absolute", left:"15%", right:"15%", top:"20%", display:"flex", flexDirection:"column", alignItems:"center", color:"white"}}>
-  <h1>Mobile PlaceHolder</h1>
-  <img src="miscImages/rickroll.gif" style={{width:"400px"}}/>
-  </div>);
-  }
+    if (sessionStorage.getItem('isReloaded') && location.pathname !== "/") {
+      navigate("/")
+    } else {
+      sessionStorage.setItem('isReloaded', 'true');
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
 
       <div >
-      {!isBigEnough && <div className="background" style={{ backgroundColor: "#355070" }}>
-      
-      <div style={{display:"flex", flexDirection:"row"}} >
-      {[1,2,3,4,5].map((i) => {
-          return <img src="miscImages/gifycat.gif" style={{width: "325px", height:"100%",
-          transform: i%2===0 ? "rotate(180deg)":"rotate(0deg)"}} key={i}/>
-      })} </div>
-
-      <span style=
-        {{ position: "absolute", color:"#FFFFFF",
-        bottom: 0,
-        backgroundColor:"black", fontFamily:"papyrus",
-        fontSize:"30px",
-        paddingTop:"10px"}}>Please Increase Your Browser Size
-      </span>
-
-      
-      </div>}
-
-
-      {isBigEnough &&
-      <>
       <TetrisBackground/>
       <AnimatePresence initial={false} mode="sync">
         <Routes location={location} key={location.key}>
           
-          <Route exact path="/" element={<HomePage/>} />
+          <Route exact path="/" element={
+            <div>
+              {isBigEnough && <HomePage/>}
+              {!isBigEnough && <IncreaseSizeComponent/>}
+            </div>
+          }/>
 
           <Route path="/about" element={
             <div>
-              {!mobileView && <AboutMePage/>}
-              {mobileView && <MobileComponent/>}
-            </div>} />
+              {(!mobileView&&isBigEnough) && <AboutMePage/>}
+              {mobileView && <MobilePlaceholder/>}
+              {!isBigEnough && <IncreaseSizeComponent/>}
+            </div>
+          }/>
           
           <Route path="/projects" element={
             <div>
               {!mobileView && <ProjectsPage/>}
-              {mobileView && <MobileComponent/>}
-            </div>} />
+              {mobileView && <MobilePlaceholder/>}
+              {!isBigEnough && <IncreaseSizeComponent/>}
+            </div>
+          }/>
 
           <Route path="/achievements" element={
             <div>
-              {!mobileView && <AchievementsPage/>}
-              {mobileView && <MobileComponent/>}
-            </div>} />
+              {isBigEnough && <AchievementsPage/>}
+              {!isBigEnough && <IncreaseSizeComponent/>}
+            </div>
+          }/>
 
           <Route path="/experience" element={
             <div>
-              {!mobileView && <ExperiencePage/>}
-              {mobileView && <MobileComponent/>}
-            </div>} />
+              {isBigEnough && <ExperiencePage/>}
+              {!isBigEnough && <IncreaseSizeComponent/>}
+            </div>
+          }/>
 
         </Routes>
       </AnimatePresence>
-      </>}
-    </div>
+      </div>
   );
 };
 
