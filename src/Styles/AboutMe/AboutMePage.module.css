@@ -18,15 +18,15 @@
 }
 
 .worktext {
-    font-size: 20px;
+    font-size: 12px;
     font-weight:bold;
     top: 20%;
     white-space: pre-line;
 }
 
 .left {
-    left: 6%;
-    right:60%;
+    left: 12%;
+    right:50%;
 }
 
 .right {

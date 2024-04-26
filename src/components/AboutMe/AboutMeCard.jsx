@@ -18,9 +18,7 @@ const AboutMeCardComponent = forwardRef(({onLightClicked}, ref) => {
   return (
     <div ref={ref} className={styles.defaultStyle}>
         <LightSwitch mode={mode} clicked={() => lightClicked()} />
-        <p>
-            About Me
-        </p>
+          <p>About Me - {mode}</p>
 </div>
 
   );

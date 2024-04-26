@@ -16,5 +16,6 @@
     transform:translate(-10%, 0%);
     font-size:65px;
     margin:10px 0;
+    text-wrap: nowrap;
     font-family: main title;
 }
