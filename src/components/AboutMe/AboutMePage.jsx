@@ -11,11 +11,11 @@ import Lamp from './Lamp';
 import styles from '../../Styles/AboutMe/AboutMePage.module.css';
 import "../../App.css";
 import useScreenSize from '../../hooks/useScreenSize';
+import getScale from './scaleCalculator';
 
 const AboutMePage = () => {
   
   const screenSize = useScreenSize();
-  // console.log(screenSize.width)
   const vw = screenSize.width / 100;
 
   const mobileWidth = 400;
@@ -31,26 +31,14 @@ const AboutMePage = () => {
   }, [])
 
 
-const shrinkValue = 40;
-const mobileExpandValue = 70;
-const desktopExpandValue = 60;
-const maxScreenWidth = 1176;
-const noShrinkLenience = 200;
+  const shrinkValue = 40;
+  const mobileExpandValue = 70;
+  const desktopExpandValue = 60;
+  const maxScreenWidth = 1176;
+  const noShrinkLenience = 200;
 
-const lerp = shrinkValue*(initialScreenSize)/maxScreenWidth;
-const minChange = initialScreenSize < mobileWidth+noShrinkLenience ? 0 : lerp;
-
-const screenScalar = scalarType==="mobile"?
-mobileExpandValue/(maxScreenWidth-mobileWidth) : 100*vw <= initialScreenSize ?
-shrinkValue/(initialScreenSize-mobileWidth) : desktopExpandValue/(maxScreenWidth-initialScreenSize);
-
-const mobileScale = Math.max(screenScalar*(100*vw - 400), 0);
-const desktopShrink =  Math.min(screenScalar*(initialScreenSize - 100*vw), minChange);
-const desktopExpand = -Math.max(screenScalar*(100*vw - initialScreenSize), 0);
-
-const scale = scalarType === "mobile" ? mobileScale : 100*vw <= initialScreenSize ?
- desktopShrink : desktopExpand;
-
+const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxScreenWidth, 
+  noShrinkLenience, initialScreenSize, mobileWidth, vw, scalarType);
 
   const careerObj = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
   "aspiring to be involved in the professional world of technology. Growing up, I was always " +

@@ -1,0 +1,29 @@
+.leadershipContainer {
+    /* Your styling here */
+  }
+  
+  .experienceEntry {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    /* More styles */
+  }
+  
+  .titleOrganizationDuration {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6px;
+    /* More styles */
+  }
+
+  
+  .experienceDuration {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* More styles */
+  }
+  
+  .detailItem {
+    margin-left: 6px;
+    /* More styles */
+  }

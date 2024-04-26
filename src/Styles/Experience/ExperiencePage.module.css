@@ -12,10 +12,9 @@
 .card {
     width: 90vw;
     height:90%;
-    font-size:70px;
+    /* font-size:70px; */
     border: 5px solid white;
     color:white;
-    font-size:70px;
     display: flex;
     align-items:center;
     justify-content:center;

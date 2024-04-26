@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import "../../App.css";
 import useScreenSize from "../../hooks/useScreenSize";
 import styles from '../../Styles/Experience/ExperiencePage.module.css';
+import Work from "./Work";
+import Education from "./Education";
+import Leadership from "./Leadership";
 
 const ExperiencePage = () => {
 
@@ -110,7 +113,7 @@ const ExperiencePage = () => {
             style={initialStyle?{backgroundColor: "#03DAD9"}:{backgroundColor: "#6D58B7"}}
             >
                 <div style={initialStyle?{color: "#355070", transform:"scale(1, 1)"}:flipIndex%2===0 ? {transform: "scale(1, -1)"} : {transform: "scale(1, 1)"}}>
-                    {initialStyle?"Hello!":experienceIndex%3===0?"Work":experienceIndex%3===1?"Education":"Leadership"}
+                    {initialStyle?"Hello!":experienceIndex%3===0?<Work/>:experienceIndex%3===1?<Education/>:<Leadership/>}
                 </div>
             </motion.div>
 
