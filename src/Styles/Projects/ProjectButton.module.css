@@ -1,0 +1,20 @@
+.small {
+    bottom:14%;
+}
+
+.large {
+    translate: 0% -50%;
+}
+
+
+.left{
+    position: absolute;
+    left: 0;
+}
+
+.right{
+    position: absolute;
+    transform-origin: 50% 43.5%;
+    transform: rotate(180deg);
+    right: 0;
+}

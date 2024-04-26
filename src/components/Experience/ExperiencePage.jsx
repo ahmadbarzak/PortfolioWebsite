@@ -8,6 +8,7 @@ import styles from '../../Styles/Experience/ExperiencePage.module.css';
 import Work from "./Work";
 import Education from "./Education";
 import Leadership from "./Leadership";
+import CircleButtons from "./CircleButtons";
 
 const ExperiencePage = () => {
 
@@ -40,6 +41,7 @@ const ExperiencePage = () => {
 
     let width = screenSize.width / 100;
     let height = screenSize.height / 365;
+
 
     const duration = 1;
     const timeout = 0.33889 * duration * 1000;
@@ -117,18 +119,16 @@ const ExperiencePage = () => {
                 </div>
             </motion.div>
 
-            <motion.div className={styles.circleContainer}
+            <CircleButtons 
             variants={variants}
             initial="hidden"
             animate="initialise"
-            transition={{delay:1, duration:1}} >
-                <div className={`${styles.circle} ${unclickable?styles.duringclick : experienceIndex===0?styles.clicked : styles.notclicked}`}
-                onClick={()=>handleClick(0)}></div>
-                <div className={`${styles.circle} ${unclickable?styles.duringclick : experienceIndex===1?styles.clicked : styles.notclicked}`}
-                onClick={()=>handleClick(1)}></div>
-                <div className={`${styles.circle} ${unclickable?styles.duringclick : experienceIndex===2?styles.clicked : styles.notclicked}`}
-                onClick={()=>handleClick(2)}></div>
-            </motion.div>
+            transition={{delay:1, duration:1}} 
+            expIndex={experienceIndex}
+            handleClick={(index) => handleClick(index)}
+            unclickable={unclickable}
+            divArray={[0, 1, 2]}
+            />
 
             </div>
 

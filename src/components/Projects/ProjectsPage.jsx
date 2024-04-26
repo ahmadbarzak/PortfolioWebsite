@@ -2,11 +2,32 @@ import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectButton from "./ProjectButton";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import "../../App.css";
+import { AnimatePresence } from "framer-motion";
+import CircleButtons from "../Experience/CircleButtons";
 
 const ProjectsPage = () => {
 
   const [zInd, setzInd] = useState(-1);
+  const mobileView = useMediaQuery('(max-width: 550px)');
+  const [experienceIndex, setExperienceIndex] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
+  const [unclickable, setUnclickable] = useState(false);
+
+  const duration = 1;
+  const timeout = 0.33889 * duration * 1000;
+
+  function handleClick(expIndex) {
+    console.log(timeout);
+      setIsClicked(!isClicked);
+      setUnclickable(true);
+      setTimeout(() => {
+          setExperienceIndex(expIndex);
+          setUnclickable(false);
+      }, timeout);
+  }
 
   return (
     <div className="background" style={{zIndex:zInd, backgroundColor: "transparent"}}>
@@ -21,10 +42,63 @@ const ProjectsPage = () => {
         orientation="top-left" 
         path="/achievements"
         type="animator"/>
+
+      <ProjectCard/>
+
+      <AnimatePresence mode="sync">
+        {mobileView && 
+          <div>
+          <ProjectButton
+          initial={{x: "-50vw", opacity:0}}
+          animate={{x: 0, opacity:1}}
+          exit={{x: "-50vw", opacity:0}}
+          transition={{delay:0, duration: 0.5}}
+          size="small" direction="left" />
+
+          <ProjectButton
+          initial={{rotateZ: 180, x: "50vw", opacity:0}}
+          animate={{rotateZ: 180, x: 0, opacity:1}}
+          exit={{rotateZ: 180, x: "50vw", opacity:0}}
+          transition={{delay:0, duration: 0.5}}
+          size="small" direction="right" />
+
+          <CircleButtons
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          transition={{delay:0, duration: 0.5}}
+          propStyles={{ position:"absolute", bottom:"13%", left:"6vw"}}
+          expIndex={experienceIndex}
+          handleClick={(index) => handleClick(index)}
+          unclickable={unclickable}
+          divArray={[0, 1, 2]}
+          />
+
+          </div>}
+        </AnimatePresence>
+
+        <AnimatePresence mode="sync">
+        {!mobileView && 
+        <div>
+          <ProjectButton
+          initial={{x: "-50vw", opacity:0}}
+          animate={{x: 0, opacity:1}}
+          exit={{x: "-50vw", opacity:0}}
+          transition={{delay:0, duration: 0.5}}
+          size="large" direction="left" />
+
+          <ProjectButton
+          initial={{rotateZ: 180, x: "50vw", opacity:0}}
+          animate={{rotateZ: 180, x: 0, opacity:1}}
+          exit={{rotateZ: 180, x: "50vw", opacity:0}}
+          transition={{delay:0, duration: 0.5}}
+          size="large" direction="right" />
+        </div>}
+        </AnimatePresence>
+
         
         <BackButton transition={{delay:4}} color="turquoise" clicked={() => null}/>        
 
-        <ProjectCard/>
 
         <TriangleButton 
         animate={{scaleX: 2, rotateZ: 45, overflow: "visible" }}
