@@ -4,8 +4,6 @@ import { forwardRef } from 'react';
 import { useLocation } from 'react-router-dom'; 
 import { motion } from 'framer-motion';
 import { useCallback } from 'react';
-// import { useState } from 'react';
-// import useScreenSize from '../../hooks/useScreenSize'; 
 import { useState } from 'react';
 import styles from '../../Styles/Misc/TriangleButton.module.css';
 
