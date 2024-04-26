@@ -2,7 +2,7 @@
 import AboutMeCard from './AboutMeCard';
 import SocialFact from './SocialFact';
 import { socialFacts } from './socialFacts.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import BackButton from '../Misc/BackButton';
 import TriangleButton from '../Misc/TriangleButton';
@@ -10,10 +10,46 @@ import { motion } from 'framer-motion';
 import Lamp from './Lamp';
 import styles from '../../Styles/AboutMe/AboutMePage.module.css';
 import "../../App.css";
+import useScreenSize from '../../hooks/useScreenSize';
 
 const AboutMePage = () => {
   
+  const screenSize = useScreenSize();
+  // console.log(screenSize.width)
+  const vw = screenSize.width / 100;
 
+  const mobileWidth = 400;
+
+  const [scalarType, setScalarType] = useState("desktop");
+  const [initialScreenSize, setInitialScreenSize] = useState(0);
+
+  useEffect(() => {
+    console.log("screenSize A is " + screenSize.width)
+    setScalarType(screenSize.width <= mobileWidth? "mobile" : "desktop");
+    setInitialScreenSize(screenSize.width)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+
+const shrinkValue = 40;
+const mobileExpandValue = 70;
+const desktopExpandValue = 60;
+const maxScreenWidth = 1176;
+const noShrinkLenience = 200;
+
+const lerp = shrinkValue*(initialScreenSize)/maxScreenWidth;
+const minChange = initialScreenSize < mobileWidth+noShrinkLenience ? 0 : lerp;
+
+const screenScalar = scalarType==="mobile"?
+mobileExpandValue/(maxScreenWidth-mobileWidth) : 100*vw <= initialScreenSize ?
+shrinkValue/(initialScreenSize-mobileWidth) : desktopExpandValue/(maxScreenWidth-initialScreenSize);
+
+const mobileScale = Math.max(screenScalar*(100*vw - 400), 0);
+const desktopShrink =  Math.min(screenScalar*(initialScreenSize - 100*vw), minChange);
+const desktopExpand = -Math.max(screenScalar*(100*vw - initialScreenSize), 0);
+
+const scale = scalarType === "mobile" ? mobileScale : 100*vw <= initialScreenSize ?
+ desktopShrink : desktopExpand;
 
 
   const careerObj = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
@@ -36,6 +72,7 @@ const AboutMePage = () => {
   }
 
   const [type, setType] = useState('social');
+  const [initialTransition, setInitialTransition] = useState(true);
 
   function typeSwitch(type){
     setType(type);
@@ -52,9 +89,12 @@ const AboutMePage = () => {
       />
 
       <TriangleButton 
-      animate={{rotateZ: -45, overflow: "visible" }}
-      transition={{ delay: 0.4, duration: 0.45 }}
-      style={{ originX: 0.14, originY: 0.645, zIndex: 2 }}
+      animate={{ translateX:scalarType==="mobile"?scale:-scale, rotateZ: -45, overflow: "visible" }}
+      transition={initialTransition?{ delay: 0.4, duration: 0.45}: { delay: 0, duration: 0 }}
+      onAnimationComplete={() => {
+        setInitialTransition(false)
+      }}
+      style={{ originX: 0.14, originY: 0.545, zIndex: 2 }}
       text="Achievements" 
       orientation="top-left" 
       path="/achievements"
@@ -62,10 +102,14 @@ const AboutMePage = () => {
       dimensionOverride={false}/>
 
 
+
       <TriangleButton 
-      animate={{rotateZ: -45, overflow: "visible" }}
-      transition={{ delay: 0.4, duration: 0.45}}
-      style= {{ originX: 1, originY: 0.45, zIndex: 2 }}
+      animate={{ translateX:scalarType==="mobile"?-scale:scale, rotateZ: -45, overflow: "visible"}}
+      transition={initialTransition?{ delay: 0.4, duration: 0.45}: { delay: 0, duration: 0 }}
+      onAnimationComplete={() => {
+        setInitialTransition(false)
+      }}
+      style={{ originX: 1, originY: 0.55, zIndex: 2 }}
       text="Experience" 
       orientation="bottom-right" 
       path="/experience"

@@ -132,7 +132,7 @@ const ExperiencePage = () => {
             <TriangleButton
             initial={{scale: 1}}
             animate={{scaleX:width, scaleY:height, rotateZ: 45, overflow: "visible"}}
-            transition={initialTransition ? {delay:0.5, duration: 1} : {delay:0, duration: 0.2}}
+            transition={initialTransition ? {delay:0.5, duration: 1} : {delay:0, duration: 0}}
             style={{originX: 1, originY: 1}}
             dimensionOverride={true}
             onAnimationComplete={() => {

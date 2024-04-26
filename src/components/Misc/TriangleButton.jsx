@@ -25,7 +25,6 @@ const TriangleButtonComponent = forwardRef(
     if (node !== null) {
       const computedStyle = window.getComputedStyle(node);
       const height = computedStyle.getPropertyValue('height');
-      console.log("triangle height: " + height)
       setHeight(height);
     }
   }, []);

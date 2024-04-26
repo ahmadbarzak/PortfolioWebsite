@@ -1,7 +1,6 @@
 import ProfileCard from './ProfileCard';
 import { motion } from 'framer-motion';
 import TriangleButton from '../Misc/TriangleButton';
-import { useState } from 'react';
 import SquareButton from '../Misc/SquareButton';
 import styles from '../../Styles/HomePage/HomePage.module.css';
 import useMediaQuery from '../../hooks/useMediaQuery';
@@ -26,84 +25,28 @@ const HomePage = () => {
     }
   }; 
 
-  const [exitVars, setExitVars] = useState({
-    animVars: {rotateZ: -45, overflow: "visible" },
-    animStyleLeft:{ originX: 0.1, originY: 0.58 },
-    animStyleRight:{ originX: 1, originY: 0.46 },
-    cardExit:{y: '100vh', opacity: 0},
-    lSquareExit: {x: '-50vw', y: '50vh', opacity: 0, zIndex: 2},
-    rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2},
-  });
 
-  function exitHandler(animType){
-    if (animType === "About Me") {
-      setExitVars({
-        animVars: {rotateZ: -45, overflow: "visible" },
-        animStyleLeft: { originX: 0.14, originY: 0.645 },
-        animStyleRight: { originX: 1, originY: 0.45 },
-        cardExit: {y: '100vh', opacity: 0},
-        lSquareExit: {x: '-50vw', y: '50vh', opacity: 0, zIndex: 2},
-        rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}
-      });
-    }
-    else if (animType === "Projects") {
-      setExitVars({
-        animVars: {},
-        animStyleLeft: {},
-        animStyleRight: {},
-        cardExit: {scale: 0.5, opacity: 0, zIndex: 2},
-        lSquareExit: {x: '-50vw', y: '50vh', opacity: 0, zIndex: 2},
-        rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}
-      });
-    }
-    else if (animType === "Achievements") {
-      setExitVars({
-        animVars: {rotateZ: 15, overflow: "visible" },
-        animStyleLeft: {},
-        animStyleRight: {},
-        cardExit: {opacity: 0},
-        lSquareExit: {x: '-50vw', y: '50vh', opacity: 0, zIndex: 2},
-        rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}
-      });
-    }
-    else if (animType === "Experience") {
-      setExitVars({
-        animVars: {rotateZ: 45, overflow: "visible" },
-        animStyleLeft: {},
-        animStyleRight: {},
-        cardExit: {opacity: 0},
-        lSquareExit: {x: '-50vw', y: '50vh', opacity: 0, zIndex: 2},
-        rSquareExit: {x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}
-      });
-    }
-  }
-
-
-  
-  // ${styles.tetris}
   return (
     <motion.div className="background"
-    // <motion.div
     variants={containerVariants}
     initial="hidden"
     animate="visible">
         <ProfileCard path="homePageImages/ahmad.jpg" text={isDesktop ? "Hi there, I'm Ahmad Barzak :)" : "Hi!"}
-        exit={exitVars.cardExit}
+        exit={{scale: 0.5, opacity: 0, zIndex: 2}}
         transition={{duration: 0.2}}/>
       <TriangleButton transition={{duration:0.1}}  text="Achievements" orientation="top-left" dimensionOverride={false} path="/achievements"/>
-      <TriangleButton transition={{duration: 0.1}} clicked={(animType)=>exitHandler(animType)} dimensionOverride={false} text="Experience" orientation="bottom-right" path="/experience"/>
-
+      <TriangleButton transition={{duration: 0.1}} dimensionOverride={false} text="Experience" orientation="bottom-right" path="/experience"/>
       <div className={styles.bottomleft} style={{zIndex:1}}>
         <SquareButton 
-        exit={exitVars.lSquareExit}
+        exit={{x: '-50vw', y: '50vh', opacity: 0, zIndex: 2}}
         transition={{duration: 0.2}}
-        clicked={(animType)=>exitHandler(animType)} text="About Me" path="/about"/>
+        text="About Me" path="/about"/>
       </div>
       <div className={styles.topright} style={{zIndex:1}}>
         <SquareButton
-        exit={exitVars.rSquareExit}
+        exit={{x: '50vw', y: '-50vh', opacity: 0, zIndex: 2}}
         transition={{duration: 0.2}}
-        clicked={(animType)=>exitHandler(animType)} text="Projects" path="/projects"/>
+        text="Projects" path="/projects"/>
       </div>
     </motion.div>
   );

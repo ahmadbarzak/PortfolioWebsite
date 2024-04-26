@@ -17,10 +17,13 @@ const AchievementsPage = () => {
     const [initialTransition, setInitialTransition] = useState(true);
 
     const { reward: confettiReward, isAnimating: isConfettiAnimating } = useReward('confettiReward', 'confetti');
-    const screenSize = useScreenSize();
 
     const mobileView = useMediaQuery('(max-width: 550px)');
+    const minMobile = useMediaQuery('(min-width: 520px)');
+    const maxMobile = useMediaQuery('(max-width: 580px)');
+    const mobileTransition = minMobile && maxMobile;
 
+    const screenSize = useScreenSize();
     let width = screenSize.width / 345;
     let height = screenSize.height / 345;
 
@@ -34,7 +37,6 @@ const AchievementsPage = () => {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); 
-
 
     return (
         <div className="background" style={{ zIndex: zInd }}>
@@ -69,7 +71,7 @@ const AchievementsPage = () => {
             <TriangleButton
             initial={{scale: 1}}
             animate={{ scaleX:width, scaleY:!mobileView?height:height/3.4, rotateZ:!mobileView ? 0 : 45, overflow: "visible"}}
-            transition={initialTransition ? {delay:0.5, duration: 1} : {delay:0, duration: 0.2}}
+            transition={initialTransition ? {delay:0.5, duration: 1} : mobileTransition? {delay:0, duration: 0.2} : {delay:0, duration: 0}}
             style={{ originX: 0 , originY: 0 }}
             dimensionOverride={true}
             onAnimationComplete={() => {

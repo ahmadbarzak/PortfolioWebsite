@@ -47,15 +47,14 @@ const App = () => {
 
           <Route path="/about" element={
             <div>
-              {(!mobileView&&isBigEnough) && <AboutMePage/>}
-              {mobileView && <MobilePlaceholder/>}
+              {isBigEnough && <AboutMePage/>}
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
           }/>
           
           <Route path="/projects" element={
             <div>
-              {!mobileView && <ProjectsPage/>}
+              {!mobileView&&isBigEnough && <ProjectsPage/>}
               {mobileView && <MobilePlaceholder/>}
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
