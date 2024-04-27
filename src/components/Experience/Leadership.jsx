@@ -1,4 +1,5 @@
-import styles from './Leadership.module.css';
+import styles from '../../Styles/Experience/Leadership.module.css';
+
 const Leadership = () => {
   const leadershipExperiences = [
     {

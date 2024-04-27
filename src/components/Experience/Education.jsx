@@ -1,4 +1,4 @@
-import styles from './Education.module.css'; // Make sure to create a corresponding CSS file
+import styles from '../../Styles/Experience/Education.module.css'
 
 const Education = () => {
   const exp = {

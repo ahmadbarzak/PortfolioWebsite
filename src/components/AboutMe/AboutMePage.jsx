@@ -26,7 +26,6 @@ const AboutMePage = () => {
 
 
   useEffect(() => {
-    console.log("screenSize A is " + screenSize.width)
     setScalarType(screenSize.width <= mobileWidth? "mobile" : "desktop");
     setInitialScreenSize(screenSize.width)
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -121,9 +120,7 @@ const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxSc
                 let direction = index % 2 === 0 ? "-100vw" : '100vw'
                 let rotate = fact.rotate ? fact.rotate : 0;
                 const factStyles = screenSize.width >= 850 ? fact.style : {left:fact.mobileLeft, top:fact.style.top};
-                console.log(screenSize.width >= 500 ? "left" : "mobileLeft")
                 
-                // console.log(screenSize.width >= 500)
                 return (
                   <AnimatePresence key={index}>
                   {type === "social" && <SocialFact 

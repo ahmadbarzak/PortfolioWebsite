@@ -20,7 +20,6 @@ const ProjectsPage = () => {
   const timeout = 0.33889 * duration * 1000;
 
   function handleClick(expIndex) {
-    console.log(timeout);
       setIsClicked(!isClicked);
       setUnclickable(true);
       setTimeout(() => {
@@ -67,7 +66,7 @@ const ProjectsPage = () => {
           animate={{opacity: 1}}
           exit={{opacity: 0}}
           transition={{delay:0, duration: 0.5}}
-          propStyles={{ position:"absolute", bottom:"13%", left:"6vw"}}
+          propStyles={{ position:"absolute", bottom:"16%", left:"6vw"}}
           expIndex={experienceIndex}
           handleClick={(index) => handleClick(index)}
           unclickable={unclickable}

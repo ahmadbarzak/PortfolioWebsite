@@ -9,13 +9,11 @@ import AchievementsPage from './components/Achievements/AchievementsPage';
 import ExperiencePage from './components/Experience/ExperiencePage';
 import useMediaQuery from './hooks/useMediaQuery';
 import TetrisBackground from './components/Misc/TetrisBackground';
-// import MobilePlaceholder from './components/Misc/MobilePlaceholder';
 import IncreaseSizeComponent from './components/Misc/IncreaseSizeComponent';
 
 const App = () => {
 
   const isBigEnough = useMediaQuery('(min-height: 500px)');
-  // const mobileView = useMediaQuery('(max-width: 550px)');
 
   const location = useLocation();
   const navigate = useNavigate();

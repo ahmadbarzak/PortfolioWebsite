@@ -1,4 +1,4 @@
-import styles from './Work.module.css'; // Make sure to create a corresponding CSS file
+import styles from '../../Styles/Experience/Work.module.css'; // Make sure to create a corresponding CSS file
 
 const Work = () => {
   const experiences = [

@@ -4,17 +4,8 @@ import styles from '../../Styles/AboutMe/LightSwitch.module.css';
 
 const LightSwitch = ({mode, clicked}) => {
 
-    // let lightImg = "aboutMeImages/lightSwitch/Work.png";
-
-    let classMode = styles.work;
-    if (mode === "social") {
-        // lightImg = "aboutMeImages/lightSwitch/light2.svg";
-        classMode = styles.social;
-    }
-    const lightImg = "aboutMeImages/lightSwitch/light2.svg";
-
-    console.log(mode);
-
+    const classMode = mode==="social" ? styles.social : styles.work;
+    const lightImg = "aboutMeImages/lightSwitch/switch.svg";
 
     return (
     <div style={{height:"30px", transform:mode==="social"?"scale(1, 1)":"scale(1, -1)"}} className={styles.light}>

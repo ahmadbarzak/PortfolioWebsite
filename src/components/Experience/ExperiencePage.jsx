@@ -115,7 +115,7 @@ const ExperiencePage = () => {
             style={initialStyle?{backgroundColor: "#03DAD9"}:{backgroundColor: "#6D58B7"}}
             >
                 <div style={initialStyle?{color: "#355070", transform:"scale(1, 1)"}:flipIndex%2===0 ? {transform: "scale(1, -1)"} : {transform: "scale(1, 1)"}}>
-                    {initialStyle?"Hello!":experienceIndex%3===0?<Work/>:experienceIndex%3===1?<Education/>:<Leadership/>}
+                    {initialStyle?"":experienceIndex%3===0?<Work/>:experienceIndex%3===1?<Education/>:<Leadership/>}
                 </div>
             </motion.div>
 
