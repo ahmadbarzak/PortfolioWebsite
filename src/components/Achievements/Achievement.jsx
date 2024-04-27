@@ -10,7 +10,7 @@ const Achievement = ({direction, achievement, top, isMobile, index}) => {
     const x = direction === "left" ? "-120vw" : "120vw"
     const classMode = direction === "left" ? styles.left : styles.right;
 
-    let translate = direction==="left"?70:-70;
+    let translate = direction==="left"?90:-70;
     translate = Math.floor(translate + Math.floor(index/2)*10);
     translate = "translateY(" + translate + "px)"
 

@@ -1,27 +1,27 @@
 .light {
     position: absolute;
-    height: 200px;
-    width: 200px;
     z-index: 2;
-    top: 30%;
+    top: 15%;
+    translate: 50% 0%;
+    transform-origin: 0% 100%;
 }
 
 .img {
-    width: 100%;
-    height: 100%;
+    width: 40%;
 }
+
 
 .switch {
     position: absolute;
-    width: 29%;
-    height: 22%;
-    left: 38%;
+    width: 35%;
+    height: 80%;
+    left: 33%;
 }
 
 .work {
-    top: 28%;
+    top: 115%;
 }
 
 .social {
-    top: 50%;
+    top: 115%;
 }

@@ -23,6 +23,8 @@ const AboutMePage = () => {
   const [scalarType, setScalarType] = useState("desktop");
   const [initialScreenSize, setInitialScreenSize] = useState(0);
 
+
+
   useEffect(() => {
     console.log("screenSize A is " + screenSize.width)
     setScalarType(screenSize.width <= mobileWidth? "mobile" : "desktop");
@@ -40,10 +42,12 @@ const AboutMePage = () => {
 const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxScreenWidth, 
   noShrinkLenience, initialScreenSize, mobileWidth, vw, scalarType);
 
-  const careerObj = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
+  const careerObjA = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
   "aspiring to be involved in the professional world of technology. Growing up, I was always " +
   "interested in mathematics and technology and excited by the various problems these fields have " +
-  "bestowed upon us to solve." + "\n\n\nThese interests have ranged from machine learning and market-making " +
+  "bestowed upon us to solve.";
+
+  const careerObjB = "These interests have ranged from machine learning and market-making " +
   "algorithms, to growing interests in web development. I actively enjoy critical thinking, sharing" +
   " ideas, and working as a team to contribute to projects that translate to real-world impacts"
 
@@ -116,6 +120,10 @@ const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxSc
               {socialFacts.map((fact, index) => {
                 let direction = index % 2 === 0 ? "-100vw" : '100vw'
                 let rotate = fact.rotate ? fact.rotate : 0;
+                const factStyles = screenSize.width >= 850 ? fact.style : {left:fact.mobileLeft, top:fact.style.top};
+                console.log(screenSize.width >= 500 ? "left" : "mobileLeft")
+                
+                // console.log(screenSize.width >= 500)
                 return (
                   <AnimatePresence key={index}>
                   {type === "social" && <SocialFact 
@@ -123,7 +131,7 @@ const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxSc
                   animate={{opacity: 1, x: 0, rotateZ: rotate}}
                   exit={{opacity: 0, x: direction, rotateZ: 0}}
                   transition={{duration: 0.4 }}
-                  styleProps={{...{color:"#FFFFFF", position:"absolute"}, ...fact.style}}
+                  styleProps={factStyles}
                   text={fact.text}
                   icon={fact.icon}
                   orientation={fact.orientation}
@@ -144,23 +152,12 @@ const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxSc
                     className={`${styles.defaultStyle}  ${styles.worktext} ${styles.left}`}
                     mode={type}
                   >
-                    {careerObj}
+                    <p style={{color: "#11415B"}}>{careerObjA}</p>
+                    <p style={{color: "#D1ACFF"}}>{careerObjB}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
 
-
-              <AnimatePresence>
-                  {type === "work" && <motion.div 
-                  initial={{opacity: 0, y: "-100vh"}}
-                  animate={{opacity: 1, y: 0}}
-                  exit={{opacity: 0, y: "-100vh"}}
-                  transition={{duration: 0.4 }}
-                  className={`${styles.defaultStyle} ${styles.worktext} ${styles.right}`}
-                  mode={type}>Insert More Text Here</motion.div>
-                  }
-              </AnimatePresence>
-              
             </div>
       </div>
     </div>

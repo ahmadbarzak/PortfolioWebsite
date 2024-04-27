@@ -1,6 +1,7 @@
 .defaultStyle {
     position: absolute;
     width: 300px;
+    height: 700px;
     top:0;
     bottom:0;
     display: flex;
@@ -9,11 +10,22 @@
     overflow: visible;
 }
 
-.defaultStyle p {
+.defaultStyle .aboutMe {
     position: absolute;
     color:white;
     top:0;
     transform:translate(-10%, 0%);
+    font-size:65px;
+    margin:10px 0;
+    text-wrap: nowrap;
+    font-family: main title;
+}
+
+.defaultStyle .mode {
+    position: absolute;
+    color:white;
+    top:0;
+    transform:translate(-45%, 75%);
     font-size:65px;
     margin:10px 0;
     text-wrap: nowrap;
