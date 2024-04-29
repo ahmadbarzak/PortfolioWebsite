@@ -1,5 +1,5 @@
-function getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxScreenWidth,
-    noShrinkLenience, initialScreenSize, mobileWidth, vw, scalarType) {
+function getScale({shrinkValue, mobileExpandValue, desktopExpandValue, maxScreenWidth,
+    noShrinkLenience, initialScreenSize, mobileWidth, vw, scalarType}) {
   const lerp = shrinkValue*(initialScreenSize)/maxScreenWidth;
   const minChange = initialScreenSize < mobileWidth+noShrinkLenience ? 0 : lerp;
 

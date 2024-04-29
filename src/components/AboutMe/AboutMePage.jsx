@@ -16,30 +16,28 @@ import getScale from './scaleCalculator';
 const AboutMePage = () => {
   
   const screenSize = useScreenSize();
-  const vw = screenSize.width / 100;
-
-  const mobileWidth = 400;
-
   const [scalarType, setScalarType] = useState("desktop");
   const [initialScreenSize, setInitialScreenSize] = useState(0);
 
-
+  const scaleParams = {
+    shrinkValue: 40,
+    mobileExpandValue: 70,
+    desktopExpandValue: 60,
+    maxScreenWidth: 1176,
+    noShrinkLenience: 200,
+    initialScreenSize: initialScreenSize,
+    mobileWidth: 400,
+    vw: screenSize.width / 100,
+    scalarType: scalarType
+  };
 
   useEffect(() => {
-    setScalarType(screenSize.width <= mobileWidth? "mobile" : "desktop");
+    setScalarType(screenSize.width <= scaleParams.mobileWidth? "mobile" : "desktop");
     setInitialScreenSize(screenSize.width)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
-  const shrinkValue = 40;
-  const mobileExpandValue = 70;
-  const desktopExpandValue = 60;
-  const maxScreenWidth = 1176;
-  const noShrinkLenience = 200;
-
-const scale = getScale(shrinkValue, mobileExpandValue, desktopExpandValue, maxScreenWidth, 
-  noShrinkLenience, initialScreenSize, mobileWidth, vw, scalarType);
+  const scale = getScale(scaleParams);
 
   const careerObjA = "I am a student who has recently graduated with a BE (Hons) in Software Engineering, " +
   "aspiring to be involved in the professional world of technology. Growing up, I was always " +
