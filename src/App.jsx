@@ -1,17 +1,33 @@
 import './App.css';
 import {Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import ProjectsPage from './components/Projects/ProjectsPage';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, useMotionValue } from 'framer-motion';
+// import ProjectsPage from './components/Projects/ProjectsPage';
+import DraggableLight from './components/AboutMe/DraggableLight';
 import HomePage from './components/HomePage/HomePage';
 import AboutMePage from './components/AboutMe/AboutMePage';
-import AchievementsPage from './components/Achievements/AchievementsPage';
+// import AchievementsPage from './components/Achievements/AchievementsPage';
 import ExperiencePage from './components/Experience/ExperiencePage';
 import useMediaQuery from './hooks/useMediaQuery';
 import TetrisBackground from './components/Misc/TetrisBackground';
 import IncreaseSizeComponent from './components/Misc/IncreaseSizeComponent';
+import Light from './components/AboutMe/Light';
+// import Example from './components/AboutMe/live2d';
+import {shape, shape_morphed} from './components/AboutMe/lightPath';
+
+
+// const Light = ({pathIndex, progress, paths, opacity}) => {
+
+
+
 
 const App = () => {
+
+  const [pathIndex, setPathIndex] = useState(0);
+  const progress = useMotionValue(0);
+  const paths = [shape, shape_morphed]
+  const opacity = useMotionValue(1);
+
 
   const isBigEnough = useMediaQuery('(min-height: 500px)');
 
@@ -52,15 +68,21 @@ const App = () => {
           
           <Route path="/projects" element={
             <div>
-              {isBigEnough && <ProjectsPage/>}
-              {!isBigEnough && <IncreaseSizeComponent/>}
+              <DraggableLight/>
+              {/* {isBigEnough && <ProjectsPage/>} */}
+              {/* {!isBigEnough && <IncreaseSizeComponent/>} */}
             </div>
           }/>
 
           <Route path="/achievements" element={
             <div>
-              {isBigEnough && <AchievementsPage/>}
-              {!isBigEnough && <IncreaseSizeComponent/>}
+              <Light
+              pathIndex={pathIndex}
+              progress={progress}
+              paths={paths}
+              opacity={opacity} />
+              {/* {isBigEnough && <AchievementsPage/>} */}
+              {/* {!isBigEnough && <IncreaseSizeComponent/>} */}
             </div>
           }/>
 
