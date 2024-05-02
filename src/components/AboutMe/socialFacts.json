@@ -19,7 +19,7 @@
             "top": "30%"
             },
             "tabletLeft": "4vw",
-            "mobileLeft": "4vw",
+            "mobileLeft": "0vw",
             "rotate": 4
         },
         {
@@ -49,20 +49,20 @@
         {
             "text": "Ice Cream Connoiseur",
             "style": {
-            "left": "5vw",
-            "top": "75%"
+            "left": "20vw",
+            "top": "77%"
             },
             "tabletLeft": "10vw",
-            "mobileLeft": "10vw",
+            "mobileLeft": "2vw",
             "rotate": 10
         },
         {
             "text": "Keen to learn anything",
             "style": {
-            "left": "30vw",
+            "left": "50vw",
             "top": "84%"
             },
-            "tabletLeft": "10vw",
+            "tabletLeft": "30vw",
             "mobileLeft": "10vw",
             "rotate": -9
         },
@@ -75,14 +75,14 @@
             "top": "51%"
             },
             "tabletLeft": "5vw",
-            "mobileLeft": "5vw",
+            "mobileLeft": "0vw",
             "rotate": -10
         },
         {
             "text": "Really enjoy baking!",
             "style": {
             "left": "52vw",
-            "top": "37%"
+            "top": "40%"
             },
             "tabletLeft": "47vw",
             "mobileLeft": "40vw",
@@ -93,7 +93,7 @@
             "icon": "aboutMeImages/socialFactImages/robo.png",
             "orientation": "left",
             "style": {
-            "right": "13vw",
+            "right": "23vw",
             "top": "57%"
             },
             "tabletLeft": "48vw",
@@ -103,8 +103,8 @@
         {
             "text": "Self studies maths",
             "style": {
-            "right": "28vw",
-            "top": "69%"
+            "right": "18vw",
+            "top": "72%"
             },
             "tabletLeft": "40vw",
             "mobileLeft": "36vw",
@@ -126,7 +126,7 @@
             "text": "Broke as a result",
             "style": {
             "right": "11vw",
-            "top": "30%"
+            "top": "32%"
             },
             "tabletLeft": "55vw",
             "mobileLeft": "38vw",
@@ -138,7 +138,7 @@
             "orientation": "left",
             "style": {
             "right": "11vw",
-            "top": "26%"
+            "top": "28%"
             },
             "tabletLeft": "55vw",
             "mobileLeft": "38vw",

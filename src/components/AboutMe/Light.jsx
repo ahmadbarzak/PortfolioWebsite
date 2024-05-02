@@ -1,7 +1,6 @@
 import { interpolate } from 'flubber';
 import { PropTypes } from 'prop-types';
 import { motion, useTransform } from 'framer-motion';
-import { useEffect } from 'react';
 
 const Light = ({pathIndex, progress, paths, opacity}) => {
 

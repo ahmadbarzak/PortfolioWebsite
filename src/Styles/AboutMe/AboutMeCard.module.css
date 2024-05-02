@@ -13,9 +13,10 @@
 .defaultStyle .aboutMe {
     position: absolute;
     color:white;
-    top:0;
+    top:calc(min(max(25% - max(4%, 26vw), 0%), 5%));
     transform:translate(-10%, 0%);
-    font-size:65px;
+    font-size: calc(max(min(65px, 8vw), 40px));
+    /* font-size:65px; */
     margin:10px 0;
     text-wrap: nowrap;
     font-family: main title;
@@ -24,9 +25,10 @@
 .defaultStyle .mode {
     position: absolute;
     color:white;
-    top:0;
+    top:calc(min(max(25% - max(4%, 26vw), 0%), 6%));
     transform:translate(-45%, 75%);
-    font-size:65px;
+    font-size: calc(max(min(65px, 8vw), 40px));
+    /* font-size:65px; */
     margin:10px 0;
     text-wrap: nowrap;
     font-family: main title;
