@@ -19,7 +19,7 @@
 
 .worktext {
     border-radius: 20px;
-    font-size: max(min(20px, 2.3vw), 12px);
+    font-size: max(min(20px, 2.3vw), 13px);
     font-weight:bold;
     background: linear-gradient(#D1ACFF, #155070 64%);
     border: 1.5px solid turquoise;
