@@ -12,19 +12,28 @@ import "../../App.css";
 import {shape, shape_morphed} from './lightPath';
 import useScreenSize from '../../hooks/useScreenSize';
 import getScale from './scaleCalculator';
+import { updateSpans, updateLight, isInLight } from './lightFunctions';
 
 const AboutMePage = () => {
   
   const screenSize = useScreenSize();
   const [scalarType, setScalarType] = useState("desktop");
   const [initialScreenSize, setInitialScreenSize] = useState(0);
-
-
   const [pathIndex, setPathIndex] = useState(0);
   const progress = useMotionValue(0);
   const paths = [shape, shape_morphed]
   const opacity = useMotionValue(0);
 
+  const [type, setType] = useState('social');
+  const [initialTransition, setInitialTransition] = useState(true);
+  const [spanDataA, setSpanDataA] = useState({});
+  const [spanDataB, setSpanDataB] = useState({});
+  const [lightPoints, setLightPoints] = useState({});
+
+  let style = false;
+  let pi = {};
+  let pf = {};
+  let pmid = {};
 
   const scaleParams = {
     shrinkValue: 40,
@@ -67,79 +76,15 @@ const AboutMePage = () => {
     }
   }
 
-  const [type, setType] = useState('social');
-  const [initialTransition, setInitialTransition] = useState(true);
-  const [spanDataA, setSpanDataA] = useState({});
-  const [spanDataB, setSpanDataB] = useState({});
-  const [lightPoints, setLightPoints] = useState({});
-
-
-  const updateSpans = () => {
-
-    const spansA = document.querySelectorAll('.character-spanA');
-    const spansB = document.querySelectorAll('.character-spanB');
-
-      const spanInfoA = Array.from(spansA).map(span => {
-        const rect = span.getBoundingClientRect();
-        return {
-          width: rect.width,
-          height: rect.height,
-          top: rect.top,
-          left: rect.left,
-        };
-      });
-
-      const spanInfoB = Array.from(spansB).map(span => {
-        const rect = span.getBoundingClientRect();
-        return {
-          width: rect.width,
-          height: rect.height,
-          top: rect.top,
-          left: rect.left,
-        };
-      });
-
-      setSpanDataA(spanInfoA);
-      setSpanDataB(spanInfoB);
-  };
-
-
-  const updateLight = () => {
-      const lightInfo = document.querySelector('.light').getBoundingClientRect();
-      const { l, t, w, h } = { l: lightInfo.left, t: lightInfo.top, w: lightInfo.width, h: lightInfo.height }
-
-      console.log("left is " + l)
-      console.log("top is " + t)
-      console.log("width is " + w)
-      console.log("height is " + h)
-
-
-      const lightData = { 
-          a: {x: l+(200/425)*w, y: t},
-          b: {x: l+(225/425)*w, y: t},
-          c: {x: l, y: t+h},
-          d: {x: l+w, y: t+h}
-      }
-      
-      const {a, b, c, d} = lightData;
-      const {m1, m2} = {m1: (c.y - a.y)/(c.x - a.x), m2: (b.y - d.y)/(b.x - d.x)}
-      const {c1, c2} = {c1: a.y - m1*a.x, c2: b.y - m2*b.x}
-      setLightPoints({ m1: m1, c1: c1, m2: m2, c2: c2, ay: a.y, cy: c.y })
-  };
-
   useEffect(() => {  
     const update = () => {
       if (type === "work") {
-        updateLight();
-        updateSpans();
-        updateSpans();
+        updateLight(setLightPoints);
+        updateSpans(setSpanDataA, setSpanDataB);
       }
     }
-
     update();
-
     window.addEventListener('resize', update);
-
     return () => window.removeEventListener('resize', update);
   }, [type]);
 
@@ -160,16 +105,7 @@ const AboutMePage = () => {
     animate(opacity, nextIndex===1?1:0, {duration: 0.5});
   };
 
-  function getIsInLight(p, {m1, c1, m2, c2, ay, cy}) {
-    return (p.y > m1*p.x + c1 &&
-            p.y > m2*p.x + c2 &&
-            p.y > ay &&
-            p.y < cy);
-  }
-
-
   function getSpanStyle(index, isTop) {
-    
     
     const currentSpan = isTop?spanDataA[index]:spanDataB[index];
 
@@ -181,8 +117,8 @@ const AboutMePage = () => {
         pmid = {x: currentSpan.left + currentSpan.width/2, y: currentSpan.top + currentSpan.height/2};
         pf = {x: currentSpan.left + currentSpan.width, y: currentSpan.top + currentSpan.height};
 
-        if ((getIsInLight(pi, lightPoints) && getIsInLight(pmid, lightPoints)) || 
-            (getIsInLight(pmid, lightPoints) && getIsInLight(pf, lightPoints))){
+        if ((isInLight(pi, lightPoints) && isInLight(pmid, lightPoints)) || 
+            (isInLight(pmid, lightPoints) && isInLight(pf, lightPoints))){
             return true;
         }
         else {
@@ -191,11 +127,6 @@ const AboutMePage = () => {
     }
 
   }
-
-  let style = false;
-  let pi = {};
-  let pf = {};
-  let pmid = {};
 
   return (
     <div className="background">
@@ -207,7 +138,8 @@ const AboutMePage = () => {
       />
 
       <TriangleButton 
-      animate={{ translateX:scalarType==="mobile"?scale:-scale, rotateZ: -45, overflow: "visible" }}
+      animate={{ translateX:scalarType==="mobile"?scale:-scale,
+      rotateZ: -45, overflow: "visible" }}
       transition={initialTransition?{ delay: 0.4, duration: 0.45}: { delay: 0, duration: 0 }}
       onAnimationComplete={() => {
         setInitialTransition(false)
@@ -247,7 +179,8 @@ const AboutMePage = () => {
               {socialFacts.map((fact, index) => {
                 let direction = index % 2 === 0 ? "-100vw" : '100vw'
                 let rotate = fact.rotate ? fact.rotate : 0;
-                const factStyles = screenSize.width >= 850 ? fact.style : {left:fact.mobileLeft, top:fact.style.top};
+                const factStyles = screenSize.width >= 850 ? fact.style :
+                {left:fact.mobileLeft, top:fact.style.top};
                 
                 return (
                   <AnimatePresence key={index}>
@@ -280,13 +213,17 @@ const AboutMePage = () => {
                     <p>
                       {careerObjA.split('').map((char, index) => {
                         style = getSpanStyle(index, true)
-                        return <span className="character-spanA" style={{color: style?"#FFFFFF":"#11415B"}} key={index}>{char}</span>
+                        return <span className="character-spanA"
+                        style={{color: style?"#FFFFFF":"#11415B"}}
+                        key={index}>{char}</span>
                       })}
                     </p>
                     <p>
                       {careerObjB.split('').map((char, index) => {                      
                         style = getSpanStyle(index, false)
-                        return <span className="character-spanB" style={{color: style?"#000000":"#D1ACFF"}} key={index}>{char}</span>
+                        return <span className="character-spanB"
+                        style={{color: style?"#000000":"#D1ACFF"}}
+                        key={index}>{char}</span>
                       })}
                     </p>
 
