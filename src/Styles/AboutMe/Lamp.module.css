@@ -20,8 +20,7 @@
 }
 
 .lampLight {
-    border: 1px solid #ffffff;
-    transform:translate(26.5%, 0%);
-    height: 600px;
-    width:450px;
+    transform:translate(28%, 0%);
+    height: 800px;
+    width:425px;
 }

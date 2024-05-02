@@ -23,17 +23,8 @@
     font-weight:bold;
     background: linear-gradient(#D1ACFF, #155070 64%);
     border: 1.5px solid turquoise;
-    /* top: 35%; */
     white-space: pre-line;
-}
-
-.left {
-    top: max(min(60%, 20% + 10vw), 30%);
     left: 25%;
     right:25%;
-}
-
-.right {
-    left: 65%;
-    right:6%;
+    text-align: center;
 }

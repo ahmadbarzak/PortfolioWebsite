@@ -1,6 +1,7 @@
 import { interpolate } from 'flubber';
 import { PropTypes } from 'prop-types';
 import { motion, useTransform } from 'framer-motion';
+import { useEffect } from 'react';
 
 const Light = ({pathIndex, progress, paths, opacity}) => {
 
@@ -60,28 +61,11 @@ const Light = ({pathIndex, progress, paths, opacity}) => {
         return <motion.path style={{ fill:"url(#Gradient)", opacity:opacity, zIndex: pathIndex ===  1 ? -1 : 0 }} d={path} />;
     };
 
-    // const handleClick = () => {
-    //     const nextIndex = (pathIndex + 1) % paths.length;
-    //     animate(progress, 1, {
-    //         duration: 0.5,
-    //         ease: "easeInOut",
-    //         onComplete: () => {
-    //             setTimeout(() => {
-    //                 progress.set(0);
-    //                 setPathIndex(nextIndex);
-    //             }, 200);
-    //         }
-    //     });
-    //     animate(opacity, nextIndex===1?1:0, {duration: 0.5});
-    // };
-
     return (
-        <div>
-            <svg width="202500" height="360000" viewBox="0 0 202500 360000">
+            <svg className="bro" width="425" height="800">
                 <SVGMorph progress={progress} pathIndex={pathIndex} opacity={opacity} paths={paths}/>
                 <SvgStyle/>
             </svg>
-        </div>
     )
 
 }

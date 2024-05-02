@@ -1,10 +1,11 @@
 import { PropTypes } from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from '../../Styles/AboutMe/Lamp.module.css';
+import Light from './Light';
 
-const Lamp = ({mode}, ref) => {
-
-    const cardVariants = {
+const Lamp = ({pathIndex, progress, paths, opacity}, ref) => {
+    
+    const variants = {
         hidden: {
           opacity: 0,
         },
@@ -12,13 +13,6 @@ const Lamp = ({mode}, ref) => {
           opacity: 1,
           transition: { duration: 2 },
         },
-        enter: {
-          y: '10vh',
-          transition: { duration: 0.2 },
-        }
-    }
-
-    const lampVariants = {
         work: {
             opacity: 1,
             transition: {
@@ -37,24 +31,31 @@ const Lamp = ({mode}, ref) => {
 
     return (
         <motion.div
-        variants={cardVariants}
+        variants={variants}
         initial="hidden"
         animate="visible"
-        style={{zIndex: 0}}
-         ref={ref} className = { styles.divStyle }>
+        style={{zIndex: 1}}
+        ref={ref} className = { `${styles.divStyle}` }
+        >
             <div className={ styles.ceilLamp }>
                 <img src="aboutMeImages/lightSwitch/ceilLamp.png" style={{width:"60%"}}/>
             </div>
-            <AnimatePresence>
-                {mode==='work' && <motion.div
-                variants={lampVariants}
-                initial="social"
-                animate="work"
-                exit="social"
-                className={ styles.lampLight }>
-                    <img src="aboutMeImages/lightSwitch/light.svg" style={{width:"100%"}}/>
-                </motion.div>}
-            </AnimatePresence>
+
+            <motion.div
+            variants={variants}
+            initial="social"
+            animate="work"
+            exit="social"
+            className={ `light ${styles.lampLight}` }
+            >
+                <Light
+                pathIndex={pathIndex}
+                progress={progress}
+                paths={paths}
+                opacity={opacity} 
+                />
+
+            </motion.div>
         </motion.div>
     )
 };
