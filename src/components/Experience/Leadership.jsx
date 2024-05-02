@@ -31,7 +31,7 @@ const Leadership = () => {
             <h3 className={styles.titleOrganization}>{exp.title} - {exp.organization}</h3>
             <p className={styles.experienceDuration}>{exp.duration}</p>
           </div>
-          <p className={styles.detailItem}>{exp.details}</p>
+          <p className={styles.details}>{exp.details}</p>
         </div>
       ))}
     </div>

@@ -31,7 +31,7 @@ const Work = () => {
                 <h3 className={styles.roleCompany}>{exp.role} - {exp.company}</h3>
                 <p className={styles.experienceDuration}>{exp.duration}</p>
             </div>
-            <p style={{marginLeft:"6px"}}>{exp.details}</p>
+            <p className={styles.details} style={{marginLeft:"6px"}}>{exp.details}</p>
         </div>
       ))}
     </div>

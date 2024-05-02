@@ -41,10 +41,8 @@ const ExperiencePage = () => {
 
     let width = screenSize.width / 100;
     let height = screenSize.height / 365;
-
-
     const duration = 1;
-    const timeout = 0.33889 * duration * 1000;
+    const timeout = 0.33889 * 1000;
 
     function handleClick(expIndex) {
         setIsClicked(!isClicked);
@@ -56,7 +54,6 @@ const ExperiencePage = () => {
     }
 
     const variants = {
-
         hidden: {
             opacity: 0,
             y: 100
@@ -64,9 +61,7 @@ const ExperiencePage = () => {
         initialise: {
             opacity: 1,
             y: 0,
-            // transition: {duration: 1}
         },
-            
         notClicked: {
             rotateX: 180
         },
@@ -75,19 +70,17 @@ const ExperiencePage = () => {
         }
     }
 
-
-
     return (
 
         <div className="background" style={{zIndex:zInd}}>
         
-            <motion.div style={{position: "absolute", padding:0, margin:0, top:0, zIndex:1, display:"flex", alignItems:"center"}}
+            <motion.div style={{position: "absolute", top:`calc(max(16% - max(9%, 15vw), 0%))`, zIndex:1, display:"flex", alignItems:"center"}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{delay: 1, duraction: 0.5}}>
-                <div style={{zIndex: 2, display:"flex", alignItems:"center"}} >
-                <motion.h1 style={{ color:"#FFFFFF", fontSize:"80px", fontFamily: "main title"}}>Experience</motion.h1>
-                <motion.img src="experienceImages/briefcase.png" style={{ marginLeft:"10px", height:"90px"}}/>
+                <div className={styles.title} >
+                    <motion.h1>Experience</motion.h1>
+                    <motion.img src="experienceImages/briefcase.png"/>
                 </div>
             </motion.div>
 

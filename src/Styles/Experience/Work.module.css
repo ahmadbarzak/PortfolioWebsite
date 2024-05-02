@@ -3,33 +3,33 @@
   }
 
 .experienceContainer h2 {
-    font-size: 2.5em;
-    /* margin-bottom: 10px; */
-
+    font-size: calc(1.5em + 1vw);
+    margin-top: 0px;
+    margin-bottom: 30px;
 }
-
-/* .experienceEntry {
-    /* margin-bottom: 20px; */
-/* } */
 
 .roleCompanyDuration {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 }
 
 .roleCompany {
-    font-size: 1.4em;
-    margin-bottom: 5px;
+    font-size: calc(14px + 0.5vw);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
   
 .experienceDuration {
     font-style: italic;
-    margin-bottom: 10px;
-    /* all on one line */
     white-space: nowrap;
-    /* overflow: hidden; */
-    /* text-overflow: ellipsis; */
     margin-left: auto;
+    font-size: calc(10px + 0.5vw);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.details {
+    font-size: calc(0.7em + 0.5vw);
+    text-align: left;
 }

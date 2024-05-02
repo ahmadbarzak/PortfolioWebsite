@@ -1,9 +1,29 @@
+.title {
+    position: absolute;
+    translate: -50% 0%;
+    /* top: calc(max(30% - max(9%, 15vw), 0%)); */
+    top: 0%;
+    z-index: 2;
+    display:flex;
+    align-items:center;
+}
+
+.title h1 {
+    color:#FFFFFF;
+    font-size: calc(max(min(80px, 8vw), 50px));
+    font-family: main title;
+}
+
+.title img {
+    margin-left:10px;
+    height:calc(max(min(80px, 8vw), 50px));
+}
+
 .experienceCard {
     position: absolute;
     display:flex;
     align-items:center;
     flex-direction: column;
-    /* justify-content:center; */
     top: 35%;
     z-index: 3;
     height: 62%;
@@ -12,7 +32,6 @@
 .card {
     width: 90vw;
     height:90%;
-    /* font-size:70px; */
     border: 5px solid white;
     color:white;
     display: flex;
