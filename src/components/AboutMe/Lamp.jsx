@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import styles from '../../Styles/AboutMe/Lamp.module.css';
 import Light from './Light';
 
@@ -61,7 +61,10 @@ const Lamp = ({pathIndex, progress, paths, opacity}, ref) => {
 };
 
 Lamp.propTypes = {
-    mode: PropTypes.oneOf(['work', 'social']),
+    pathIndex: PropTypes.number,
+    progress: PropTypes.object,
+    paths: PropTypes.array,
+    opacity: PropTypes.object,
 }
 
 export default Lamp;

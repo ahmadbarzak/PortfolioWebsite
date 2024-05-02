@@ -2,17 +2,21 @@ import { motion } from "framer-motion"
 import { PropTypes } from 'prop-types';
 import styles from '../../Styles/Achievements/Achievement.module.css';
 import { useState } from "react";
+import useScreenSize from "../../hooks/useScreenSize";
+
 
 const Achievement = ({direction, achievement, top, isMobile, index}) => {
+
+    const screenSize = useScreenSize();
 
     const [isInitial, setIsInitial] = useState(true)
 
     const x = direction === "left" ? "-120vw" : "120vw"
     const classMode = direction === "left" ? styles.left : styles.right;
 
-    let translate = direction==="left"?90:-70;
+    let translate = direction==="left"?130:40-(screenSize.height/5);
     translate = Math.floor(translate + Math.floor(index/2)*10);
-    translate = "translateY(" + translate + "px)"
+    translate = "translateY(" + translate + "%)"
 
     return (
         <motion.span

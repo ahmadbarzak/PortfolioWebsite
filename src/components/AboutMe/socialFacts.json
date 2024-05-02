@@ -6,29 +6,32 @@
             "orientation": "left",
             "style": {
             "left": "10vw",
-            "top": "25%"
+            "top": "20%"
             },
-            "mobileLeft": "11vw",
-            "rotate": -25
+            "tabletLeft": "8vw",
+            "mobileLeft": "8vw",
+            "rotate": -5
         },
         {
             "text": "Karaoke Master",
             "style": {
-            "left": "34vw",
+            "left": "24vw",
             "top": "30%"
             },
-            "mobileLeft": "26vw",
+            "tabletLeft": "4vw",
+            "mobileLeft": "4vw",
             "rotate": 4
         },
         {
-            "text": "Love Squash and Badminton",
+            "text": "Love Racket Sports",
             "icon": "aboutMeImages/socialFactImages/racket.png",
             "orientation": "left",
             "style": {
             "left": "12vw",
-            "top": "44%"
+            "top": "40%"
             },
-            "mobileLeft": "10vw",
+            "tabletLeft": "4vw",
+            "mobileLeft": "4vw",
             "rotate": 16
         },
         {
@@ -37,8 +40,9 @@
             "orientation": "left",
             "style": {
             "left": "8vw",
-            "top": "65%"
+            "top": "63%"
             },
+            "tabletLeft": "10vw",
             "mobileLeft": "10vw",
             "rotate": 12
         },
@@ -46,9 +50,10 @@
             "text": "Ice Cream Connoiseur",
             "style": {
             "left": "5vw",
-            "top": "79%"
+            "top": "75%"
             },
-            "mobileLeft": "6vw",
+            "tabletLeft": "10vw",
+            "mobileLeft": "10vw",
             "rotate": 10
         },
         {
@@ -57,7 +62,8 @@
             "left": "30vw",
             "top": "84%"
             },
-            "mobileLeft": "30vw",
+            "tabletLeft": "10vw",
+            "mobileLeft": "10vw",
             "rotate": -9
         },
         {
@@ -66,9 +72,10 @@
             "orientation": "right",
             "style": {
             "left": "30vw",
-            "top": "55%"
+            "top": "51%"
             },
-            "mobileLeft": "17vw",
+            "tabletLeft": "5vw",
+            "mobileLeft": "5vw",
             "rotate": -10
         },
         {
@@ -77,7 +84,8 @@
             "left": "52vw",
             "top": "37%"
             },
-            "mobileLeft": "47vw",
+            "tabletLeft": "47vw",
+            "mobileLeft": "40vw",
             "rotate": -8
         },
         {
@@ -86,18 +94,20 @@
             "orientation": "left",
             "style": {
             "right": "13vw",
-            "top": "60%"
+            "top": "57%"
             },
-            "mobileLeft": "46vw",
+            "tabletLeft": "48vw",
+            "mobileLeft": "35vw",
             "rotate": 5
         },
         {
-            "text": "Learning pure maths as a hobby",
+            "text": "Self studies maths",
             "style": {
             "right": "28vw",
-            "top": "72%"
+            "top": "69%"
             },
-            "mobileLeft": "40vw",
+            "tabletLeft": "40vw",
+            "mobileLeft": "36vw",
             "rotate": -18
         },
         {
@@ -108,16 +118,18 @@
             "right": "13vw",
             "top": "48%"
             },
-            "mobileLeft": "50vw",
+            "tabletLeft": "47vw",
+            "mobileLeft": "38vw",
             "rotate": 10
         },
         {
             "text": "Broke as a result",
             "style": {
             "right": "11vw",
-            "top": "26%"
+            "top": "30%"
             },
-            "mobileLeft": "50vw",
+            "tabletLeft": "55vw",
+            "mobileLeft": "38vw",
             "rotate": -5
         },
         {
@@ -126,9 +138,10 @@
             "orientation": "left",
             "style": {
             "right": "11vw",
-            "top": "22%"
+            "top": "26%"
             },
-            "mobileLeft": "50vw",
+            "tabletLeft": "55vw",
+            "mobileLeft": "38vw",
             "rotate": -3
         }
     ]

@@ -180,6 +180,7 @@ const AboutMePage = () => {
                 let direction = index % 2 === 0 ? "-100vw" : '100vw'
                 let rotate = fact.rotate ? fact.rotate : 0;
                 const factStyles = screenSize.width >= 850 ? fact.style :
+                screenSize.width >= 525 ? {left:fact.tabletLeft, top:fact.style.top} :
                 {left:fact.mobileLeft, top:fact.style.top};
                 
                 return (
