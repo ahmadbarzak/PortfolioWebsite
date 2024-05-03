@@ -3,9 +3,9 @@
   }
 
 .experienceContainer h2 {
-    font-size: calc(1.5em + 1vw);
+    font-size: calc(1.3em + 1vw);
     margin-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: calc(min(30px, 4vw));
 }
 
 .experienceEntry {
@@ -32,7 +32,7 @@
 }
 
 .roleCompany {
-    font-size: calc(13px + 0.6vw);
+    font-size: calc(12px + 0.5vw);
     margin: 0px 40px 0px 20px;
     text-align: left;
 }
@@ -52,11 +52,15 @@
 }
 
 .detailList {
+    display: flex;
+    flex-direction: column;
     margin: 5px 0 5px 0;
+    align-items: flex-start;
 }
 
 .details {
-    margin-left: 6px;
+    margin-left: calc(min(-30px + 3vw, 0px));
     font-size: calc(0.7em + 0.5vw);
     text-align: left;
+    align-self: flex-start;
 }

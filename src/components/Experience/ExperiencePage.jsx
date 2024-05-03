@@ -39,8 +39,13 @@ const ExperiencePage = () => {
 
     const screenSize = useScreenSize();
 
+
+    // const k = screenSize.height / 100;
     let width = screenSize.width / 100;
-    let height = screenSize.height / 365;
+    let height = (screenSize.height / (365-(Math.max((4.5-Math.max(width,4.1)),0)*100)));
+
+    let cardHeight = (70 - screenSize.height/205 + height) + "%";
+
     const duration = 1;
     const timeout = 0.33889 * 1000;
 
@@ -97,7 +102,8 @@ const ExperiencePage = () => {
             path="/achievements"
             type="animator"/>}
 
-            <div className={styles.experienceCard}>
+
+            <div style={{height:cardHeight}} className={styles.experienceCard}>
             <motion.div 
             variants={variants}
             initial={isInitial?"hidden":"initialise"}

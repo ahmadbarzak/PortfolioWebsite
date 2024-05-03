@@ -8,9 +8,9 @@
   }
 
 .leadershipContainer h2 {
-  font-size: calc(1.5em + 1vw);
+  font-size: calc(1em + 1.4vw);
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .titleOrganizationDuration {
@@ -19,12 +19,15 @@
     margin-left: 6px;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 
 .titleOrganization {
-  font-size: calc(13px + 0.6vw);
-  margin: 0px 40px 0px 0px;
+  /* margin-left: calc(-5px + 0.7vw); */
+  font-size: calc(12px + 0.5vw);
+  margin: 0px 20px 0px calc(-13px + 1.5vw);
   text-align: left;
 }
 
@@ -39,7 +42,9 @@
 }
   
 .details {
-    margin-left: 6px;
-    font-size: calc(0.7em + 0.5vw);
+  margin-top: 3px;
+  margin-bottom: 3px;
+    margin-left: calc(-7px + 1.5vw);
+    font-size: calc(0.6em + 0.5vw);
     text-align: left;
 }

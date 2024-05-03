@@ -2,7 +2,8 @@
     height:10%;
     width: 90vw;
     display: flex;
-    align-items: center;
+    margin-top: 5px;
+    align-items: left;
     justify-content: center;
     gap: 5px;
 }

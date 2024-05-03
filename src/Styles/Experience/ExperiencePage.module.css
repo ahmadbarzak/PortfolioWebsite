@@ -1,7 +1,6 @@
 .title {
     position: absolute;
-    translate: -50% 0%;
-    /* top: calc(max(30% - max(9%, 15vw), 0%)); */
+    translate: -50% calc(20%);
     top: 0%;
     z-index: 2;
     display:flex;
@@ -10,13 +9,13 @@
 
 .title h1 {
     color:#FFFFFF;
-    font-size: calc(max(min(80px, 8vw), 50px));
+    font-size: calc(max(min(80px, 8vw), 40px));
     font-family: main title;
 }
 
 .title img {
     margin-left:10px;
-    height:calc(max(min(80px, 8vw), 50px));
+    height:calc(max(min(80px, 8vw), 40px));
 }
 
 .experienceCard {
@@ -24,9 +23,9 @@
     display:flex;
     align-items:center;
     flex-direction: column;
-    top: 35%;
+    top: calc(34% - max( 400px - max(99vw, 39%), 0%));
     z-index: 3;
-    height: 62%;
+    /* height: calc(70% + max( 285px - max(85vw, 28%), 0%)); */
 }
 
 .card {
@@ -37,5 +36,6 @@
     display: flex;
     align-items:center;
     justify-content:center;
+    margin-bottom: 0px;
 }
 

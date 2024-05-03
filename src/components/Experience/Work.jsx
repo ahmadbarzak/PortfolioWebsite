@@ -13,8 +13,8 @@ const Work = () => {
        " the software to helping update the software to the C++17 standard."
     },
     {
-      role: 'Research Assistant for the Mathematics Department',
-      company: 'University of Auckland',
+      role: 'Research Assistant',
+      company: 'UoA',
       duration: 'Dec 2021 - Mar 2022',
       details:
         "Underwent a research project in Cryptography under the supervision of Mathematics Professor Tomasz Popiel."
@@ -26,12 +26,12 @@ const Work = () => {
     <div className={styles.experienceContainer}>
       <h2>Work Experience</h2>
       {experiences.map((exp, index) => (
-        <div key={index} style={{marginLeft:"2.5%", marginRight:"2.5%"}} className={styles.experienceEntry}>
-            <div style={{marginLeft:"6px"}} className={styles.roleCompanyDuration}>
+        <div key={index} style={{marginLeft:"1.5%", marginRight:"1.5%"}} className={styles.experienceEntry}>
+            <div className={styles.roleCompanyDuration}>
                 <h3 className={styles.roleCompany}>{exp.role} - {exp.company}</h3>
                 <p className={styles.experienceDuration}>{exp.duration}</p>
             </div>
-            <p className={styles.details} style={{marginLeft:"6px"}}>{exp.details}</p>
+            <p className={styles.details}>{exp.details}</p>
         </div>
       ))}
     </div>
