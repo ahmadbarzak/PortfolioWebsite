@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/miscImages/ab.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmads Portfolio!</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Check if the page was a 404 and redirect to the correct path
+          var location = window.location.href;
+          var basePath = location.split('#')[0];
+          if (location.includes('?404;')) {
+            window.location.href = basePath;
+          }
+        });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
