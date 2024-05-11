@@ -1,11 +1,55 @@
 .card {
-    width: 400px;
-    height:330px;
-    background-color:#344070;
+    width: 600px;
+    height: 400px;
     border: 5px solid white;
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.textLink {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.projectImg {
+    border-right: 5px solid white;
+    border-bottom: 5px solid white;
+    width: 100%;
+    height: 80%;
+    background-color: black;
+    display:flex;
+    /* justify-content:center; */
+    /* align-items:center; */
+    /* flex-direction:column; */
+}
+
+.projectText {
+    color: white;
+    font-size: calc(max(min(2vw, 18px), 11.5px));
+    background-color: black;
+    border-bottom: 5px solid white;
+    width: 60%;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+
+.linkDownload {
+    width: 100%;
+    height: 20%;
+    border-right: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .card span {

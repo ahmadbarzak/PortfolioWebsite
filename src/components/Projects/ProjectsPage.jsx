@@ -7,11 +7,14 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import "../../App.css";
 import { AnimatePresence } from "framer-motion";
 import CircleButtons from "../Experience/CircleButtons";
+import { motion } from "framer-motion";
+import styles from '../../Styles/Projects/ProjectPage.module.css';
+import projects from "./Projects.json";
 
 const ProjectsPage = () => {
 
   const [zInd, setzInd] = useState(-1);
-  const mobileView = useMediaQuery('(max-width: 550px)');
+  const mobileView = useMediaQuery('(max-width: 750px)');
   const [experienceIndex, setExperienceIndex] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
   const [unclickable, setUnclickable] = useState(false);
@@ -31,6 +34,14 @@ const ProjectsPage = () => {
   return (
     <div className="background" style={{zIndex:zInd, backgroundColor: "transparent"}}>
         
+        <motion.div className={styles.title}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{delay: 1, duraction: 0.5}}>
+                <motion.h1>Projects</motion.h1>
+                <motion.img src="projectImages/project.png"/>
+        </motion.div>
+
         <TriangleButton 
         animate={{scaleX: 2, rotateZ: 45, overflow: "visible"}}
         transition={{ delay: 0.4, duration: 0.45}}
@@ -42,7 +53,7 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
 
-      <ProjectCard/>
+      <ProjectCard repo={projects[0].repo} text={projects[0].text} play={true}/>
 
       <AnimatePresence mode="sync">
         {mobileView && 

@@ -1,0 +1,6 @@
+[
+        {
+         "repo": "PacmanGame",
+         "text": "This was a pacman game I developed for an intro to javascript competition at the University of Auckland, using the phaser game library. I added a fun twist where the ghosts would get faster with each pellet you ate, but also switch between chasing you and running away. This project won the competition and I had a fun time working on it!"   
+        }
+]
