@@ -1,7 +1,7 @@
 import BackButton from "../Misc/BackButton";
 import TriangleButton from "../Misc/TriangleButton";
 import { useState } from "react";
-import ProjectCard from "./ProjectCard";
+// import ProjectCard from "./ProjectCard";
 import ProjectButton from "./ProjectButton";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import "../../App.css";
@@ -9,7 +9,8 @@ import { AnimatePresence } from "framer-motion";
 import CircleButtons from "../Experience/CircleButtons";
 import { motion } from "framer-motion";
 import styles from '../../Styles/Projects/ProjectPage.module.css';
-import projects from "./Projects.json";
+// import projects from "./Projects.json";
+import SwiperCards from "./SwiperCards";
 
 const ProjectsPage = () => {
 
@@ -53,7 +54,9 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
 
-      <ProjectCard repo={projects[0].repo} text={projects[0].text} play={true}/>
+      {/* <ProjectCard repo={projects[0].repo} text={projects[0].text} play={true}/> */}
+
+      <SwiperCards/>
 
       <AnimatePresence mode="sync">
         {mobileView && 

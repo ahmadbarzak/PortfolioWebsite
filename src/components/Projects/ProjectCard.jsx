@@ -9,26 +9,29 @@ const ProjectCard = ({repo, text, play}) => {
     console.log(repo)
     return (
 
-        <motion.div className={styles.card}
-        initial={{scale:0.5, opacity: 0}}
-        animate={{scale: 1, opacity: 1}}
-        transition={{delay:0.6, duration:0.2}}>
+        <div style={{width: "100vw", display:"flex", justifyContent:"center"}}>
+            <motion.div className={styles.card}
+            initial={{scale:0.5, opacity: 0}}
+            animate={{scale: 1, opacity: 1}}
+            transition={{delay:0.6, duration:0.2}}>
 
-            <div className={styles.textLink}>
-                <div className={styles.projectImg}>
-                    <img style={{height:"95%", translate:"1% 3%"}} src={"projectImages/" + repo + ".png"}/>
+                <div className={styles.textLink}>
+                    <div className={styles.projectImg}>
+                        <img style={{height:"95%", translate:"1% 3%"}} src={"projectImages/" + repo + ".png"}/>
+                    </div>
+                    <div className={styles.linkDownload}>
+                            <SocialLink iconPath="homePageImages/socialLinks/github.png" url={"https://github.com/ahmadbarzak/" + repo} />
+                            { play && <SocialLink iconPath="projectImages/play.png" url={"https://ahmadbarzak.com/" + repo} /> }
+                            { !play && <SocialLink iconPath="projectImages/download.png" url={"https://github.com/ahmadbarzak/" + repo + "/archive/refs/heads/main.zip"} isDownloadLink="true" /> }
+                    </div>
                 </div>
-                <div className={styles.linkDownload}>
-                        <SocialLink iconPath="homePageImages/socialLinks/github.png" url={"https://github.com/ahmadbarzak/" + repo} />
-                        { play && <SocialLink iconPath="projectImages/play.png" url={"https://ahmadbarzak.com/" + repo} /> }
-                        { !play && <SocialLink iconPath="projectImages/download.png" url={"https://github.com/ahmadbarzak/" + repo + "/archive/refs/heads/main.zip"} isDownloadLink="true" /> }
+                <div className={styles.projectText}>
+                    <p>{text}</p>
                 </div>
-            </div>
-            <div className={styles.projectText}>
-                <p>{text}</p>
-            </div>
-            
-        </motion.div>
+                
+            </motion.div>
+        </div>
+
 
         // <iframe style={{width: "75vw", height:"70vh", border:"5px solid white"}} src="https://ahmadbarzak.com/">
         // </iframe>
