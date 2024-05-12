@@ -1,6 +1,6 @@
 const IncreaseSizeComponent = () => {
     return (
-      <div className="background" style={{ backgroundColor: "#355070" }}>
+      <div className="background" style={{ backgroundColor: "#355070", zIndex:10 }}>
       
       <div style={{display:"flex", flexDirection:"row"}} >
       {[1,2,3,4,5].map((i) => {

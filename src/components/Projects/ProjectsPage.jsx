@@ -6,7 +6,6 @@ import ProjectButton from "./ProjectButton";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import "../../App.css";
 import { AnimatePresence } from "framer-motion";
-import CircleButtons from "../Experience/CircleButtons";
 import { motion } from "framer-motion";
 import styles from '../../Styles/Projects/ProjectPage.module.css';
 // import projects from "./Projects.json";
@@ -16,21 +15,7 @@ const ProjectsPage = () => {
 
   const [zInd, setzInd] = useState(-1);
   const mobileView = useMediaQuery('(max-width: 750px)');
-  const [experienceIndex, setExperienceIndex] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
-  const [unclickable, setUnclickable] = useState(false);
 
-  const duration = 1;
-  const timeout = 0.33889 * duration * 1000;
-
-  function handleClick(expIndex) {
-      setIsClicked(!isClicked);
-      setUnclickable(true);
-      setTimeout(() => {
-          setExperienceIndex(expIndex);
-          setUnclickable(false);
-      }, timeout);
-  }
 
   return (
     <div className="background" style={{zIndex:zInd, backgroundColor: "transparent"}}>
@@ -54,8 +39,6 @@ const ProjectsPage = () => {
         path="/achievements"
         type="animator"/>
 
-      {/* <ProjectCard repo={projects[0].repo} text={projects[0].text} play={true}/> */}
-
       <SwiperCards/>
 
       <AnimatePresence mode="sync">
@@ -75,17 +58,6 @@ const ProjectsPage = () => {
           transition={{delay:0, duration: 0.5}}
           size="small" direction="right" />
 
-          <CircleButtons
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          exit={{opacity: 0}}
-          transition={{delay:0, duration: 0.5}}
-          propStyles={{ position:"absolute", bottom:"16%", left:"6vw"}}
-          expIndex={experienceIndex}
-          handleClick={(index) => handleClick(index)}
-          unclickable={unclickable}
-          divArray={[0, 1, 2]}
-          />
 
           </div>}
         </AnimatePresence>

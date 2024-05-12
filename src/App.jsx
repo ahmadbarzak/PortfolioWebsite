@@ -39,35 +39,34 @@ const App = () => {
           
           <Route exact path="/" element={
             <div>
-              {isBigEnough && <HomePage/>}
+              <HomePage/>
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
           }/>
 
           <Route path="/about" element={
             <div>
-              {isBigEnough && <AboutMePage/>}
-              {!isBigEnough && <IncreaseSizeComponent/>}
+              <AboutMePage/>
             </div>
           }/>
           
           <Route path="/projects" element={
             <div>
-              {isBigEnough && <ProjectsPage/>}
+              <ProjectsPage/>
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
           }/>
 
           <Route path="/achievements" element={
             <div>
-              {isBigEnough && <AchievementsPage/>}
+              <AchievementsPage/>
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
           }/>
 
           <Route path="/experience" element={
             <div>
-              {isBigEnough && <ExperiencePage/>}
+              <ExperiencePage/>
               {!isBigEnough && <IncreaseSizeComponent/>}
             </div>
           }/>

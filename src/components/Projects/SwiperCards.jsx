@@ -8,6 +8,11 @@ import ProjectCard from './ProjectCard';
 
 
 const SwiperProfileCards = () => {
+
+    const slideStyle = {
+        display: "flex"
+    }
+
     return (
         <Swiper
             // install Swiper modules
@@ -17,14 +22,14 @@ const SwiperProfileCards = () => {
             navigation
             pagination={{ clickable: true }}
             mousewheel={true}
-            style={{width: '100%', height: '55%', translate: "0% 5%", zIndex: 1}}
+            style={{width: '100%', height: `calc(max(min(70vw, 68%), 55%)`, zIndex: 1}}
         >
             
-            <SwiperSlide><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
-            <SwiperSlide><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
-            <SwiperSlide><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
-            <SwiperSlide><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
-            <SwiperSlide><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
+            <SwiperSlide style={slideStyle}><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
+            <SwiperSlide style={slideStyle}><ProjectCard repo={projects[0].repo} text={projects[0].text} play={false} /></SwiperSlide>
+            <SwiperSlide style={slideStyle}><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
+            <SwiperSlide style={slideStyle}><ProjectCard repo={projects[0].repo} text={projects[0].text} play={false} /></SwiperSlide>
+            <SwiperSlide style={slideStyle}><ProjectCard repo={projects[0].repo} text={projects[0].text} play={true} /></SwiperSlide>
         </Swiper>
     );
 };
